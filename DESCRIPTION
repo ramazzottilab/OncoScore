@@ -1,0 +1,22 @@
+Package: OncoScore
+Version: 0.1.0
+Date: 2016-03-01
+Title: OncoScore
+Authors@R: c(person("Daniele", "Ramazzotti", role=c("aut", "cre"), email="daniele.ramazzotti@yahoo.com"))
+Maintainer: XXX <xxx@xxx.xxx>
+Depends:
+    R (>= 3.2),
+Suggests:
+    BiocGenerics,
+    BiocStyle,
+    testthat,
+Description: 
+    OncoScore. 
+Encoding: UTF-8
+LazyData: TRUE
+License: GPL (>= 3.0)
+URL: https://xxx.xxx/
+BugReports: https://github.com/danro9685/OncoScore
+biocViews: BiomedicalInformatics, 
+           StatisticalMethods
+RoxygenNote: 5.0.1
