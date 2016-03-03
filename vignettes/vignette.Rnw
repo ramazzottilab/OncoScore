@@ -1,0 +1,63 @@
+\documentclass[a4paper, 9pt]{article}
+
+<<style-Sweave, eval=TRUE, echo=FALSE, results=tex>>=
+BiocStyle::latex()
+@
+
+% \VignetteIndexEntry{OncoScore}
+
+\usepackage{hyperref}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{xfrac}
+
+\usepackage{fullpage}
+
+\usepackage{marginnote}
+\usepackage{graphicx}
+
+\usepackage[table]{xcolor} %http://ctan.org/pkg/xcolor
+
+\usepackage[numbers]{natbib}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+
+\usepackage{url}
+
+\usepackage{placeins}
+
+\usepackage{xspace}
+
+\usepackage{fullpage}
+
+\newcommand{\OncoScore}{\textsc{OncoScore}}
+
+\begin{document}
+
+\title{Using the \OncoScore{} package}
+
+\author{
+Luca De Sano\footnote{Dipartimento di Informatica Sistemistica e Comunicazione, Universit\'a degli Studi Milano Bicocca
+Milano, Italy.} \and
+Daniele Ramazzotti$^\ast$ \and
+}
+
+\date{\today}
+\maketitle
+
+\begin{center}
+\begin{minipage}[h]{0.75\textwidth}
+
+\textbf{Abstract.} Abstract. 
+\\
+
+
+\end{minipage}
+\end{center}
+
+\vspace{1.0cm}
+
+\SweaveOpts{concordance=TRUE}
+
+\paragraph{\large asd: } asd. 
+
+\end{document}
