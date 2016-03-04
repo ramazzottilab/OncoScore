@@ -83,7 +83,7 @@ compute.OncoScore <- function( data,
 
 #' perform the OncoScore time series analysis for a list of genes and data times
 #' 
-#' @title perform.OncoScore.TimeSeries
+#' @title compute.OncoScore.TimeSeries
 #'
 #' @examples
 #' 
@@ -96,21 +96,20 @@ compute.OncoScore <- function( data,
 #'
 #' @return the performed OncoScores time series analysis
 #' 
-#' @export perform.OncoScore.TimeSeries
+#' @export compute.OncoScore.TimeSeries
 #' 
-perform.OncoScore.TimeSeries <- function( data,
+compute.OncoScore.TimeSeries <- function( data,
                                           filter.threshold = NA,
                                           analysis.mode = "Log2",
                                           cutoff.threshold = 21.09,
-                                          make.report = TRUE,
-                                          results.file = "Results_TimeSeries_OncoScore.txt" ) {
+                                          file = NULL ) {
     
     # structure where to save the results
     results = NULL
     
     # perform the analysis for each time point
     for (timepoint in names(data)) {
-        writeLines(paste0("Computing oncoscore for timepoint ", timepoint))
+        cat("### Computing oncoscore for timepoint", timepoint, '\n')
         curr_time_result = compute.OncoScore(data[[timepoint]],
                                              filter.threshold = filter.threshold,
                                              analysis.mode = analysis.mode,
