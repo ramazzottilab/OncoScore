@@ -48,6 +48,7 @@ GetPubMedDriverAnalysis <- function(keywords,
     webget = get.driver.file(getURL,
                              showurl = showurl,
                              clean = FALSE)
+
     lc = getListFromXMLdriver(webget,
                               sme = sme,
                               smt = smt)
@@ -85,9 +86,9 @@ ncbi2r.driver.options <- function() {
 ncbi2r.driver.options.default <- function() {
 
     baseurl     = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
-    tool        = "NCBI2R"
-    email       = "ncbi2r@gmail.com"
-    tailurl     = paste("&tool=", tool, "&email=", email, sep = "")
+    tool        = "OncoScore"
+    #email       = ""
+    tailurl     = paste0("&tool=", tool)
     TimeStampA  = Sys.time() - 3
     
     return(list(front = baseurl,

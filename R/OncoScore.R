@@ -35,57 +35,48 @@ compute.OncoScore <- function( data,
                                filter.threshold = NA,
                                analysis.mode = "Log2",
                                cutoff.threshold = 21.09,
-                               make.report = TRUE,
-                               results.file = "Results_OncoScore.txt" ) {
+                               file = NULL ) {
     
     # verify I was given a cutoff threshold
     if (is.na(cutoff.threshold)) {
-        writeLines("Warning: the cutoff threshold to define the oncogenes was not provided.")
+        paste("Warning: the cutoff threshold to define the oncogenes was not provided.\n")
     }
+
+    cat('### Processing data\n')
     
-    # make a matrix of cancer vs non cancer frequencies per gene
-    DataGenesCancer = data$cancer
-    colnames(DataGenesCancer) = c("GeneCounter", "GeneID", "CitationsGeneinCancer")
-    DataGenes = data$all
-    colnames(DataGenes) = c("GeneCounter", "GeneID", "CitationsGene")
-    DataMatrixGenes = merge(DataGenesCancer,
-                            DataGenes,by.x = "GeneID",
-                            by.y = "GeneID",
-                            all.x = TRUE,
-                            all.y = TRUE)
-    DataMatrixGenes$GeneCounter = as.numeric(DataMatrixGenes$GeneCounter.y)
-    DataMatrixGenes$PercCit = DataMatrixGenes$GeneCounter
-    data = DataMatrixGenes[, c(-2, -4, -6)]
+    data = cbind(data, 0)
+    colnames(data)[3] = 'PercCit'
     
     # set the percentage of citations
-    for (i in 1:dim(data)[1]) {
-        if (is.na(data[i, "CitationsGene"]) | data[i, "CitationsGene"]<=1) {
-            data[i, "PercCit"] = 0
-        }
-        else if (is.na(data[i, "CitationsGeneinCancer"]) | data[i, "CitationsGeneinCancer"] == -1) {
-            data[i,"PercCit"] = 0
-        }
-        else {
-            data[i, "PercCit"] = data[i, "CitationsGeneinCancer"] * 100 / data[i, "CitationsGene"]
+    for (gene in rownames(data)) {
+        if (is.na(data[gene, "CitationsGene"]) || data[gene, "CitationsGene"] <= 1) {
+            data[gene, "PercCit"] = 0
+        } else if (is.na(data[gene, "CitationsGeneInCancer"]) || data[gene, "CitationsGeneInCancer"] == -1) {
+            data[gene,"PercCit"] = 0
+        } else {
+            data[gene, "PercCit"] = data[gene, "CitationsGeneInCancer"] * 100 / data[gene, "CitationsGene"]
         }
     }
-    
+  
     # compute the scores based on the frequencies
     scores = compute.frequencies.scores(data, filter.threshold, analysis.mode)
     
     # estimate the oncogenes
     results = estimate.oncogenes(scores, cutoff.threshold)
-    print(results)
     
     # write the results to file
-    if (make.report) {
-        write.table(results,file = results.file,
+    if (!is.null(file) && is.character(file)) {
+        write.table(results,file = file,
                     quote = FALSE,
                     sep = "\t",
                     row.names = FALSE,
                     col.names = TRUE)
     }
     
+    cat('### Results:\n')
+    for (gene in rownames(results)) {
+        cat('\t', gene, '->', results[gene,'OncoScore'],'\n')
+    }
     return(results)
 }
 
@@ -151,88 +142,87 @@ compute.frequencies.scores <- function( data,
                                         filter.threshold = NA, 
                                         analysis.mode = "Log2" ) {
     
+    cat('### Computing frequencies scores \n')
     # filter for a minimum number of citations for the genes if requested
     if (!is.na(filter.threshold)) {
         data = data[data[, "CitationsGene"] >= filter.threshold, ]
     } else {
         filter.threshold = 0
     }
-    
-    # compute the scores
-    if (any(analysis.mode %in% "Log2")) {
-        # log base 2
-        for (i in 1:dim(data)[1]) {
-            if (data[i, "CitationsGene"] <= filter.threshold | is.na(data[i, "CitationsGene"])) {
-                data[i, "Log2CitationsGene"]            = 0
-                data[i, "1/Log2CitationsGene"]          = 0
-                data[i, "PercCit*1/Log2Citass"]         = 0
-                data[i, "PercCit-PercCit*1/Log2Citass"] = 0
-            } else {
-                data[i, "Log2CitationsGene"]            = log(data[i, "CitationsGene"], 2)
-                data[i, "1/Log2CitationsGene"]          = 1 / log(data[i, "CitationsGene"], 2)
-                data[i, "PercCit*1/Log2Citass"]         = data[i, "PercCit"] * data[i, "1/Log2CitationsGene"]
-                data[i, "PercCit-PercCit*1/Log2Citass"] = data[i, "PercCit"] - data[i, "PercCit*1/Log2Citass"]
-            }
-        }
-    } else if (any(analysis.mode %in% "Log")) {
-        # natural log
-        for (i in 1:dim(data)[1]) {
-            if (data[i, "CitationsGene"] <= filter.threshold | is.na(data[i, "CitationsGene"])) {
-                data[i, "LogCitationsGene"]            = 0
-                data[i, "1/LogCitationsGene"]          = 0
-                data[i, "PercCit*1/LogCitass"]         = 0
-                data[i, "PercCit-PercCit*1/LogCitass"] = 0
-            } else {
-                data[i, "LogCitationsGene"]            = log(data[i, "CitationsGene"])
-                data[i, "1/LogCitationsGene"]          = 1 / log(data[i, "CitationsGene"])
-                data[i, "PercCit*1/LogCitass"]         = data[i, "PercCit"] * data[i, "1/LogCitationsGene"]
-                data[i, "PercCit-PercCit*1/LogCitass"] = data[i, "PercCit"] - data[i, "PercCit*1/LogCitass"]
-            }
-        }
-    } else if (any(analysis.mode %in% "Log5")) {
-        # log base 5
-        for (i in 1:dim(data)[1]) {
-            if (data[i, "CitationsGene"] <= filter.threshold | is.na(data[i, "CitationsGene"])) {
-                data[i, "Log5CitationsGene"]            = 0
-                data[i, "1/Log5CitationsGene"]          = 0
-                data[i, "PercCit*1/Log5Citass"]         = 0
-                data[i, "PercCit-PercCit*1/Log5Citass"] = 0
-            } else {
-                data[i, "Log5CitationsGene"]            = log(data[i, "CitationsGene"], 5)
-                data[i, "1/Log5CitationsGene"]          = 1 / log(data[i, "CitationsGene"], 5)
-                data[i, "PercCit*1/Log5Citass"]         = data[i, "PercCit"] * data[i,"1/Log5CitationsGene"]
-                data[i, "PercCit-PercCit*1/Log5Citass"] = data[i, "PercCit"] - data[i, "PercCit*1/Log5Citass"]
-            }
-        }
-    }
-    else if (any(analysis.mode %in% "Log10")) {
-    # log base 10
-        for (i in 1:dim(data)[1]) {
-            if (data[i, "CitationsGene"] <= filter.threshold | is.na(data[i, "CitationsGene"])) {
-                data[i, "Log10CitationsGene"]            = 0
-                data[i, "1/Log10CitationsGene"]          = 0
-                data[i, "PercCit*1/Log10Citass"]         = 0
-                data[i, "PercCit-PercCit*1/Log10Citass"] = 0
-            } else {
-                data[i, "Log10CitationsGene"]            = log10(data[i, "CitationsGene"])
-                data[i, "1/Log10CitationsGene"]          = 1 / log10(data[i, "CitationsGene"])
-                data[i, "PercCit*1/Log10Citass"]         = data[i, "PercCit"] * data[i, "1/Log10CitationsGene"]
-                data[i, "PercCit-PercCit*1/Log10Citass"] = data[i, "PercCit"] - data[i, "PercCit*1/Log10Citass"]
-            }
-        }
-    }
+
+    data = cbind(data, matrix(0, ncol=4, nrow=nrow(data)))
     
     # structure where to save the results
-    results = data
-    colnames(results) = c("GeneID",
-                          "CitationsGeneinCancer",
-                          "CitationsGene",
-                          "PercCit",
-                          "alpha",
-                          "1/alpha",
-                          "PercCit*1/alpha",
-                          "PercCitWeigth")
-    return(results)
+    colnames(data)[4:7] = c("alpha",
+                            "1/alpha",
+                            "PercCit*1/alpha",
+                            "OncoScore")
+
+    
+    # compute the scores
+    if (analysis.mode == "Log2") {
+        # log base 2
+        for (gene in rownames(data)) {
+            if (data[gene, "CitationsGene"] <= filter.threshold | is.na(data[gene, "CitationsGene"])) {
+                data[gene, "alpha"]             = 0
+                data[gene, "1/alpha"]           = 0
+                data[gene, "PercCit*1/alpha"]   = 0
+                data[gene, "OncoScore"]     = 0
+            } else {
+                data[gene, "alpha"]             = log(data[gene, "CitationsGene"], 2)
+                data[gene, "1/alpha"]           = 1 / log(data[gene, "CitationsGene"], 2)
+                data[gene, "PercCit*1/alpha"]   = data[gene, "PercCit"] * data[gene, "1/alpha"]
+                data[gene, "OncoScore"]     = data[gene, "PercCit"] - data[gene, "PercCit*1/alpha"]
+            }
+        }
+    } else if (analysis.mode == "Log") {
+        # natural log
+        for (gene in rownames(data)) {
+            if (data[gene, "CitationsGene"] <= filter.threshold | is.na(data[gene, "CitationsGene"])) {
+                data[gene, "alpha"]             = 0
+                data[gene, "1/alpha"]           = 0
+                data[gene, "PercCit*1/alpha"]   = 0
+                data[gene, "OncoScore"]     = 0
+            } else {
+                data[gene, "alpha"]             = log(data[gene, "CitationsGene"])
+                data[gene, "1/alpha"]           = 1 / log(data[gene, "CitationsGene"])
+                data[gene, "PercCit*1/alpha"]   = data[gene, "PercCit"] * data[gene, "1/alpha"]
+                data[gene, "OncoScore"]     = data[gene, "PercCit"] - data[gene, "PercCit*1/alpha"]
+            }
+        }
+    } else if (analysis.mode == "Log5") {
+        # log base 5
+        for (gene in rownames(data)) {
+            if (data[gene, "CitationsGene"] <= filter.threshold | is.na(data[gene, "CitationsGene"])) {
+                data[gene, "alpha"]             = 0
+                data[gene, "1/alpha"]           = 0
+                data[gene, "PercCit*1/alpha"]   = 0
+                data[gene, "OncoScore"]     = 0
+            } else {
+                data[gene, "alpha"]             = log(data[gene, "CitationsGene"], 5)
+                data[gene, "1/alpha"]           = 1 / log(data[gene, "CitationsGene"], 5)
+                data[gene, "PercCit*1/alpha"]   = data[gene, "PercCit"] * data[gene,"1/alpha"]
+                data[gene, "OncoScore"]     = data[gene, "PercCit"] - data[gene, "PercCit*1/alpha"]
+            }
+        }
+    }
+    else if (analysis.mode == "Log10") {
+    # log base 10
+        for (gene in rownames(data)) {
+            if (data[gene, "CitationsGene"] <= filter.threshold | is.na(data[gene, "CitationsGene"])) {
+                data[gene, "alpha"]             = 0
+                data[gene, "1/alpha"]           = 0
+                data[gene, "PercCit*1/alpha"]   = 0
+                data[gene, "OncoScore"]     = 0
+            } else {
+                data[gene, "alpha"]             = log10(data[gene, "CitationsGene"])
+                data[gene, "1/alpha"]           = 1 / log10(data[gene, "CitationsGene"])
+                data[gene, "PercCit*1/alpha"]   = data[gene, "PercCit"] * data[gene, "1/alpha"]
+                data[gene, "OncoScore"]     = data[gene, "PercCit"] - data[gene, "PercCit*1/alpha"]
+            }
+        }
+    }
+    return(data)
 }
 
 
@@ -251,29 +241,24 @@ compute.frequencies.scores <- function( data,
 #' 
 estimate.oncogenes <- function( data,
                                 cutoff.threshold = 21.09 ) {
+
+    cat('### Estimating oncogenes\n')
+    # structure where to save the results
+    data = cbind(data, 0)
+    colnames(data)[8] = 'Clustering'
     
     # assess the genes being oncogenes
-    for (i in 1:dim(data)[1]) {
+    for (gene in rownames(data)) {
         if (!is.na(cutoff.threshold)) {
-            if (data[i, "PercCitWeigth"] <= cutoff.threshold) {
-                data[i, "Clustering"] = 0
+            if (data[gene, "OncoScore"] <= cutoff.threshold) {
+                data[gene, "Clustering"] = 0
             } else {
-                data[i, "Clustering"] = 1
+                data[gene, "Clustering"] = 1
             }
         } else {
-            data[i, "Clustering"] = NA
+            data[gene, "Clustering"] = NA
         }
     }
     
-    # structure where to save the results
-    results = data
-    colnames(results) = c("GeneID",
-                          "CitationsGeneinCancer",
-                          "CitationsGene",
-                          "PercCit",
-                          "alpha",
-                          "1/alpha",
-                          "PercCit*1/alpha",
-                          "OncoScore","Clustering")
-    return(results)
+    return(data)
 }

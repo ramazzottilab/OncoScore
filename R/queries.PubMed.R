@@ -28,10 +28,8 @@ perform.web.query <- function( list.of.genes,
     cat("### Starting the queries for the selected genes.\n")
     
     # if the data are save in a file, read it
-    if (!(is.data.frame(list.of.genes) 
-            || is.matrix(list.of.genes) 
-            || is.vector(list.of.genes)) 
-        && is.character(list.of.genes)) {
+    if (is.character(list.of.genes) 
+        && file.exists(list.of.genes)) {
         cat("### Reading the list of genes from file: ", paste(list.of.genes, collapse=' '), '\n')
         list.of.genes = read.table(file = list.of.genes,
                                    header = FALSE,
@@ -40,13 +38,14 @@ perform.web.query <- function( list.of.genes,
                                    stringsAsFactors = FALSE)
     }
 
-    if (is.vector(list.of.genes)) {
-        list.of.genes = as.data.frame(list.of.genes, stringsAsFactors = FALSE)
+    if (!is.vector(list.of.genes)) {
+        list.of.genes = unlist(list.of.genes)
+        names(list.of.genes) = NULL
     }
-    
+
     # set the genes number
     list.of.genes = unique(list.of.genes)
-    genes.number = dim(list.of.genes)[1]
+    genes.number = length(list.of.genes)
     
     if (genes.number > gene.num.limit) {
         stop("Too many genes to query! Please reduce the list and try again.")
@@ -69,18 +68,18 @@ perform.web.query <- function( list.of.genes,
 
     cat("\n### Performing queries for cancer literature \n")
     ans = NULL
-    for (gene.counter in 1:genes.number) {
-        lc = GetPubMedDriverAnalysis(paste(list.of.genes[gene.counter, 1],
-                                           search.fields, 
-                                           sep = ' '),
-                                     gene = list.of.genes[gene.counter, 1])
-        rowans = data.frame(gene.counter,
-                            list.of.genes[gene.counter, 1],
-                            lc,
-                            stringsAsFactors = FALSE)
-        ans = rbind(ans,rowans)
+
+    for (gene in list.of.genes) {
+        lc = GetPubMedDriverAnalysis(paste0(gene, search.fields),
+                                     gene = gene)
+        if (lc == -1) {
+            warning(gene, ' not found on PubMed\n')
+        }
+        ans = rbind(ans, lc)
     }
-    
+
+    rownames(ans) = list.of.genes
+    colnames(ans) = 'CitationsGeneInCancer'
     pubMedPanelGenes.Cancer = ans
     
     # perform the query for all the topics
@@ -88,22 +87,21 @@ perform.web.query <- function( list.of.genes,
     
     cat("\n### Performing queries for all the literature \n")
     ans = NULL
-    for (gene.counter in 1:genes.number) {
-        lc = GetPubMedDriverAnalysis(paste(list.of.genes[gene.counter, 1],
-                                           search.fields, 
-                                           sep = ' '),
-                                     gene = list.of.genes[gene.counter, 1])
-        rowans = data.frame(gene.counter,
-                            list.of.genes[gene.counter, 1],
-                            lc,
-                            stringsAsFactors = FALSE)
-        ans = rbind(ans,rowans)
+
+    for (gene in list.of.genes) {
+        lc = GetPubMedDriverAnalysis(paste0(gene, search.fields),
+                                     gene = gene)
+        if (lc == -1) {
+            warning(gene, ' not found on PubMed\n')
+        }
+        ans = rbind(ans, lc)
     }
     
+    rownames(ans) = list.of.genes
+    colnames(ans) = 'CitationsGene'
     pubMedPanelGenes.All = ans
     
-    pubMedPanelGenes = list(cancer = pubMedPanelGenes.Cancer,
-                            all = pubMedPanelGenes.All)
+    pubMedPanelGenes = cbind(pubMedPanelGenes.All, pubMedPanelGenes.Cancer)
     return(pubMedPanelGenes)
 }
 

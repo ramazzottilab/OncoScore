@@ -5,8 +5,7 @@
 \title{compute.OncoScore}
 \usage{
 compute.OncoScore(data, filter.threshold = NA, analysis.mode = "Log2",
-  cutoff.threshold = 21.09, make.report = TRUE,
-  results.file = "Results_OncoScore.txt")
+  cutoff.threshold = 21.09, file = NULL)
 }
 \arguments{
 \item{data}{input data as result of the function perform.web.query}
