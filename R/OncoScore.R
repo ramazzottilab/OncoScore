@@ -110,12 +110,15 @@ compute.OncoScore.TimeSeries <- function( data,
     # perform the analysis for each time point
     for (timepoint in names(data)) {
         cat("### Computing oncoscore for timepoint", timepoint, '\n')
+        destination = NULL
+        if (!is.null(file)) {
+            destination = paste0(gsub("/", "_", timepoint), "_", file)
+        }
         curr_time_result = compute.OncoScore(data[[timepoint]],
                                              filter.threshold = filter.threshold,
                                              analysis.mode = analysis.mode,
                                              cutoff.threshold = cutoff.threshold,
-                                             make.report = make.report,
-                                             results.file = paste0(gsub("/", "_", timepoint), "_", results.file))
+                                             file = destination)
         results[[timepoint]] = curr_time_result
     }
     
