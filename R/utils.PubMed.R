@@ -44,6 +44,7 @@ GetPubMedDriverAnalysis <- function(keywords,
                    sep = "")
 
     # perform the query to PubMed
+
     webget = get.driver.file(getURL,
                              showurl = showurl,
                              clean = FALSE)
@@ -51,11 +52,11 @@ GetPubMedDriverAnalysis <- function(keywords,
                               sme = sme,
                               smt = smt)
 
-    print(paste("Number of papers found in PubMed for",
-                gene,
-                "was:",
-                lc,
-                sep = " "))
+    cat("\tNumber of papers found in PubMed for",
+        gene,
+        "was:",
+        lc,
+        "\n")
     return(lc)
 }
 

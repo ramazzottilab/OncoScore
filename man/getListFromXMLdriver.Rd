@@ -4,7 +4,7 @@
 \alias{getListFromXMLdriver}
 \title{DelayDriver}
 \usage{
-getListFromXMLdriver(webget, smt = FALSE, sme = FALSE, MaxRet = 3e+06,
+getListFromXMLdriver(webget, smt = FALSE, sme = FALSE, MaxRet = 3000000,
   return.data = FALSE)
 }
 \arguments{

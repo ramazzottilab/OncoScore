@@ -25,16 +25,23 @@ perform.web.query <- function( list.of.genes,
                                gene.num.limit = 100 ) {
     
     # perform the analysis
-    writeLines("### Starting the queries for the selected genes.")
+    cat("### Starting the queries for the selected genes.\n")
     
     # if the data are save in a file, read it
-    if (!(is.data.frame(list.of.genes) || is.matrix(list.of.genes)) && is.character(list.of.genes)) {
-        writeLines(paste0("### Reading the list of genes from file: ",list.of.genes))
+    if (!(is.data.frame(list.of.genes) 
+            || is.matrix(list.of.genes) 
+            || is.vector(list.of.genes)) 
+        && is.character(list.of.genes)) {
+        cat("### Reading the list of genes from file: ", paste(list.of.genes, collapse=' '), '\n')
         list.of.genes = read.table(file = list.of.genes,
                                    header = FALSE,
                                    row.names = NULL,
                                    check.names = FALSE,
                                    stringsAsFactors = FALSE)
+    }
+
+    if (is.vector(list.of.genes)) {
+        list.of.genes = as.data.frame(list.of.genes, stringsAsFactors = FALSE)
     }
     
     # set the genes number
@@ -46,19 +53,21 @@ perform.web.query <- function( list.of.genes,
     }
     
     # perform the query for the cancer topics
-    search.fields = "[All Fields] AND ((lymphoma[MeSH Terms] OR lymphoma[All Fields])
-        OR (lymphoma[MeSH Terms] OR lymphoma[All Fields] OR lymphomas[All Fields]) 
-        OR (neoplasms[MeSH Terms] OR neoplasms[All Fields] OR cancer[All Fields]) 
-        OR (tumour[All Fields] OR neoplasms[MeSH Terms] OR neoplasms[All Fields] 
-        OR tumor[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields] 
-        OR neoplasm[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields] 
-        OR malignancy[All Fields]) OR (leukaemia[All Fields] OR leukemia[MeSH Terms] 
-        OR leukemia[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields] 
-        OR cancers[All Fields]) OR (tumours[All Fields] OR neoplasms[MeSH Terms] 
-        OR neoplasms[All Fields] OR tumors[All Fields]) OR (neoplasms[MeSH Terms] 
-        OR neoplasms[All Fields] OR malignancies[All Fields]) OR (leukaemias[All Fields] 
-        OR leukemia[MeSH Terms] OR leukemia[All Fields] OR leukemias[All Fields]))"
+    search.fields = paste("[All Fields] AND ((lymphoma[MeSH Terms] OR lymphoma[All Fields])",
+        "OR (lymphoma[MeSH Terms] OR lymphoma[All Fields] OR lymphomas[All Fields])",
+        "OR (neoplasms[MeSH Terms] OR neoplasms[All Fields] OR cancer[All Fields])", 
+        "OR (tumour[All Fields] OR neoplasms[MeSH Terms] OR neoplasms[All Fields]",
+        "OR tumor[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]", 
+        "OR neoplasm[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]", 
+        "OR malignancy[All Fields]) OR (leukaemia[All Fields] OR leukemia[MeSH Terms]", 
+        "OR leukemia[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]", 
+        "OR cancers[All Fields]) OR (tumours[All Fields] OR neoplasms[MeSH Terms]", 
+        "OR neoplasms[All Fields] OR tumors[All Fields]) OR (neoplasms[MeSH Terms]", 
+        "OR neoplasms[All Fields] OR malignancies[All Fields]) OR (leukaemias[All Fields]", 
+        "OR leukemia[MeSH Terms] OR leukemia[All Fields] OR leukemias[All Fields]))")
     
+
+    cat("\n### Performing queries for cancer literature \n")
     ans = NULL
     for (gene.counter in 1:genes.number) {
         lc = GetPubMedDriverAnalysis(paste(list.of.genes[gene.counter, 1],
@@ -77,6 +86,7 @@ perform.web.query <- function( list.of.genes,
     # perform the query for all the topics
     search.fields = "[All Fields]"
     
+    cat("\n### Performing queries for all the literature \n")
     ans = NULL
     for (gene.counter in 1:genes.number) {
         lc = GetPubMedDriverAnalysis(paste(list.of.genes[gene.counter, 1],
@@ -90,10 +100,10 @@ perform.web.query <- function( list.of.genes,
         ans = rbind(ans,rowans)
     }
     
-    pubMedPanelGenes_All = ans
+    pubMedPanelGenes.All = ans
     
     pubMedPanelGenes = list(cancer = pubMedPanelGenes.Cancer,
-                            all = pubMedPanelGenes_All)
+                            all = pubMedPanelGenes.All)
     return(pubMedPanelGenes)
 }
 
@@ -208,9 +218,9 @@ perform.time.series.query <- function( list.of.genes,
                 ans = rbind(ans,rowans)
             }
         
-        pubMedPanelGenes_All = ans
+        pubMedPanelGenes.All = ans
         pubMedPanelGenes[[list.of.datatimes[l, 1]]] = list(cancer = pubMedPanelGenes.Cancer,
-                                                           all = pubMedPanelGenes_All)
+                                                           all = pubMedPanelGenes.All)
         
     }
     return(pubMedPanelGenes)

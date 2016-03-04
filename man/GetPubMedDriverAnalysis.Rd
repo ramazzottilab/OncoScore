@@ -4,7 +4,7 @@
 \alias{GetPubMedDriverAnalysis}
 \title{GetPubMedDriverAnalysis}
 \usage{
-GetPubMedDriverAnalysis(keywords, gene, showurl = FALSE, MaxRet = 3e+06,
+GetPubMedDriverAnalysis(keywords, gene, showurl = FALSE, MaxRet = 3000000,
   sme = FALSE, smt = FALSE)
 }
 \arguments{
