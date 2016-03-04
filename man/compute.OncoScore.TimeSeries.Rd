@@ -16,9 +16,7 @@ compute.OncoScore.TimeSeries(data, filter.threshold = NA,
 
 \item{cutoff.threshold}{threshold to be used to asses the oncogenes}
 
-\item{make.report}{should I save the results to text files?}
-
-\item{results.file}{file where to save the results}
+\item{file}{should I save the results to text files?}
 }
 \value{
 the performed OncoScores time series analysis
@@ -27,6 +25,10 @@ the performed OncoScores time series analysis
 perform the OncoScore time series analysis for a list of genes and data times
 }
 \examples{
+data(genes)
+data(timepoints)
+query = perform.time.series.query(genes[1:2], timepoints[1:2])
+compute.OncoScore.TimeSeries(query)
 
 }
 

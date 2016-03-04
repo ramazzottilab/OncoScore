@@ -19,13 +19,15 @@ NULL
 #' @title compute.OncoScore
 #'
 #' @examples
+#' data(genes)
+#' query = perform.web.query(genes[1:2])
+#' compute.OncoScore(query)
 #' 
 #' @param data input data as result of the function perform.web.query
 #' @param filter.threshold threshold to filter for a minimum number of citations for the genes
 #' @param analysis.mode logaritmic scores to be computed, i.e., log10, log2, natural log or log5
 #' @param cutoff.threshold threshold to be used to asses the oncogenes
-#' @param make.report should I save the results to text files? 
-#' @param results.file file where to save the results
+#' @param file should I save the results to text files? 
 #'
 #' @return the computed OncoScores and the clusters for the genes
 #' 
@@ -86,13 +88,16 @@ compute.OncoScore <- function( data,
 #' @title compute.OncoScore.TimeSeries
 #'
 #' @examples
+#' data(genes)
+#' data(timepoints)
+#' query = perform.time.series.query(genes[1:2], timepoints[1:2])
+#' compute.OncoScore.TimeSeries(query)
 #' 
 #' @param data input data as result of the function perform.time.series.query
 #' @param filter.threshold threshold to filter for a minimum number of citations for the genes
 #' @param analysis.mode logaritmic scores to be computed, i.e., log10, log2, natural log or log5
 #' @param cutoff.threshold threshold to be used to asses the oncogenes
-#' @param make.report should I save the results to text files? 
-#' @param results.file file where to save the results
+#' @param file should I save the results to text files? 
 #'
 #' @return the performed OncoScores time series analysis
 #' 

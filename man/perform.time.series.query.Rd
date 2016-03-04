@@ -5,7 +5,7 @@
 \title{perform.time.series.query}
 \usage{
 perform.time.series.query(list.of.genes, list.of.datatimes,
-  gene.num.limit = 100, timepoints.limit = 10)
+  gene.num.limit = 100, timepoints.limit = 10, custom.search = NA)
 }
 \arguments{
 \item{list.of.genes}{TODO}
@@ -15,6 +15,8 @@ perform.time.series.query(list.of.genes, list.of.datatimes,
 \item{gene.num.limit}{TODO}
 
 \item{timepoints.limit}{TODO}
+
+\item{custom.search}{TODO}
 }
 \value{
 TODO
@@ -23,6 +25,9 @@ TODO
 perforn the query to PubMed for the time series analysis
 }
 \examples{
+data(genes)
+data(timepoints)
+perform.web.query(genes[1:2], timepoints[1:2])
 
 }
 

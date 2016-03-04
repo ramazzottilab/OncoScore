@@ -4,12 +4,14 @@
 \alias{perform.web.query}
 \title{perform.web.query}
 \usage{
-perform.web.query(list.of.genes, gene.num.limit = 100)
+perform.web.query(list.of.genes, gene.num.limit = 100, custom.search = NA)
 }
 \arguments{
 \item{list.of.genes}{TODO}
 
-\item{gene.num.limit}{TOOD}
+\item{gene.num.limit}{TODO}
+
+\item{custom.search}{TODO}
 }
 \value{
 TODO
@@ -18,6 +20,8 @@ TODO
 perforn the query to PubMed
 }
 \examples{
+data(genes)
+perform.web.query(genes[1:2])
 
 }
 

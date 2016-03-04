@@ -16,9 +16,7 @@ compute.OncoScore(data, filter.threshold = NA, analysis.mode = "Log2",
 
 \item{cutoff.threshold}{threshold to be used to asses the oncogenes}
 
-\item{make.report}{should I save the results to text files?}
-
-\item{results.file}{file where to save the results}
+\item{file}{should I save the results to text files?}
 }
 \value{
 the computed OncoScores and the clusters for the genes
@@ -27,6 +25,9 @@ the computed OncoScores and the clusters for the genes
 compute the OncoScore for a list of genes
 }
 \examples{
+data(genes)
+query = perform.web.query(genes[1:2])
+compute.OncoScore(query)
 
 }
 

@@ -13,16 +13,20 @@
 #' @title perform.web.query
 #'
 #' @examples
+#' data(genes)
+#' perform.web.query(genes[1:2])
 #' 
 #' @param list.of.genes TODO
-#' @param gene.num.limit TOOD
+#' @param gene.num.limit TODO
+#' @param custom.search TODO
 #'
 #' @return TODO
 #' 
 #' @export perform.web.query
 #' 
 perform.web.query <- function( list.of.genes,
-                               gene.num.limit = 100) {
+                               gene.num.limit = 100,
+                               custom.search = NA) {
     
     # perform the analysis
     cat("### Starting the queries for the selected genes.\n")
@@ -52,18 +56,22 @@ perform.web.query <- function( list.of.genes,
     }
 
     # perform the query for the cancer topics
-    search.fields = paste("[All Fields] AND ((lymphoma[MeSH Terms] OR lymphoma[All Fields])",
-        "OR (lymphoma[MeSH Terms] OR lymphoma[All Fields] OR lymphomas[All Fields])",
-        "OR (neoplasms[MeSH Terms] OR neoplasms[All Fields] OR cancer[All Fields])", 
-        "OR (tumour[All Fields] OR neoplasms[MeSH Terms] OR neoplasms[All Fields]",
-        "OR tumor[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]", 
-        "OR neoplasm[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]", 
-        "OR malignancy[All Fields]) OR (leukaemia[All Fields] OR leukemia[MeSH Terms]", 
-        "OR leukemia[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]", 
-        "OR cancers[All Fields]) OR (tumours[All Fields] OR neoplasms[MeSH Terms]", 
-        "OR neoplasms[All Fields] OR tumors[All Fields]) OR (neoplasms[MeSH Terms]", 
-        "OR neoplasms[All Fields] OR malignancies[All Fields]) OR (leukaemias[All Fields]", 
-        "OR leukemia[MeSH Terms] OR leukemia[All Fields] OR leukemias[All Fields]))")
+    if (!is.na(custom.search)) {
+        search.fields = custom.search
+    } else {
+        search.fields = paste("[All Fields] AND ((lymphoma[MeSH Terms] OR lymphoma[All Fields])",
+            "OR (lymphoma[MeSH Terms] OR lymphoma[All Fields] OR lymphomas[All Fields])",
+            "OR (neoplasms[MeSH Terms] OR neoplasms[All Fields] OR cancer[All Fields])", 
+            "OR (tumour[All Fields] OR neoplasms[MeSH Terms] OR neoplasms[All Fields]",
+            "OR tumor[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]", 
+            "OR neoplasm[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]", 
+            "OR malignancy[All Fields]) OR (leukaemia[All Fields] OR leukemia[MeSH Terms]", 
+            "OR leukemia[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]", 
+            "OR cancers[All Fields]) OR (tumours[All Fields] OR neoplasms[MeSH Terms]", 
+            "OR neoplasms[All Fields] OR tumors[All Fields]) OR (neoplasms[MeSH Terms]", 
+            "OR neoplasms[All Fields] OR malignancies[All Fields]) OR (leukaemias[All Fields]", 
+            "OR leukemia[MeSH Terms] OR leukemia[All Fields] OR leukemias[All Fields]))")
+    }
     
 
     cat("\n### Performing queries for cancer literature \n")
@@ -111,11 +119,15 @@ perform.web.query <- function( list.of.genes,
 #' @title perform.time.series.query
 #'
 #' @examples
+#' data(genes)
+#' data(timepoints)
+#' perform.web.query(genes[1:2], timepoints[1:2])
 #' 
 #' @param list.of.genes TODO
 #' @param list.of.datatimes TODO 
 #' @param gene.num.limit TODO
 #' @param timepoints.limit TODO
+#' @param custom.search TODO
 #'
 #' @return TODO
 #' 
@@ -124,7 +136,8 @@ perform.web.query <- function( list.of.genes,
 perform.time.series.query <- function( list.of.genes,
                                        list.of.datatimes,
                                        gene.num.limit = 100,
-                                       timepoints.limit = 10 ) {
+                                       timepoints.limit = 10,
+                                       custom.search = NA ) {
     
     
     # perform the analysis
@@ -190,19 +203,26 @@ perform.time.series.query <- function( list.of.genes,
         cat("### Quering PubMed for timepoint", time, '\n')
     
         # perform the query for the cancer topics
-        search.fields = paste0("[All Fields] AND ((lymphoma[MeSH Terms] OR lymphoma[All Fields])",
-            "OR (lymphoma[MeSH Terms] OR lymphoma[All Fields] OR lymphomas[All Fields])",
-            "OR (neoplasms[MeSH Terms] OR neoplasms[All Fields] OR cancer[All Fields])",
-            "OR (tumour[All Fields] OR neoplasms[MeSH Terms] OR neoplasms[All Fields]",
-            "OR tumor[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]",
-            "OR neoplasm[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]", 
-            "OR malignancy[All Fields]) OR (leukaemia[All Fields] OR leukemia[MeSH Terms]",
-            "OR leukemia[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]",
-            "OR cancers[All Fields]) OR (tumours[All Fields] OR neoplasms[MeSH Terms]",
-            "OR neoplasms[All Fields] OR tumors[All Fields]) OR (neoplasms[MeSH Terms]",
-            "OR neoplasms[All Fields] OR malignancies[All Fields]) OR (leukaemias[All Fields]", 
-            "OR leukemia[MeSH Terms] OR leukemia[All Fields] OR leukemias[All Fields])) AND ",
-            "(0001/01/01[PDAT] : ",time, "[PDAT])")
+        if (!is.na(custom.search)) {
+            search.fields = paste0(custom.search,
+                               "(0001/01/01[PDAT] : ",
+                               time,
+                               "[PDAT])")
+        } else {
+            search.fields = paste0("[All Fields] AND ((lymphoma[MeSH Terms] OR lymphoma[All Fields])",
+                "OR (lymphoma[MeSH Terms] OR lymphoma[All Fields] OR lymphomas[All Fields])",
+                "OR (neoplasms[MeSH Terms] OR neoplasms[All Fields] OR cancer[All Fields])",
+                "OR (tumour[All Fields] OR neoplasms[MeSH Terms] OR neoplasms[All Fields]",
+                "OR tumor[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]",
+                "OR neoplasm[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]", 
+                "OR malignancy[All Fields]) OR (leukaemia[All Fields] OR leukemia[MeSH Terms]",
+                "OR leukemia[All Fields]) OR (neoplasms[MeSH Terms] OR neoplasms[All Fields]",
+                "OR cancers[All Fields]) OR (tumours[All Fields] OR neoplasms[MeSH Terms]",
+                "OR neoplasms[All Fields] OR tumors[All Fields]) OR (neoplasms[MeSH Terms]",
+                "OR neoplasms[All Fields] OR malignancies[All Fields]) OR (leukaemias[All Fields]", 
+                "OR leukemia[MeSH Terms] OR leukemia[All Fields] OR leukemias[All Fields])) AND ",
+                "(0001/01/01[PDAT] : ",time, "[PDAT])")
+        }
         
         cat("    ### Performing queries for cancer literature \n")
         ans = NULL
