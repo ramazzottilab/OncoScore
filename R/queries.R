@@ -16,11 +16,11 @@
 #' data(genes)
 #' perform.web.query(genes[1:2])
 #' 
-#' @param list.of.genes TODO
-#' @param gene.num.limit TODO
-#' @param custom.search TODO
+#' @param list.of.genes The list of genes to be used in the queries to PubMed
+#' @param gene.num.limit A limit to the genes to be considered in the analysis; this is done to limit the number of queries to PubMed
+#' @param custom.search A custom set of keyworkds to be used when quering PubMed
 #'
-#' @return TODO
+#' @return The frequencies of the genes in the cancer related documents and in all the documents retireved on PubMed
 #' 
 #' @export perform.web.query
 #' 
@@ -123,13 +123,13 @@ perform.web.query <- function( list.of.genes,
 #' data(timepoints)
 #' perform.web.query(genes[1:2], timepoints[1:2])
 #' 
-#' @param list.of.genes TODO
-#' @param list.of.datatimes TODO 
-#' @param gene.num.limit TODO
-#' @param timepoints.limit TODO
-#' @param custom.search TODO
+#' @param list.of.genes The list of genes to be used in the queries to PubMed
+#' @param list.of.datatimes The list of time points to be used in the queries to PubMed 
+#' @param gene.num.limit A limit to the genes to be considered in the analysis; this is done to limit the number of queries to PubMed
+#' @param timepoints.limit A limit to the time points to be considered in the analysis; this is done to limit the number of queries to PubMed
+#' @param custom.search A custom set of keyworkds to be used when quering PubMed
 #'
-#' @return TODO
+#' @return The frequencies of the genes in the cancer related documents and in all the documents retireved on PubMed at the specified time points
 #' 
 #' @export perform.time.series.query
 #'

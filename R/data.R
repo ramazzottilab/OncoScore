@@ -9,7 +9,7 @@
 
 #' @name genes
 #' @title A list of genes
-#' @description This dataset contains TODO
+#' @description This dataset contains a list of genes to be used in the analysis as an example
 #' @docType data
 #' @usage data(genes)
 #' @format txt
@@ -19,7 +19,7 @@ NULL
 
 #' @name timepoints
 #' @title A list of timepoints
-#' @description This dataset contains TODO
+#' @description This dataset contains a list of time points to be used in the analysis as an example
 #' @docType data
 #' @usage data(timepoints)
 #' @format txt

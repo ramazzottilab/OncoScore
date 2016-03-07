@@ -12,10 +12,10 @@
 #' 
 #' @title get.pubmed.driver.analysis
 #' 
-#' @param keywords TODO
-#' @param gene TODO
+#' @param keywords The set of keywords to be used for the query to PubMed
+#' @param gene The name of a gene to be used for the query to PubMed
 #'
-#' @return TODO
+#' @return The frequency for the current gene retrieved with the query on the provided set of keywords
 #'
 get.pubmed.driver.analysis <- function(keywords,
                                        gene) {
@@ -50,7 +50,7 @@ get.pubmed.driver.analysis <- function(keywords,
 #' 
 #' @param getURL The given URL
 #' 
-#' @return TODO
+#' @return Result obtained from PubMed
 #'
 try.scan <- function(getURL) {
 
@@ -82,9 +82,9 @@ try.scan <- function(getURL) {
 #' 
 #' @title get.list.from.xml
 #' 
-#' @param webget TODO
+#' @param webget The result from the query to PubMed
 #' 
-#' @return TODO
+#' @return Processed result obtained from the query to PubMed
 #'
 get.list.from.xml <- function(webget) {
     
