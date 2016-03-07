@@ -17,17 +17,17 @@
 #' result = compute.OncoScore(query)
 #' plot.oncoscore(result)
 #' 
-#' @param data input data as result of the function compute.OncoScore
+#' @param x input data as result of the function compute.OncoScore
 #' @param gene.number number of genes to print
 #' @param ... additional parameter to pass to the barplot function
 #' 
 #' @export plot.oncoscore
 #' 
-plot.oncoscore <- function(data,
+plot.oncoscore <- function(x,
                            gene.number = 5,
                            ...) {
 
-    x = data[, "OncoScore"]
+    x = x[, "OncoScore"]
     x = sort(x, decreasing = TRUE)
     if (length(x) > gene.number) {
         x = x[1:gene.number]

@@ -4,10 +4,10 @@
 \alias{plot.oncoscore}
 \title{plot.oncoscore}
 \usage{
-\method{plot}{oncoscore}(data, gene.number = 5, ...)
+\method{plot}{oncoscore}(x, gene.number = 5, ...)
 }
 \arguments{
-\item{data}{input data as result of the function compute.OncoScore}
+\item{x}{input data as result of the function compute.OncoScore}
 
 \item{gene.number}{number of genes to print}
 
