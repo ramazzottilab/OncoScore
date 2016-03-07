@@ -19,12 +19,18 @@
 #' 
 #' @param x input data as result of the function compute.OncoScore
 #' @param gene.number number of genes to print
+#' @param main the title
+#' @param xlab description of x asix (defaul score)
+#' @param ylab description of y asix (defaul genes)
 #' @param ... additional parameter to pass to the barplot function
 #' 
 #' @export plot.oncoscore
 #' 
 plot.oncoscore <- function(x,
                            gene.number = 5,
+                           main = 'OncoScore',
+                           xlab = 'score',
+                           ylab = 'genes',
                            ...) {
 
     x = x[, "OncoScore"]
@@ -34,7 +40,8 @@ plot.oncoscore <- function(x,
     }
     barplot(sort(x), 
             horiz = TRUE,
-            xlab = 'OncoScore',
-            ylab = 'Genes',
+            main = main,
+            xlab = xlab,
+            ylab = ylab,
             ...)
 }

@@ -4,12 +4,19 @@
 \alias{plot.oncoscore}
 \title{plot.oncoscore}
 \usage{
-\method{plot}{oncoscore}(x, gene.number = 5, ...)
+\method{plot}{oncoscore}(x, gene.number = 5, main = "OncoScore",
+  xlab = "score", ylab = "genes", ...)
 }
 \arguments{
 \item{x}{input data as result of the function compute.OncoScore}
 
 \item{gene.number}{number of genes to print}
+
+\item{main}{the title}
+
+\item{xlab}{description of x asix (defaul score)}
+
+\item{ylab}{description of y asix (defaul genes)}
 
 \item{...}{additional parameter to pass to the barplot function}
 }
