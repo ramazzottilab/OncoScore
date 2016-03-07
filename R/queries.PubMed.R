@@ -78,8 +78,8 @@ perform.web.query <- function( list.of.genes,
     ans = NULL
 
     for (gene in list.of.genes) {
-        lc = GetPubMedDriverAnalysis(paste0(gene, search.fields),
-                                     gene = gene)
+        lc = get.pubmed.driver.analysis(paste0(gene, search.fields),
+                                        gene = gene)
         if (lc == -1) {
             warning(gene, ' not found on PubMed\n')
         }
@@ -97,8 +97,8 @@ perform.web.query <- function( list.of.genes,
     ans = NULL
 
     for (gene in list.of.genes) {
-        lc = GetPubMedDriverAnalysis(paste0(gene, search.fields),
-                                     gene = gene)
+        lc = get.pubmed.driver.analysis(paste0(gene, search.fields),
+                                        gene = gene)
         if (lc == -1) {
             warning(gene, ' not found on PubMed\n')
         }
@@ -227,9 +227,8 @@ perform.time.series.query <- function( list.of.genes,
         cat("    ### Performing queries for cancer literature \n")
         ans = NULL
         for (gene in list.of.genes) {
-            lc = GetPubMedDriverAnalysis(paste0(gene,
-                                                search.fields),
-                                         gene = gene)
+            lc = get.pubmed.driver.analysis(paste0(gene, search.fields),
+                                            gene = gene)
             if (lc == -1) {
                 warning(gene, ' not found on PubMed\n')
             }
@@ -249,9 +248,8 @@ perform.time.series.query <- function( list.of.genes,
         cat("    ### Performing queries for all the literature \n")
         ans = NULL
         for(gene in list.of.genes) {
-            lc = GetPubMedDriverAnalysis(paste0(gene,
-                                                search.fields),
-                                         gene = gene)
+            lc = get.pubmed.driver.analysis(paste0(gene, search.fields),
+                                            gene = gene)
             if (lc == -1) {
                 warning(gene, ' not found on PubMed\n')
             }

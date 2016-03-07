@@ -134,8 +134,6 @@ compute.OncoScore.TimeSeries <- function( data,
 #' compute the logaritmic scores based on the frequencies of the genes
 #' 
 #' @title compute.frequencies.scores
-#'
-#' @examples
 #' 
 #' @param data input data as result of the function perform.web.query
 #' @param filter.threshold threshold to filter for a minimum number of citations for the genes
@@ -143,7 +141,6 @@ compute.OncoScore.TimeSeries <- function( data,
 #'
 #' @return the computed scores
 #' 
-#' @export compute.frequencies.scores
 #' 
 compute.frequencies.scores <- function( data,
                                         filter.threshold = NA, 
@@ -236,15 +233,11 @@ compute.frequencies.scores <- function( data,
 #' estimate the oncoscore for the genes
 #' 
 #' @title estimate.oncogenes
-#'
-#' @examples
 #' 
 #' @param data input data as result of the function compute.frequencies.scores
 #' @param cutoff.threshold threshold to be used to asses the oncogenes
 #'
 #' @return the computed scores and oncogenes
-#' 
-#' @export estimate.oncogenes
 #' 
 estimate.oncogenes <- function( data,
                                 cutoff.threshold = 21.09 ) {

@@ -2,7 +2,5 @@
 
 export(compute.OncoScore)
 export(compute.OncoScore.TimeSeries)
-export(compute.frequencies.scores)
-export(estimate.oncogenes)
 export(perform.time.series.query)
 export(perform.web.query)
