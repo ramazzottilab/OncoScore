@@ -20,7 +20,10 @@ NULL
 #'
 #' @examples
 #' data(genes)
+#' \dontrun{
 #' query = perform.web.query(genes[1:2])
+#' }
+#' data(query)
 #' compute.OncoScore(query)
 #' 
 #' @param data input data as result of the function perform.web.query
@@ -90,8 +93,11 @@ compute.OncoScore <- function( data,
 #' @examples
 #' data(genes)
 #' data(timepoints)
-#' query = perform.time.series.query(genes[1:2], timepoints[1:2])
-#' compute.OncoScore.TimeSeries(query)
+#' \dontrun{
+#' query.timepoints = perform.time.series.query(genes[1:2], timepoints[1:2])
+#' }
+#' data(query.timepoints)
+#' compute.OncoScore.TimeSeries(query.timepoints)
 #' 
 #' @param data input data as result of the function perform.time.series.query
 #' @param filter.threshold threshold to filter for a minimum number of citations for the genes

@@ -21,7 +21,9 @@ perforn the query to PubMed
 }
 \examples{
 data(genes)
+\dontrun{
 perform.web.query(genes[1:2])
+}
 
 }
 

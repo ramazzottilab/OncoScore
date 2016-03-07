@@ -27,8 +27,11 @@ perform the OncoScore time series analysis for a list of genes and data times
 \examples{
 data(genes)
 data(timepoints)
-query = perform.time.series.query(genes[1:2], timepoints[1:2])
-compute.OncoScore.TimeSeries(query)
+\dontrun{
+query.timepoints = perform.time.series.query(genes[1:2], timepoints[1:2])
+}
+data(query.timepoints)
+compute.OncoScore.TimeSeries(query.timepoints)
 
 }
 

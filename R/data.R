@@ -26,3 +26,23 @@ NULL
 #' @source fake data
 #' @author Luca De Sano
 NULL
+
+#' @name query
+#' @title The result of perform.web.query on genes
+#' @description This dataset contains the result of perform.web.query on genes
+#' @docType data
+#' @usage data(query)
+#' @format rdata
+#' @source fake data
+#' @author Luca De Sano
+NULL
+
+#' @name query.timepoints
+#' @title The result of perform.time.series.query on genes and timepoints
+#' @description This dataset contains the result of perform.time.series.query on genes and timepoints
+#' @docType data
+#' @usage data(query.timepoints)
+#' @format rdata
+#' @source fake data
+#' @author Luca De Sano
+NULL

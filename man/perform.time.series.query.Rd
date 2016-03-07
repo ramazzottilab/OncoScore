@@ -27,7 +27,9 @@ perforn the query to PubMed for the time series analysis
 \examples{
 data(genes)
 data(timepoints)
+\dontrun{
 perform.web.query(genes[1:2], timepoints[1:2])
+}
 
 }
 
