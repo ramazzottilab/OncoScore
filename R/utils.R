@@ -141,7 +141,7 @@ get.list.from.xml <- function(webget) {
         if (lc > 3e+06) {
             cat("Warning: Number of items was greater than expected. PARTIAL RESULTS USED [MaxRet needs to be increased].\n")
             cat("Actual Length:", lc, "\n")
-            cat("Returned Length:", MaxRet, "\n")
+            cat("Returned Length:", 3e+06, "\n")
         }
 
     }

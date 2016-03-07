@@ -12,7 +12,7 @@ fake data
 data(genes)
 }
 \description{
-This dataset contains TODO
+This dataset contains a list of genes to be used in the analysis as an example
 }
 \author{
 Luca De Sano

@@ -12,7 +12,7 @@ fake data
 data(timepoints)
 }
 \description{
-This dataset contains TODO
+This dataset contains a list of time points to be used in the analysis as an example
 }
 \author{
 Luca De Sano
