@@ -40,7 +40,7 @@ compute.OncoScore <- function( data,
     
     # verify I was given a cutoff threshold
     if (is.na(cutoff.threshold)) {
-        paste("Warning: the cutoff threshold to define the oncogenes was not provided.\n")
+        warning("Warning: the cutoff threshold to define the oncogenes was not provided.\n")
     }
 
     cat('### Processing data\n')
