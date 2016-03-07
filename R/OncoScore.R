@@ -10,7 +10,7 @@
 #' Description
 #'
 #' @docType package
-#' @name TRONCO
+#' @name OncoScore
 NULL
 
 
