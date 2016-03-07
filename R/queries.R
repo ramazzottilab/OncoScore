@@ -14,9 +14,7 @@
 #'
 #' @examples
 #' data(genes)
-#' \dontrun{
-#' perform.web.query(genes[1:2])
-#' }
+#' \donttest{perform.web.query(genes[1:2])}
 #' 
 #' @param list.of.genes The list of genes to be used in the queries to PubMed
 #' @param gene.num.limit A limit to the genes to be considered in the analysis; this is done to limit the number of queries to PubMed
@@ -123,9 +121,7 @@ perform.web.query <- function( list.of.genes,
 #' @examples
 #' data(genes)
 #' data(timepoints)
-#' \dontrun{
-#' perform.web.query(genes[1:2], timepoints[1:2])
-#' }
+#' \donttest{perform.web.query(genes[1:2], timepoints[1:2])}
 #' 
 #' @param list.of.genes The list of genes to be used in the queries to PubMed
 #' @param list.of.datatimes The list of time points to be used in the queries to PubMed 

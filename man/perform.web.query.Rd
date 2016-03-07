@@ -21,9 +21,7 @@ perforn the query to PubMed
 }
 \examples{
 data(genes)
-\dontrun{
-perform.web.query(genes[1:2])
-}
+\donttest{perform.web.query(genes[1:2])}
 
 }
 

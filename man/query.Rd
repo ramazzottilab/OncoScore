@@ -6,7 +6,7 @@
 \title{The result of perform.web.query on genes}
 \format{rdata}
 \source{
-fake data
+example data
 }
 \usage{
 data(query)

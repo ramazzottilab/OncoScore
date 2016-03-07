@@ -25,10 +25,6 @@ the computed OncoScores and the clusters for the genes
 compute the OncoScore for a list of genes
 }
 \examples{
-data(genes)
-\dontrun{
-query = perform.web.query(genes[1:2])
-}
 data(query)
 compute.OncoScore(query)
 

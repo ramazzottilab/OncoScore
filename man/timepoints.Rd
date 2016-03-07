@@ -6,7 +6,7 @@
 \title{A list of timepoints}
 \format{txt}
 \source{
-fake data
+example data
 }
 \usage{
 data(timepoints)

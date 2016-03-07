@@ -6,7 +6,7 @@
 \title{A list of genes}
 \format{txt}
 \source{
-fake data
+example data
 }
 \usage{
 data(genes)

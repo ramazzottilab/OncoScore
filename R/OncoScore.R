@@ -19,10 +19,6 @@ NULL
 #' @title compute.OncoScore
 #'
 #' @examples
-#' data(genes)
-#' \dontrun{
-#' query = perform.web.query(genes[1:2])
-#' }
 #' data(query)
 #' compute.OncoScore(query)
 #' 
@@ -91,11 +87,6 @@ compute.OncoScore <- function( data,
 #' @title compute.OncoScore.TimeSeries
 #'
 #' @examples
-#' data(genes)
-#' data(timepoints)
-#' \dontrun{
-#' query.timepoints = perform.time.series.query(genes[1:2], timepoints[1:2])
-#' }
 #' data(query.timepoints)
 #' compute.OncoScore.TimeSeries(query.timepoints)
 #' 

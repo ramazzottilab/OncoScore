@@ -6,7 +6,7 @@
 \title{The result of perform.time.series.query on genes and timepoints}
 \format{rdata}
 \source{
-fake data
+example data
 }
 \usage{
 data(query.timepoints)

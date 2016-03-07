@@ -13,7 +13,7 @@
 #' @docType data
 #' @usage data(genes)
 #' @format txt
-#' @source fake data
+#' @source example data
 #' @author Luca De Sano
 NULL
 
@@ -23,7 +23,7 @@ NULL
 #' @docType data
 #' @usage data(timepoints)
 #' @format txt
-#' @source fake data
+#' @source example data
 #' @author Luca De Sano
 NULL
 
@@ -33,7 +33,7 @@ NULL
 #' @docType data
 #' @usage data(query)
 #' @format rdata
-#' @source fake data
+#' @source example data
 #' @author Luca De Sano
 NULL
 
@@ -43,6 +43,6 @@ NULL
 #' @docType data
 #' @usage data(query.timepoints)
 #' @format rdata
-#' @source fake data
+#' @source example data
 #' @author Luca De Sano
 NULL
