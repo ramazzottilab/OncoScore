@@ -246,7 +246,7 @@ estimate.oncogenes <- function( data,
     
     # assess the genes being oncogenes
     for (gene in rownames(data)) {
-        if (!is.na(cutoff.threshold)) {
+        if (!is.na(cutoff.threshold) && !is.na(data[gene, "OncoScore"])) {
             if (data[gene, "OncoScore"] <= cutoff.threshold) {
                 data[gene, "Clustering"] = 0
             } else {
