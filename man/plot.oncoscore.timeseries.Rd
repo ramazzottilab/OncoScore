@@ -6,7 +6,7 @@
 \usage{
 \method{plot}{oncoscore.timeseries}(x, gene.number = 5, incremental = FALSE,
   main = "OncoScore", xlab = "score", ylab = "genes",
-  legend.pos = "top", ...)
+  legend.pos = "top", file = NA, ...)
 }
 \arguments{
 \item{x}{input data as result of the function compute.OncoScore}
@@ -22,6 +22,8 @@
 \item{ylab}{description of y asix (defaul genes)}
 
 \item{legend.pos}{Position of the legend}
+
+\item{file}{where to save the plot}
 
 \item{...}{additional parameter to pass to the lines function}
 }

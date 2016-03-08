@@ -7,12 +7,6 @@
 #### are made available under the terms of the GNU GPL v3.0
 #### which accompanies this distribution.
 
-#' Description
-#'
-#' @docType package
-#' @name OncoScore
-NULL
-
 
 #' compute the OncoScore for a list of genes
 #' 

@@ -22,6 +22,7 @@
 #' @param main the title
 #' @param xlab description of x asix (defaul score)
 #' @param ylab description of y asix (defaul genes)
+#' @param file where to save the plot
 #' @param ... additional parameter to pass to the barplot function
 #' 
 #' @export plot.oncoscore
@@ -31,6 +32,7 @@ plot.oncoscore <- function(x,
                            main = 'OncoScore',
                            xlab = 'score',
                            ylab = 'genes',
+                           file = NA,
                            ...) {
 
     x = x[, "OncoScore"]
@@ -44,6 +46,10 @@ plot.oncoscore <- function(x,
             xlab = xlab,
             ylab = ylab,
             ...)
+
+    if (!is.na(file)) {
+        dev.copy2pdf(file = file)
+    }
 }
 
 
@@ -63,6 +69,7 @@ plot.oncoscore <- function(x,
 #' @param xlab description of x asix (defaul score)
 #' @param ylab description of y asix (defaul genes)
 #' @param legend.pos Position of the legend
+#' @param file where to save the plot
 #' @param ... additional parameter to pass to the lines function
 #' 
 #' @export plot.oncoscore.timeseries
@@ -74,6 +81,7 @@ plot.oncoscore.timeseries <- function(x,
                                       xlab = 'score',
                                       ylab = 'genes',
                                       legend.pos = 'top',
+                                      file = NA,
                                       ...) {
 
 
@@ -125,4 +133,8 @@ plot.oncoscore.timeseries <- function(x,
     }
 
     legend(legend.pos, rownames(v), col=color,  lty=1, lwd=2, cex=0.8, horiz = TRUE)
+
+    if (!is.na(file)) {
+        dev.copy2pdf(file = file)
+    }
 }

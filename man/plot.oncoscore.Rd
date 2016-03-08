@@ -5,7 +5,7 @@
 \title{plot.oncoscore}
 \usage{
 \method{plot}{oncoscore}(x, gene.number = 5, main = "OncoScore",
-  xlab = "score", ylab = "genes", ...)
+  xlab = "score", ylab = "genes", file = NA, ...)
 }
 \arguments{
 \item{x}{input data as result of the function compute.OncoScore}
@@ -17,6 +17,8 @@
 \item{xlab}{description of x asix (defaul score)}
 
 \item{ylab}{description of y asix (defaul genes)}
+
+\item{file}{where to save the plot}
 
 \item{...}{additional parameter to pass to the barplot function}
 }
