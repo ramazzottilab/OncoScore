@@ -4,19 +4,24 @@
 \alias{plot.oncoscore.timeseries}
 \title{plot.oncoscore.timeseries}
 \usage{
-\method{plot}{oncoscore.timeseries}(x, gene.number = 5, main = "OncoScore",
-  xlab = "score", ylab = "genes", ...)
+\method{plot}{oncoscore.timeseries}(x, gene.number = 5, incremental = FALSE,
+  main = "OncoScore", xlab = "score", ylab = "genes",
+  legend.pos = "top", ...)
 }
 \arguments{
 \item{x}{input data as result of the function compute.OncoScore}
 
 \item{gene.number}{number of genes to print}
 
+\item{incremental}{display the OncoScore increment}
+
 \item{main}{the title}
 
 \item{xlab}{description of x asix (defaul score)}
 
 \item{ylab}{description of y asix (defaul genes)}
+
+\item{legend.pos}{Position of the legend}
 
 \item{...}{additional parameter to pass to the lines function}
 }

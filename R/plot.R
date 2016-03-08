@@ -58,21 +58,24 @@ plot.oncoscore <- function(x,
 #' 
 #' @param x input data as result of the function compute.OncoScore
 #' @param gene.number number of genes to print
+#' @param incremental display the OncoScore increment
 #' @param main the title
 #' @param xlab description of x asix (defaul score)
 #' @param ylab description of y asix (defaul genes)
+#' @param legend.pos Position of the legend
 #' @param ... additional parameter to pass to the lines function
 #' 
 #' @export plot.oncoscore.timeseries
 #' 
 plot.oncoscore.timeseries <- function(x,
                                       gene.number = 5,
+                                      incremental = FALSE,
                                       main = 'OncoScore',
                                       xlab = 'score',
                                       ylab = 'genes',
+                                      legend.pos = 'top',
                                       ...) {
 
-    print(x)
 
     sorted = sort(x[[length(x)]][, "OncoScore"], decreasing = TRUE)
     if (length(sorted) > gene.number) {
@@ -80,8 +83,27 @@ plot.oncoscore.timeseries <- function(x,
     }
     sorted = names(sorted)
 
-    minval = min(sapply(x, function(v){min(v[sorted,'OncoScore'])})) - 3
-    maxval = max(sapply(x, function(v){max(v[sorted,'OncoScore'])})) + 3
+    v = NULL
+
+    for (timepoint in names(x)) {
+        data = x[[timepoint]][sorted, "OncoScore", drop=FALSE]
+        v = cbind(v, data)
+    }
+
+    colnames(v) = names(x)
+    rownames(v) = sorted
+
+    if (incremental) {
+        values = v
+        v = matrix(0, nrow = nrow(values))
+        rownames(v) = sorted
+        for(i in 2:ncol(values)) {
+            v = cbind(v, values[, i, drop = FALSE] - values[, i - 1, drop = FALSE])
+        }
+    }
+
+    minval = min(v) - 3
+    maxval = max(v) + 3
 
     plot(c(1, length(names(x))),
          c(minval, maxval),
@@ -91,22 +113,9 @@ plot.oncoscore.timeseries <- function(x,
          ylab=ylab,
          axes = FALSE) 
 
-    axis(1, at=1:length(names(x)), lab=names(x))
+    axis(1, at=1:length(names(x)), labels=names(x))
     axis(2, at=seq(round(minval), round(maxval), by=5), las=1)
 
-    v = NULL
-
-
-    for (timepoint in names(x)) {
-        data = x[[timepoint]][sorted, "OncoScore", drop=FALSE]
-        v = cbind(v, data)
-        print(data)
-    }
-
-    colnames(v) = names(x)
-    rownames(x) = names(sorted)
-
-    print(v)
 
     color = rainbow(nrow(v))
     names(color) = rownames(v)
@@ -115,6 +124,5 @@ plot.oncoscore.timeseries <- function(x,
         lines(v[gene,], col=color[gene], lwd=2)
     }
 
-    legend(1, maxval, rownames(v), col=color,  lty=1, lwd=2, cex=0.8, horiz = TRUE)
-
+    legend(legend.pos, rownames(v), col=color,  lty=1, lwd=2, cex=0.8, horiz = TRUE)
 }
