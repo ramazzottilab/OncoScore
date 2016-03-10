@@ -1,0 +1,223 @@
+\documentclass[a4paper, 9pt]{article}
+
+<<style-Sweave, eval=TRUE, echo=FALSE, results=tex>>=
+BiocStyle::latex()
+@
+
+% \VignetteIndexEntry{OncoScore}
+
+\usepackage{hyperref}
+\usepackage{amsmath, amsthm, amssymb}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}
+%\usepackage{url}
+%\usepackage{fullpage}
+
+\newcommand{\OncoScore}{\textsc{OncoScore}}
+
+\begin{document}
+
+\title{Using the \OncoScore{} package}
+
+\author{
+Luca De Sano\footnote{Dipartimento di Informatica Sistemistica e Comunicazione, 
+Università degli Studi Milano Bicocca Milano, Italy.} \and
+Carlo Gambacorti Passerini\footnote{Dipartimento di Medicina e Chirurgia, 
+Università degli Studi Milano Bicocca Milano, Italy.} \and
+Rocco Piazza$^\dagger$ \and
+Daniele Ramazzotti$^\ast$ \and
+Roberta Spinelli$^\dagger$
+}
+
+\date{\today}
+\maketitle
+
+\begin{center}
+\begin{minipage}[h]{0.75\textwidth}
+
+\textbf{Abstract.} \OncoScore{} is a tool to measure the association of genes to cancer based
+    on citation frequency in biomedical literature. The score is evaluated 
+    from PubMed literature by dynamically updatable web queries.
+\\
+
+
+\end{minipage}
+\end{center}
+
+\vspace{1.0cm}
+
+\SweaveOpts{concordance=TRUE}
+
+The \OncoScore{} analysis consists of two parts. One can estimate a score to asses 
+the oncogenic potential of a set of genes, given the lecterature knowledge, 
+at the time of the analysis, or one can study the trend of such score over time.
+
+We next present the two analysis and we conclude with showing the capabilities
+of the tool to visualize the results.
+
+\paragraph{\large Requirements. } First we load the library.
+
+<<>>=
+library(OncoScore)
+@
+
+\paragraph{\large OncoScore analysis.} The query that we show next retrieves
+from PubMed the citations, at the time of the query, for a list of genes in
+cancer related and in all the documents.
+
+<<eval=FALSE>>=
+query = perform.web.query(c("ASXL1","IDH1","IDH2","SETBP1","TET2"))
+@
+\begin{verbatim}
+### Starting the queries for the selected genes.
+
+### Performing queries for cancer literature 
+    Number of papers found in PubMed for ASXL1 was: 309 
+    Number of papers found in PubMed for IDH1 was: 1450 
+    Number of papers found in PubMed for IDH2 was: 557 
+    Number of papers found in PubMed for SETBP1 was: 69 
+    Number of papers found in PubMed for TET2 was: 560 
+
+### Performing queries for all the literature 
+    Number of papers found in PubMed for ASXL1 was: 350 
+    Number of papers found in PubMed for IDH1 was: 1581 
+    Number of papers found in PubMed for IDH2 was: 648 
+    Number of papers found in PubMed for SETBP1 was: 89 
+    Number of papers found in PubMed for TET2 was: 717 
+\end{verbatim}
+<<include=FALSE,echo=FALSE>>=
+data(query)
+@
+
+We now compute a score for each of the genes, to estimate their oncogenic
+potential.
+
+<<>>=
+result = compute.OncoScore(query)
+@
+
+\paragraph{\large OncoScore timeline analysis.} The query that we show next retrieves
+from PubMed the citations, at specified time points, for a list of genes in
+cancer related and in all the documents.
+
+<<eval=FALSE>>=
+query.timepoints = perform.time.series.query(c("ASXL1","IDH1","IDH2","SETBP1","TET2"),
+    c("2012/03/01", "2013/03/01", "2014/03/01", "2015/03/01", "2016/03/01"))
+@
+\begin{verbatim}
+### Starting the queries for the selected genes.
+### Quering PubMed for timepoint 2012/03/01 
+    ### Performing queries for cancer literature 
+    Number of papers found in PubMed for ASXL1 was: 83 
+    Number of papers found in PubMed for IDH1 was: 408 
+    Number of papers found in PubMed for IDH2 was: 172 
+    Number of papers found in PubMed for SETBP1 was: 5 
+    Number of papers found in PubMed for TET2 was: 169 
+    ### Performing queries for all the literature 
+    Number of papers found in PubMed for ASXL1 was: 91 
+    Number of papers found in PubMed for IDH1 was: 488 
+    Number of papers found in PubMed for IDH2 was: 234 
+    Number of papers found in PubMed for SETBP1 was: 10 
+    Number of papers found in PubMed for TET2 was: 196 
+### Quering PubMed for timepoint 2013/03/01 
+    ### Performing queries for cancer literature 
+    Number of papers found in PubMed for ASXL1 was: 132 
+    Number of papers found in PubMed for IDH1 was: 662 
+    Number of papers found in PubMed for IDH2 was: 267 
+    Number of papers found in PubMed for SETBP1 was: 11 
+    Number of papers found in PubMed for TET2 was: 254 
+    ### Performing queries for all the literature 
+    Number of papers found in PubMed for ASXL1 was: 149 
+    Number of papers found in PubMed for IDH1 was: 753 
+    Number of papers found in PubMed for IDH2 was: 336 
+    Number of papers found in PubMed for SETBP1 was: 18 
+    Number of papers found in PubMed for TET2 was: 302 
+### Quering PubMed for timepoint 2014/03/01 
+    ### Performing queries for cancer literature 
+    Number of papers found in PubMed for ASXL1 was: 185 
+    Number of papers found in PubMed for IDH1 was: 903 
+    Number of papers found in PubMed for IDH2 was: 364 
+    Number of papers found in PubMed for SETBP1 was: 29 
+    Number of papers found in PubMed for TET2 was: 342 
+    ### Performing queries for all the literature 
+    Number of papers found in PubMed for ASXL1 was: 208 
+    Number of papers found in PubMed for IDH1 was: 1002 
+    Number of papers found in PubMed for IDH2 was: 439 
+    Number of papers found in PubMed for SETBP1 was: 36 
+    Number of papers found in PubMed for TET2 was: 430 
+### Quering PubMed for timepoint 2015/03/01 
+    ### Performing queries for cancer literature 
+    Number of papers found in PubMed for ASXL1 was: 250 
+    Number of papers found in PubMed for IDH1 was: 1188 
+    Number of papers found in PubMed for IDH2 was: 467 
+    Number of papers found in PubMed for SETBP1 was: 49 
+    Number of papers found in PubMed for TET2 was: 452 
+    ### Performing queries for all the literature 
+    Number of papers found in PubMed for ASXL1 was: 283 
+    Number of papers found in PubMed for IDH1 was: 1300 
+    Number of papers found in PubMed for IDH2 was: 550 
+    Number of papers found in PubMed for SETBP1 was: 64 
+    Number of papers found in PubMed for TET2 was: 576 
+### Quering PubMed for timepoint 2016/03/01 
+    ### Performing queries for cancer literature 
+    Number of papers found in PubMed for ASXL1 was: 309 
+    Number of papers found in PubMed for IDH1 was: 1446 
+    Number of papers found in PubMed for IDH2 was: 557 
+    Number of papers found in PubMed for SETBP1 was: 69 
+    Number of papers found in PubMed for TET2 was: 558 
+    ### Performing queries for all the literature 
+    Number of papers found in PubMed for ASXL1 was: 350 
+    Number of papers found in PubMed for IDH1 was: 1576 
+    Number of papers found in PubMed for IDH2 was: 648 
+    Number of papers found in PubMed for SETBP1 was: 89 
+    Number of papers found in PubMed for TET2 was: 715 
+\end{verbatim}
+<<include=FALSE,echo=FALSE>>=
+data(query.timepoints)
+@
+
+We now compute a score for each of the genes, to estimate their oncogenic
+potential at specified time points.
+
+<<>>=
+result.timeseries = compute.OncoScore.TimeSeries(query.timepoints)
+@
+
+\paragraph{\large Visualization of the results.} We next plot the scores
+measuring the oncogenetic potential of the considered genes as a barplot.
+
+<<figresult, fig=TRUE, include=FALSE>>=
+plot.oncoscore(result, col = 'darkblue')
+@
+\incfig[ht]{vignette-figresult}{0.5\textwidth}{Oncogenetic potential of the considered genes.}{}
+
+We finally plot the trend of the scores over the considered times as 
+absolute and values and as variations.
+
+
+<<figresultts, fig=TRUE, include=FALSE>>=
+plot.oncoscore.timeseries(result.timeseries)
+@
+\incfig[ht]{vignette-figresultts}{0.5\textwidth}{Absolute values of the oncogenetic potential 
+of the considered genes over times.}{}
+
+<<figresulttsinc, fig=TRUE, include=FALSE>>=
+plot.oncoscore.timeseries(result.timeseries, 
+    incremental = TRUE, 
+    ylab='absolute varietion')
+@
+\incfig[ht]{vignette-figresulttsinc}{0.5\textwidth}{Variations of the oncogenetic potential 
+of the considered genes over times.}{}
+
+<<figresulttsincrel, fig=TRUE, include=FALSE>>=
+plot.oncoscore.timeseries(result.timeseries,
+    incremental = TRUE,
+    relative = TRUE,
+    ylab='relative varietion')
+@
+\incfig[ht]{vignette-figresulttsincrel}{0.5\textwidth}{Variations as relative values
+of the oncogenetic potential of the considered genes over times.}{}
+
+\end{document}

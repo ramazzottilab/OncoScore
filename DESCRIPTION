@@ -1,0 +1,29 @@
+Package: OncoScore
+Version: 0.99.0
+Date: 2016-03-01
+Title: OncoScore
+Authors@R: c(person("Daniele", "Ramazzotti", role=c("aut", "cre"), email="daniele.ramazzotti@yahoo.com"),
+             person("Luca", "De Sano", role=c("aut"), email="l.desano@campus.unimib.it"),
+             person("Roberta", "Spinelli", role=c("ctb"), email="spinelli.roberta@gmail.com"),
+             person("Carlo", "Gambacorti Passerini", role=c("ctb"), email="carlo.gambacorti@unimib.it"),
+             person("Rocco", "Piazza", role=c("ctb"), email="rocco.piazza@unimib.it"))
+Maintainer: Daniele Ramazzotti <daniele.ramazzotti@yahoo.com>
+Depends:
+    R (>= 3.2),
+Suggests:
+    BiocGenerics,
+    BiocStyle,
+    testthat,
+Title: 
+    A tool to identify potentially oncogenic genes
+Description:
+    OncoScore is a tool to measure the association of genes to cancer based
+    on citation frequency in biomedical literature. The score is evaluated 
+    from PubMed literature by dynamically updatable web queries.
+Encoding: UTF-8
+LazyData: TRUE
+License: GPL (>= 3.0)
+URL: https://github.com/danro9685/OncoScore
+BugReports: https://github.com/danro9685/OncoScore
+biocViews: BiomedicalInformatics
+RoxygenNote: 5.0.1
