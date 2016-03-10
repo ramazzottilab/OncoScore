@@ -23,7 +23,7 @@ Description:
 Encoding: UTF-8
 LazyData: TRUE
 License: GPL (>= 3.0)
-URL: https://xxx.xxx/
+URL: https://github.com/danro9685/OncoScore
 BugReports: https://github.com/danro9685/OncoScore
 biocViews: BiomedicalInformatics
 RoxygenNote: 5.0.1

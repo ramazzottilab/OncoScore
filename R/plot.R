@@ -65,6 +65,7 @@ plot.oncoscore <- function(x,
 #' @param x input data as result of the function compute.OncoScore
 #' @param gene.number number of genes to print
 #' @param incremental display the OncoScore increment
+#' @param relative dispaly the incrementa as relative value
 #' @param main the title
 #' @param xlab description of x asix (defaul score)
 #' @param ylab description of y asix (defaul genes)
@@ -77,9 +78,10 @@ plot.oncoscore <- function(x,
 plot.oncoscore.timeseries <- function(x,
                                       gene.number = 5,
                                       incremental = FALSE,
+                                      relative = FALSE,
                                       main = 'OncoScore',
-                                      xlab = 'score',
-                                      ylab = 'genes',
+                                      xlab = 'timepoints',
+                                      ylab = 'score',
                                       legend.pos = 'top',
                                       file = NA,
                                       ...) {
@@ -106,7 +108,11 @@ plot.oncoscore.timeseries <- function(x,
         v = matrix(0, nrow = nrow(values))
         rownames(v) = sorted
         for(i in 2:ncol(values)) {
-            v = cbind(v, values[, i, drop = FALSE] - values[, i - 1, drop = FALSE])
+            if (relative) {
+              v = cbind(v, values[, i, drop = FALSE] / values[, i - 1, drop = FALSE])
+            } else {
+              v = cbind(v, values[, i, drop = FALSE] - values[, i - 1, drop = FALSE])
+            }
         }
     }
 

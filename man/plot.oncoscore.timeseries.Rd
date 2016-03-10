@@ -5,8 +5,8 @@
 \title{plot.oncoscore.timeseries}
 \usage{
 \method{plot}{oncoscore.timeseries}(x, gene.number = 5, incremental = FALSE,
-  main = "OncoScore", xlab = "score", ylab = "genes",
-  legend.pos = "top", file = NA, ...)
+  relative = FALSE, main = "OncoScore", xlab = "timepoints",
+  ylab = "score", legend.pos = "top", file = NA, ...)
 }
 \arguments{
 \item{x}{input data as result of the function compute.OncoScore}
@@ -14,6 +14,8 @@
 \item{gene.number}{number of genes to print}
 
 \item{incremental}{display the OncoScore increment}
+
+\item{relative}{dispaly the incrementa as relative value}
 
 \item{main}{the title}
 
