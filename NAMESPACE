@@ -2,7 +2,11 @@
 
 export(compute.OncoScore)
 export(compute.OncoScore.TimeSeries)
+export(get.genes.from.biomart)
 export(perform.time.series.query)
 export(perform.web.query)
 export(plot.oncoscore)
 export(plot.oncoscore.timeseries)
+importFrom(biomaRt,getBM)
+importFrom(biomaRt,useDataset)
+importFrom(biomaRt,useMart)
