@@ -7,11 +7,11 @@
 get.genes.from.biomart(chromosome, start = NA, end = NA)
 }
 \arguments{
-\item{chromosome}{TODO}
+\item{chromosome}{chromosome to be retireved}
 
-\item{start}{TODO}
+\item{start}{initial position to be used}
 
-\item{end}{TODO}
+\item{end}{final position to be used}
 }
 \description{
 Get a gene list from biomart
