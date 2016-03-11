@@ -154,3 +154,48 @@ get.list.from.xml <- function(webget) {
     }
     return(lc)
 }
+
+
+#' Get a gene list from biomart
+#' 
+#' @title get.genes.from.biomart
+#'
+#' @examples
+#' dontrun{
+#' ch15 = get.genes.from.biomart(15, 200000, 300000)
+#' }
+#' 
+#' @param chromosome TODO
+#' @param start TODO
+#' @param end TODO
+#'
+#' @importFrom biomaRt useMart useDataset getBM
+#' @export get.genes.from.biomart
+#' 
+get.genes.from.biomart <- function(chromosome,
+                                   start = NA,
+                                   end = NA) {
+    ensembl = useMart("ensembl")
+
+    ensembl = useDataset("hsapiens_gene_ensembl", mart=ensembl)
+
+    filters = c('chromosome_name')
+    values = list(chromosome)
+
+    if (!is.na(start)) {
+        filters = c(filters, 'start')
+        values = append(values, start)
+    }
+
+    if (!is.na(end)) {
+        filters = c(filters, 'end')
+        values = append(values, end)
+    }
+
+    ch = getBM('hgnc_symbol', 
+               filters = filters,
+               values = values, 
+               mart=ensembl)
+
+    return(ch[,])
+}

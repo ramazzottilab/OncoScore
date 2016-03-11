@@ -10,6 +10,8 @@ Authors@R: c(person("Daniele", "Ramazzotti", role=c("aut", "cre"), email="daniel
 Maintainer: Daniele Ramazzotti <daniele.ramazzotti@yahoo.com>
 Depends:
     R (>= 3.2),
+Imports:
+    biomaRt,
 Suggests:
     BiocGenerics,
     BiocStyle,
