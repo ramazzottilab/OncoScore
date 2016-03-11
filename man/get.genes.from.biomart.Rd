@@ -17,9 +17,7 @@ get.genes.from.biomart(chromosome, start = NA, end = NA)
 Get a gene list from biomart
 }
 \examples{
-dontrun{
-ch15 = get.genes.from.biomart(15, 200000, 300000)
-}
+\donttest{ch15 = get.genes.from.biomart(15, 200000, 300000)}
 
 }
 
