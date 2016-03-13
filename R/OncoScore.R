@@ -253,3 +253,56 @@ estimate.oncogenes <- function( data,
     
     return(data)
 }
+
+
+#' TODO
+#' 
+#' @title compute.OncoScore.from.region
+#' 
+#' @param chromosome TODO
+#' @param start TODO
+#' @param end TODO
+#' @param gene.num.limit TODO
+#' @param filter.threshold TODO
+#' @param analysis.mode TODO
+#' @param cutoff.threshold TODO
+#' @param file TODO
+#'
+#' @return the computed scores
+#' 
+#' @export compute.OncoScore.from.region
+#' 
+#' 
+compute.OncoScore.from.region <- function(chromosome,
+                                          start = NA,
+                                          end = NA,
+                                          gene.num.limit = 100,
+                                          filter.threshold = NA,
+                                          analysis.mode = "Log2",
+                                          cutoff.threshold = 21.09,
+                                          file = NULL) {
+
+    cat("### Performing query on BioMart \n")
+
+    genes = get.genes.from.biomart(chromosome, start, end)
+
+    if (length(genes) > gene.num.limit) {
+        cat("### Too many genes, only first", gene.num.limit, "will be used\n")
+        genes = genes[1:gene.num.limit]
+    }
+
+    cat("### Performing web query on: ")
+    cat(paste(genes, collapse = " "), "\n")
+
+
+    query = perform.web.query(list.of.genes = genes,
+                              gene.num.limit = gene.num.limit)
+
+    results = compute.OncoScore(data = query, 
+                                filter.threshold = filter.threshold,
+                                analysis.mode = analysis.mode,
+                                cutoff.threshold = cutoff.threshold,
+                                file = file)
+
+    return(results)
+}

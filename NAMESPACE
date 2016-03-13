@@ -2,6 +2,7 @@
 
 export(compute.OncoScore)
 export(compute.OncoScore.TimeSeries)
+export(compute.OncoScore.from.region)
 export(get.genes.from.biomart)
 export(perform.time.series.query)
 export(perform.web.query)
