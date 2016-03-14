@@ -13,11 +13,17 @@ get.genes.from.biomart(chromosome, start = NA, end = NA)
 
 \item{end}{final position to be used}
 }
+\value{
+A list of genes
+}
 \description{
 Get a gene list from biomart
 }
 \examples{
-\donttest{ch15 = get.genes.from.biomart(15, 200000, 300000)}
+chromosome = 15
+start = 200000
+end = 300000
+\donttest{ch15 = get.genes.from.biomart(chromosome, start, end)}
 
 }
 

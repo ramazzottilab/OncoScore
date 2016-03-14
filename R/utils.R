@@ -161,11 +161,16 @@ get.list.from.xml <- function(webget) {
 #' @title get.genes.from.biomart
 #'
 #' @examples
-#' \donttest{ch15 = get.genes.from.biomart(15, 200000, 300000)}
+#' chromosome = 15
+#' start = 200000
+#' end = 300000
+#' \donttest{ch15 = get.genes.from.biomart(chromosome, start, end)}
 #' 
 #' @param chromosome chromosome to be retireved
 #' @param start initial position to be used
 #' @param end final position to be used
+#' 
+#' @return A list of genes
 #'
 #' @importFrom biomaRt useMart useDataset getBM
 #' @export get.genes.from.biomart

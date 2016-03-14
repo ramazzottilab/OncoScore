@@ -7,42 +7,45 @@
 #### are made available under the terms of the GNU GPL v3.0
 #### which accompanies this distribution.
 
-#' @name genes
-#' @title A list of genes
-#' @description This dataset contains a list of genes to be used in the analysis as an example
-#' @docType data
-#' @usage data(genes)
+#' A list of genes
+#' 
+#' This dataset contains a list of genes to be used in the analysis as an example
+#' 
 #' @format txt
+#' 
 #' @source example data
-#' @author Luca De Sano
-NULL
+#'
+"genes"
 
-#' @name timepoints
-#' @title A list of timepoints
-#' @description This dataset contains a list of time points to be used in the analysis as an example
-#' @docType data
-#' @usage data(timepoints)
+
+#' A list of timepoints
+#' 
+#' This dataset contains a list of time points to be used in the analysis as an example
+#' 
 #' @format txt
+#' 
 #' @source example data
-#' @author Luca De Sano
-NULL
+#'
+"timepoints"
 
-#' @name query
-#' @title The result of perform.web.query on genes
-#' @description This dataset contains the result of perform.web.query on genes
-#' @docType data
-#' @usage data(query)
-#' @format rdata
-#' @source example data
-#' @author Luca De Sano
-NULL
 
-#' @name query.timepoints
-#' @title The result of perform.time.series.query on genes and timepoints
-#' @description This dataset contains the result of perform.time.series.query on genes and timepoints
-#' @docType data
-#' @usage data(query.timepoints)
+#' The result of perform.web.query on genes
+#' 
+#' This dataset contains the result of perform.web.query on genes
+#' 
 #' @format rdata
+#' 
 #' @source example data
-#' @author Luca De Sano
-NULL
+#' 
+"query"
+
+
+#' The result of perform.time.series.query on genes and timepoints
+#' 
+#' This dataset contains the result of perform.time.series.query on genes and timepoints
+#' 
+#' @format rdata
+#' 
+#' @source example data
+#' 
+"query.timepoints"

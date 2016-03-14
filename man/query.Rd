@@ -9,12 +9,10 @@
 example data
 }
 \usage{
-data(query)
+query
 }
 \description{
 This dataset contains the result of perform.web.query on genes
 }
-\author{
-Luca De Sano
-}
+\keyword{datasets}
 

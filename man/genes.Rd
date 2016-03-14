@@ -9,12 +9,10 @@
 example data
 }
 \usage{
-data(genes)
+genes
 }
 \description{
 This dataset contains a list of genes to be used in the analysis as an example
 }
-\author{
-Luca De Sano
-}
+\keyword{datasets}
 

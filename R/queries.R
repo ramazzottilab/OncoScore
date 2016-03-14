@@ -10,11 +10,11 @@
 
 #' perforn the query to PubMed
 #' 
-#' @title perform.web.query
+#' @title perform.query
 #'
 #' @examples
 #' data(genes)
-#' \donttest{perform.web.query(genes[1:2])}
+#' \donttest{perform.query(genes[1:2])}
 #' 
 #' @param list.of.genes The list of genes to be used in the queries to PubMed
 #' @param gene.num.limit A limit to the genes to be considered in the analysis; this is done to limit the number of queries to PubMed
@@ -22,11 +22,11 @@
 #'
 #' @return The frequencies of the genes in the cancer related documents and in all the documents retireved on PubMed
 #' 
-#' @export perform.web.query
+#' @export perform.query
 #' 
-perform.web.query <- function( list.of.genes,
-                               gene.num.limit = 100,
-                               custom.search = NA) {
+perform.query <- function( list.of.genes,
+                           gene.num.limit = 100,
+                           custom.search = NA) {
     
     # perform the analysis
     cat("### Starting the queries for the selected genes.\n")
@@ -116,12 +116,12 @@ perform.web.query <- function( list.of.genes,
 
 #' perforn the query to PubMed for the time series analysis
 #' 
-#' @title perform.time.series.query
+#' @title perform.query.timeseries
 #'
 #' @examples
 #' data(genes)
 #' data(timepoints)
-#' \donttest{perform.web.query(genes[1:2], timepoints[1:2])}
+#' \donttest{perform.query.timeseries(genes[1:2], timepoints[1:2])}
 #' 
 #' @param list.of.genes The list of genes to be used in the queries to PubMed
 #' @param list.of.datatimes The list of time points to be used in the queries to PubMed 
@@ -131,13 +131,13 @@ perform.web.query <- function( list.of.genes,
 #'
 #' @return The frequencies of the genes in the cancer related documents and in all the documents retireved on PubMed at the specified time points
 #' 
-#' @export perform.time.series.query
+#' @export perform.query.timeseries
 #'
-perform.time.series.query <- function( list.of.genes,
-                                       list.of.datatimes,
-                                       gene.num.limit = 100,
-                                       timepoints.limit = 10,
-                                       custom.search = NA ) {
+perform.query.timeseries <- function( list.of.genes,
+                                      list.of.datatimes,
+                                      gene.num.limit = 100,
+                                      timepoints.limit = 10,
+                                      custom.search = NA ) {
     
     
     # perform the analysis

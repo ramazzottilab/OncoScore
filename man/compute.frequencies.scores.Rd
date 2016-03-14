@@ -4,11 +4,11 @@
 \alias{compute.frequencies.scores}
 \title{compute.frequencies.scores}
 \usage{
-compute.frequencies.scores(data, filter.threshold = NA,
+compute.frequencies.scores(data, filter.threshold = 1,
   analysis.mode = "Log2")
 }
 \arguments{
-\item{data}{input data as result of the function perform.web.query}
+\item{data}{input data as result of the function perform.query}
 
 \item{filter.threshold}{threshold to filter for a minimum number of citations for the genes}
 

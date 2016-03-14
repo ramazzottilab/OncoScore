@@ -9,12 +9,10 @@
 example data
 }
 \usage{
-data(timepoints)
+timepoints
 }
 \description{
 This dataset contains a list of time points to be used in the analysis as an example
 }
-\author{
-Luca De Sano
-}
+\keyword{datasets}
 
