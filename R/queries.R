@@ -27,6 +27,10 @@
 perform.query <- function( list.of.genes,
                            gene.num.limit = 100,
                            custom.search = NA) {
+
+    if (length(list.of.genes) == 0) {
+        stop("No genes found\n")
+    }
     
     # perform the analysis
     cat("### Starting the queries for the selected genes.\n")
@@ -140,6 +144,14 @@ perform.query.timeseries <- function( list.of.genes,
                                       custom.search = NA ) {
     
     
+    if (length(list.of.genes) == 0) {
+        stop("No genes found\n")
+    }
+
+    if (length(list.of.datatimes) == 0) {
+        stop("No datetimes found\n")
+    }
+
     # perform the analysis
     cat("### Starting the queries for the selected genes.\n")
     

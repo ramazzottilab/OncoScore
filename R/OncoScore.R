@@ -303,6 +303,8 @@ compute.oncoscore.from.region <- function(chromosome,
     if (length(genes) > gene.num.limit) {
         cat("### Too many genes, only first", gene.num.limit, "will be used\n")
         genes = genes[1:gene.num.limit]
+    } else if (length(genes) == 0) {
+        stop("No genes found\n")
     }
 
     cat("### Performing web query on: ")
