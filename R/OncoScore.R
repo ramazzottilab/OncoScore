@@ -10,13 +10,13 @@
 
 #' compute the OncoScore for a list of genes
 #' 
-#' @title compute.OncoScore
+#' @title compute.oncoscore
 #'
 #' @examples
 #' data(query)
-#' compute.OncoScore(query)
+#' compute.oncoscore(query)
 #' 
-#' @param data input data as result of the function perform.web.query
+#' @param data input data as result of the function perform.query
 #' @param filter.threshold threshold to filter for a minimum number of citations for the genes
 #' @param analysis.mode logaritmic scores to be computed, i.e., log10, log2, natural log or log5
 #' @param cutoff.threshold threshold to be used to asses the oncogenes
@@ -24,10 +24,10 @@
 #'
 #' @return the computed OncoScores and the clusters for the genes
 #' 
-#' @export compute.OncoScore
+#' @export compute.oncoscore
 #' 
-compute.OncoScore <- function( data,
-                               filter.threshold = NA,
+compute.oncoscore <- function( data,
+                               filter.threshold = 0,
                                analysis.mode = "Log2",
                                cutoff.threshold = 21.09,
                                file = NULL ) {
@@ -47,7 +47,7 @@ compute.OncoScore <- function( data,
         if (is.na(data[gene, "CitationsGene"]) || data[gene, "CitationsGene"] <= 1) {
             data[gene, "PercCit"] = 0
         } else if (is.na(data[gene, "CitationsGeneInCancer"]) || data[gene, "CitationsGeneInCancer"] == -1) {
-            data[gene,"PercCit"] = 0
+            data[gene, "PercCit"] = 0
         } else {
             data[gene, "PercCit"] = data[gene, "CitationsGeneInCancer"] * 100 / data[gene, "CitationsGene"]
         }
@@ -78,13 +78,13 @@ compute.OncoScore <- function( data,
 
 #' perform the OncoScore time series analysis for a list of genes and data times
 #' 
-#' @title compute.OncoScore.TimeSeries
+#' @title compute.oncoscore.timeseries
 #'
 #' @examples
 #' data(query.timepoints)
-#' compute.OncoScore.TimeSeries(query.timepoints)
+#' compute.oncoscore.timeseries(query.timepoints)
 #' 
-#' @param data input data as result of the function perform.time.series.query
+#' @param data input data as result of the function perform.query.timeseries
 #' @param filter.threshold threshold to filter for a minimum number of citations for the genes
 #' @param analysis.mode logaritmic scores to be computed, i.e., log10, log2, natural log or log5
 #' @param cutoff.threshold threshold to be used to asses the oncogenes
@@ -92,10 +92,10 @@ compute.OncoScore <- function( data,
 #'
 #' @return the performed OncoScores time series analysis
 #' 
-#' @export compute.OncoScore.TimeSeries
+#' @export compute.oncoscore.timeseries
 #' 
-compute.OncoScore.TimeSeries <- function( data,
-                                          filter.threshold = NA,
+compute.oncoscore.timeseries <- function( data,
+                                          filter.threshold = 0,
                                           analysis.mode = "Log2",
                                           cutoff.threshold = 21.09,
                                           file = NULL ) {
@@ -110,7 +110,7 @@ compute.OncoScore.TimeSeries <- function( data,
         if (!is.null(file)) {
             destination = paste0(gsub("/", "_", timepoint), "_", file)
         }
-        curr_time_result = compute.OncoScore(data[[timepoint]],
+        curr_time_result = compute.oncoscore(data[[timepoint]],
                                              filter.threshold = filter.threshold,
                                              analysis.mode = analysis.mode,
                                              cutoff.threshold = cutoff.threshold,
@@ -126,7 +126,7 @@ compute.OncoScore.TimeSeries <- function( data,
 #' 
 #' @title compute.frequencies.scores
 #' 
-#' @param data input data as result of the function perform.web.query
+#' @param data input data as result of the function perform.query
 #' @param filter.threshold threshold to filter for a minimum number of citations for the genes
 #' @param analysis.mode logaritmic scores to be computed, i.e., log10, log2, natural log or log5
 #'
@@ -134,7 +134,7 @@ compute.OncoScore.TimeSeries <- function( data,
 #' 
 #' 
 compute.frequencies.scores <- function( data,
-                                        filter.threshold = NA, 
+                                        filter.threshold = 1, 
                                         analysis.mode = "Log2" ) {
     
     cat('### Computing frequencies scores \n')
@@ -158,62 +158,70 @@ compute.frequencies.scores <- function( data,
     if (analysis.mode == "Log2") {
         # log base 2
         for (gene in rownames(data)) {
-            if (data[gene, "CitationsGene"] <= filter.threshold | is.na(data[gene, "CitationsGene"])) {
+            if (data[gene, "CitationsGene"] <= filter.threshold
+                || data[gene, "CitationsGene"] <= 1
+                || is.na(data[gene, "CitationsGene"])) {
                 data[gene, "alpha"]             = 0
                 data[gene, "1/alpha"]           = 0
                 data[gene, "PercCit*1/alpha"]   = 0
-                data[gene, "OncoScore"]     = 0
+                data[gene, "OncoScore"]         = 0
             } else {
                 data[gene, "alpha"]             = log(data[gene, "CitationsGene"], 2)
                 data[gene, "1/alpha"]           = 1 / log(data[gene, "CitationsGene"], 2)
                 data[gene, "PercCit*1/alpha"]   = data[gene, "PercCit"] * data[gene, "1/alpha"]
-                data[gene, "OncoScore"]     = data[gene, "PercCit"] - data[gene, "PercCit*1/alpha"]
+                data[gene, "OncoScore"]         = data[gene, "PercCit"] - data[gene, "PercCit*1/alpha"]
             }
         }
     } else if (analysis.mode == "Log") {
         # natural log
         for (gene in rownames(data)) {
-            if (data[gene, "CitationsGene"] <= filter.threshold | is.na(data[gene, "CitationsGene"])) {
+            if (data[gene, "CitationsGene"] <= filter.threshold
+                || data[gene, "CitationsGene"] <= 1
+                || is.na(data[gene, "CitationsGene"])) {
                 data[gene, "alpha"]             = 0
                 data[gene, "1/alpha"]           = 0
                 data[gene, "PercCit*1/alpha"]   = 0
-                data[gene, "OncoScore"]     = 0
+                data[gene, "OncoScore"]         = 0
             } else {
                 data[gene, "alpha"]             = log(data[gene, "CitationsGene"])
                 data[gene, "1/alpha"]           = 1 / log(data[gene, "CitationsGene"])
                 data[gene, "PercCit*1/alpha"]   = data[gene, "PercCit"] * data[gene, "1/alpha"]
-                data[gene, "OncoScore"]     = data[gene, "PercCit"] - data[gene, "PercCit*1/alpha"]
+                data[gene, "OncoScore"]         = data[gene, "PercCit"] - data[gene, "PercCit*1/alpha"]
             }
         }
     } else if (analysis.mode == "Log5") {
         # log base 5
         for (gene in rownames(data)) {
-            if (data[gene, "CitationsGene"] <= filter.threshold | is.na(data[gene, "CitationsGene"])) {
+            if (data[gene, "CitationsGene"] <= filter.threshold
+                || data[gene, "CitationsGene"] <= 1
+                || is.na(data[gene, "CitationsGene"])) {
                 data[gene, "alpha"]             = 0
                 data[gene, "1/alpha"]           = 0
                 data[gene, "PercCit*1/alpha"]   = 0
-                data[gene, "OncoScore"]     = 0
+                data[gene, "OncoScore"]         = 0
             } else {
                 data[gene, "alpha"]             = log(data[gene, "CitationsGene"], 5)
                 data[gene, "1/alpha"]           = 1 / log(data[gene, "CitationsGene"], 5)
                 data[gene, "PercCit*1/alpha"]   = data[gene, "PercCit"] * data[gene,"1/alpha"]
-                data[gene, "OncoScore"]     = data[gene, "PercCit"] - data[gene, "PercCit*1/alpha"]
+                data[gene, "OncoScore"]         = data[gene, "PercCit"] - data[gene, "PercCit*1/alpha"]
             }
         }
     }
     else if (analysis.mode == "Log10") {
     # log base 10
         for (gene in rownames(data)) {
-            if (data[gene, "CitationsGene"] <= filter.threshold | is.na(data[gene, "CitationsGene"])) {
+            if (data[gene, "CitationsGene"] <= filter.threshold
+                || data[gene, "CitationsGene"] <= 1
+                || is.na(data[gene, "CitationsGene"])) {
                 data[gene, "alpha"]             = 0
                 data[gene, "1/alpha"]           = 0
                 data[gene, "PercCit*1/alpha"]   = 0
-                data[gene, "OncoScore"]     = 0
+                data[gene, "OncoScore"]         = 0
             } else {
                 data[gene, "alpha"]             = log10(data[gene, "CitationsGene"])
                 data[gene, "1/alpha"]           = 1 / log10(data[gene, "CitationsGene"])
                 data[gene, "PercCit*1/alpha"]   = data[gene, "PercCit"] * data[gene, "1/alpha"]
-                data[gene, "OncoScore"]     = data[gene, "PercCit"] - data[gene, "PercCit*1/alpha"]
+                data[gene, "OncoScore"]         = data[gene, "PercCit"] - data[gene, "PercCit*1/alpha"]
             }
         }
     }
@@ -255,25 +263,31 @@ estimate.oncogenes <- function( data,
 }
 
 
-#' TODO
+#' Perform OncoScore analysis on a given chromosomic region
 #' 
-#' @title compute.OncoScore.from.region
+#' @title compute.oncoscore.from.region
 #' 
-#' @param chromosome TODO
-#' @param start TODO
-#' @param end TODO
-#' @param gene.num.limit TODO
-#' @param filter.threshold TODO
-#' @param analysis.mode TODO
-#' @param cutoff.threshold TODO
-#' @param file TODO
+#' @examples
+#' chromosome = 15
+#' start = 200000
+#' end = 300000
+#' \donttest{compute.oncoscore.from.region(chromosome, start, end)}
+#' 
+#' @param chromosome chromosome to be retireved
+#' @param start initial position to be used
+#' @param end final position to be used
+#' @param gene.num.limit A limit to the genes to be considered in the analysis; this is done to limit the number of queries to PubMed
+#' @param filter.threshold threshold to filter for a minimum number of citations for the genes
+#' @param analysis.mode logaritmic scores to be computed, i.e., log10, log2, natural log or log5
+#' @param cutoff.threshold threshold to be used to asses the oncogenes
+#' @param file should I save the results to text files? 
 #'
 #' @return the computed scores
 #' 
-#' @export compute.OncoScore.from.region
+#' @export compute.oncoscore.from.region
 #' 
 #' 
-compute.OncoScore.from.region <- function(chromosome,
+compute.oncoscore.from.region <- function(chromosome,
                                           start = NA,
                                           end = NA,
                                           gene.num.limit = 100,
@@ -295,10 +309,10 @@ compute.OncoScore.from.region <- function(chromosome,
     cat(paste(genes, collapse = " "), "\n")
 
 
-    query = perform.web.query(list.of.genes = genes,
+    query = perform.query(list.of.genes = genes,
                               gene.num.limit = gene.num.limit)
 
-    results = compute.OncoScore(data = query, 
+    results = compute.oncoscore(data = query, 
                                 filter.threshold = filter.threshold,
                                 analysis.mode = analysis.mode,
                                 cutoff.threshold = cutoff.threshold,

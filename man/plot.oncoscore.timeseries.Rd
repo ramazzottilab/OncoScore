@@ -29,12 +29,15 @@
 
 \item{...}{additional parameter to pass to the lines function}
 }
+\value{
+A plot
+}
 \description{
 plot the OncoScore for a list of genes
 }
 \examples{
 data(query.timepoints)
-result = compute.OncoScore.TimeSeries(query.timepoints)
+result = compute.oncoscore.timeseries(query.timepoints)
 plot.oncoscore.timeseries(result)
 
 }

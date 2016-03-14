@@ -14,7 +14,7 @@
 #'
 #' @examples
 #' data(query)
-#' result = compute.OncoScore(query)
+#' result = compute.oncoscore(query)
 #' plot.oncoscore(result)
 #' 
 #' @param x input data as result of the function compute.OncoScore
@@ -24,6 +24,8 @@
 #' @param ylab description of y asix (defaul genes)
 #' @param file where to save the plot
 #' @param ... additional parameter to pass to the barplot function
+#' 
+#' @return A plot
 #' 
 #' @export plot.oncoscore
 #' 
@@ -59,7 +61,7 @@ plot.oncoscore <- function(x,
 #'
 #' @examples
 #' data(query.timepoints)
-#' result = compute.OncoScore.TimeSeries(query.timepoints)
+#' result = compute.oncoscore.timeseries(query.timepoints)
 #' plot.oncoscore.timeseries(result)
 #' 
 #' @param x input data as result of the function compute.OncoScore
@@ -72,6 +74,8 @@ plot.oncoscore <- function(x,
 #' @param legend.pos Position of the legend
 #' @param file where to save the plot
 #' @param ... additional parameter to pass to the lines function
+#' 
+#' @return A plot
 #' 
 #' @export plot.oncoscore.timeseries
 #' 

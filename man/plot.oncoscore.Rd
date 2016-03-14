@@ -22,12 +22,15 @@
 
 \item{...}{additional parameter to pass to the barplot function}
 }
+\value{
+A plot
+}
 \description{
 plot the OncoScore for a list of genes
 }
 \examples{
 data(query)
-result = compute.OncoScore(query)
+result = compute.oncoscore(query)
 plot.oncoscore(result)
 
 }

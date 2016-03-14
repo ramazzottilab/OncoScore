@@ -68,7 +68,7 @@ from PubMed the citations, at the time of the query, for a list of genes in
 cancer related and in all the documents.
 
 <<eval=FALSE>>=
-query = perform.web.query(c("ASXL1","IDH1","IDH2","SETBP1","TET2"))
+query = perform.query(c("ASXL1","IDH1","IDH2","SETBP1","TET2"))
 @
 \begin{verbatim}
 ### Starting the queries for the selected genes.
@@ -100,11 +100,47 @@ chr13 = get.genes.from.biomart(chromosome=13,start=54700000,end=72800000)
 head(chr13)
 @
 
+Furthermore, one can also automatically perform the OncoScore analysis on
+chromosomic regions as follows:
+
+<<eval=FALSE>>=
+result = compute.oncoscore.from.region(10, 100000, 500000)
+@
+\begin{verbatim}
+### Performing query on BioMart 
+### Performing web query on: RNA5SP297 RNA5SP298 RN7SL754P ZMYND11 DIP2C 
+### Starting the queries for the selected genes.
+
+### Performing queries for cancer literature 
+    Number of papers found in PubMed for RNA5SP297 was: -1 
+    Number of papers found in PubMed for RNA5SP298 was: -1 
+    Number of papers found in PubMed for RN7SL754P was: -1 
+    Number of papers found in PubMed for ZMYND11 was: 27 
+    Number of papers found in PubMed for DIP2C was: 1 
+
+### Performing queries for all the literature 
+    Number of papers found in PubMed for RNA5SP297 was: -1 
+    Number of papers found in PubMed for RNA5SP298 was: -1 
+    Number of papers found in PubMed for RN7SL754P was: -1 
+    Number of papers found in PubMed for ZMYND11 was: 45 
+    Number of papers found in PubMed for DIP2C was: 3 
+### Processing data
+### Computing frequencies scores 
+### Estimating oncogenes
+### Results:
+     RNA5SP297 -> 0 
+     RNA5SP298 -> 0 
+     RN7SL754P -> 0 
+     ZMYND11 -> 49.07473 
+     DIP2C -> 12.30234 
+\end{verbatim}
+
+
 We now compute a score for each of the genes, to estimate their oncogenic
 potential.
 
 <<>>=
-result = compute.OncoScore(query)
+result = compute.oncoscore(query)
 @
 
 \paragraph{\large OncoScore timeline analysis.} The query that we show next retrieves
@@ -112,7 +148,7 @@ from PubMed the citations, at specified time points, for a list of genes in
 cancer related and in all the documents.
 
 <<eval=FALSE>>=
-query.timepoints = perform.time.series.query(c("ASXL1","IDH1","IDH2","SETBP1","TET2"),
+query.timepoints = perform.query.timeseries(c("ASXL1","IDH1","IDH2","SETBP1","TET2"),
     c("2012/03/01", "2013/03/01", "2014/03/01", "2015/03/01", "2016/03/01"))
 @
 \begin{verbatim}
@@ -191,7 +227,7 @@ We now compute a score for each of the genes, to estimate their oncogenic
 potential at specified time points.
 
 <<>>=
-result.timeseries = compute.OncoScore.TimeSeries(query.timepoints)
+result.timeseries = compute.oncoscore.timeseries(query.timepoints)
 @
 
 \paragraph{\large Visualization of the results.} We next plot the scores

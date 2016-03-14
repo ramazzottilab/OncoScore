@@ -9,12 +9,10 @@
 example data
 }
 \usage{
-data(query.timepoints)
+query.timepoints
 }
 \description{
 This dataset contains the result of perform.time.series.query on genes and timepoints
 }
-\author{
-Luca De Sano
-}
+\keyword{datasets}
 
