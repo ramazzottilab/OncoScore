@@ -9,9 +9,12 @@ Authors@R: c(person("Daniele", "Ramazzotti", role=c("aut", "cre"), email="daniel
              person("Rocco", "Piazza", role=c("ctb"), email="rocco.piazza@unimib.it"))
 Maintainer: Daniele Ramazzotti <daniele.ramazzotti@yahoo.com>
 Depends:
-    R (>= 3.2),
+    R (>= 3.3),
 Imports:
     biomaRt,
+    grDevices,
+    graphics,
+    utils,
 Suggests:
     BiocGenerics,
     BiocStyle,
@@ -24,7 +27,7 @@ Description:
     from PubMed literature by dynamically updatable web queries.
 Encoding: UTF-8
 LazyData: TRUE
-License: GPL (>= 3.0)
+License: file LICENSE
 URL: https://github.com/danro9685/OncoScore
 BugReports: https://github.com/danro9685/OncoScore
 biocViews: BiomedicalInformatics

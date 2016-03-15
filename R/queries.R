@@ -23,6 +23,7 @@
 #' @return The frequencies of the genes in the cancer related documents and in all the documents retireved on PubMed
 #' 
 #' @export perform.query
+#' @importFrom utils read.table
 #' 
 perform.query <- function( list.of.genes,
                            gene.num.limit = 100,
@@ -136,6 +137,7 @@ perform.query <- function( list.of.genes,
 #' @return The frequencies of the genes in the cancer related documents and in all the documents retireved on PubMed at the specified time points
 #' 
 #' @export perform.query.timeseries
+#' @importFrom utils read.table
 #'
 perform.query.timeseries <- function( list.of.genes,
                                       list.of.datatimes,

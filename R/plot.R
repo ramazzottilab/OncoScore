@@ -28,6 +28,8 @@
 #' @return A plot
 #' 
 #' @export plot.oncoscore
+#' @importFrom graphics barplot
+#' @importFrom grDevices dev.copy2pdf
 #' 
 plot.oncoscore <- function(x,
                            gene.number = 5,
@@ -78,6 +80,8 @@ plot.oncoscore <- function(x,
 #' @return A plot
 #' 
 #' @export plot.oncoscore.timeseries
+#' @importFrom grDevices dev.copy2pdf rainbow
+#' @importFrom graphics axis legend lines plot
 #' 
 plot.oncoscore.timeseries <- function(x,
                                       gene.number = 5,
