@@ -1,7 +1,7 @@
 \name{NEWS}
 \title{News for Package \pkg{OncoScore}}
 
-\section{Changes in 1.0.0 (2016-03-14)}{
+\section{Changes in version 0.99.0 (2016-03-16)}{
   \itemize{
     \item New package OncoScore released on BioCondictor
   }
