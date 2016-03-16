@@ -25,6 +25,7 @@
 #' @return the computed OncoScores and the clusters for the genes
 #' 
 #' @export compute.oncoscore
+#' @importFrom utils write.table
 #' 
 compute.oncoscore <- function( data,
                                filter.threshold = 0,

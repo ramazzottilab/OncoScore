@@ -13,6 +13,8 @@
 #' 
 #' @format txt
 #' 
+#' @docType data
+#' 
 #' @source example data
 #'
 "genes"
@@ -23,6 +25,8 @@
 #' This dataset contains a list of time points to be used in the analysis as an example
 #' 
 #' @format txt
+#' 
+#' @docType data
 #' 
 #' @source example data
 #'
@@ -35,6 +39,8 @@
 #' 
 #' @format rdata
 #' 
+#' @docType data
+#' 
 #' @source example data
 #' 
 "query"
@@ -45,6 +51,8 @@
 #' This dataset contains the result of perform.time.series.query on genes and timepoints
 #' 
 #' @format rdata
+#' 
+#' @docType data
 #' 
 #' @source example data
 #' 

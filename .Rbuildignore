@@ -1,4 +1,6 @@
 ^README.md$
 ^.gitignore$
 ^.travic.yml$
+^LICENSE.md$
+^LICENSE.txt$
 ^.git/.*$
