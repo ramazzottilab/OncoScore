@@ -53,7 +53,7 @@ compute.oncoscore <- function( data,
             data[gene, "PercCit"] = data[gene, "CitationsGeneInCancer"] * 100 / data[gene, "CitationsGene"]
         }
     }
-  
+
     # compute the scores based on the frequencies
     scores = compute.frequencies.scores(data, filter.threshold, analysis.mode)
     

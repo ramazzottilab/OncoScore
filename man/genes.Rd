@@ -11,6 +11,9 @@ example data
 \usage{
 genes
 }
+\value{
+list of 5 elements
+}
 \description{
 This dataset contains a list of genes to be used in the analysis as an example
 }

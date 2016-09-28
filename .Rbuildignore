@@ -4,3 +4,4 @@
 ^LICENSE.md$
 ^LICENSE.txt$
 ^.git/.*$
+.travis.yml

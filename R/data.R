@@ -12,9 +12,8 @@
 #' This dataset contains a list of genes to be used in the analysis as an example
 #' 
 #' @format txt
-#' 
 #' @docType data
-#' 
+#' @return list of 5 elements
 #' @source example data
 #'
 "genes"
@@ -25,9 +24,8 @@
 #' This dataset contains a list of time points to be used in the analysis as an example
 #' 
 #' @format txt
-#' 
 #' @docType data
-#' 
+#' @return list of 5 elements
 #' @source example data
 #'
 "timepoints"
@@ -38,9 +36,8 @@
 #' This dataset contains the result of perform.web.query on genes
 #' 
 #' @format rdata
-#' 
 #' @docType data
-#' 
+#' @return matrix 5 x 2
 #' @source example data
 #' 
 "query"
@@ -51,9 +48,8 @@
 #' This dataset contains the result of perform.time.series.query on genes and timepoints
 #' 
 #' @format rdata
-#' 
 #' @docType data
-#' 
+#' @return list of 5 matrix 5 x 2
 #' @source example data
 #' 
 "query.timepoints"

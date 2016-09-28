@@ -11,6 +11,9 @@ example data
 \usage{
 query
 }
+\value{
+matrix 5 x 2
+}
 \description{
 This dataset contains the result of perform.web.query on genes
 }
