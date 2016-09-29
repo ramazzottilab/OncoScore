@@ -140,13 +140,16 @@ compute.frequencies.scores <- function( data,
     
     cat('### Computing frequencies scores \n')
     # filter for a minimum number of citations for the genes if requested
+
+
     if (!is.na(filter.threshold)) {
-        data = data[data[, "CitationsGene"] >= filter.threshold, ]
+        data = data[data[, "CitationsGene"] >= filter.threshold, , drop = FALSE]
     } else {
         filter.threshold = 0
     }
 
-    data = cbind(data, matrix(0, ncol=4, nrow=nrow(data)))
+    temp.matrix = matrix(0,  nrow = nrow(data), ncol = 4)
+    data = cbind(data, temp.matrix)
     
     # structure where to save the results
     colnames(data)[4:7] = c("alpha",
