@@ -21,7 +21,7 @@
 #' @param analysis.mode logaritmic scores to be computed, i.e., log10, log2, natural log or log5
 #' @param cutoff.threshold threshold to be used to asses the oncogenes
 #' @param file should I save the results to text files? 
-#' @param auto-remove genes with invalid count
+#' @param filter.invalid auto-remove genes with invalid count
 #'
 #' @return the computed OncoScores and the clusters for the genes
 #' 
