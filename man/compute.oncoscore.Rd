@@ -18,7 +18,7 @@ compute.oncoscore(data, filter.threshold = 0, analysis.mode = "Log2",
 
 \item{file}{should I save the results to text files?}
 
-\item{auto-remove}{genes with invalid count}
+\item{filter.invalid}{auto-remove genes with invalid count}
 }
 \value{
 the computed OncoScores and the clusters for the genes
