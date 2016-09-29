@@ -21,6 +21,7 @@
 #' @param analysis.mode logaritmic scores to be computed, i.e., log10, log2, natural log or log5
 #' @param cutoff.threshold threshold to be used to asses the oncogenes
 #' @param file should I save the results to text files? 
+#' @param auto-remove genes with invalid count
 #'
 #' @return the computed OncoScores and the clusters for the genes
 #' 
@@ -31,7 +32,8 @@ compute.oncoscore <- function( data,
                                filter.threshold = 0,
                                analysis.mode = "Log2",
                                cutoff.threshold = 21.09,
-                               file = NULL ) {
+                               file = NULL,
+                               filter.invalid = TRUE) {
     
     # verify I was given a cutoff threshold
     if (is.na(cutoff.threshold)) {
@@ -43,15 +45,28 @@ compute.oncoscore <- function( data,
     data = cbind(data, 0)
     colnames(data)[3] = 'PercCit'
     
+    not.valid.genes = c()
     # set the percentage of citations
     for (gene in rownames(data)) {
-        if (is.na(data[gene, "CitationsGene"]) || data[gene, "CitationsGene"] <= 1) {
+        if (is.na(data[gene, "CitationsGene"])) {
             data[gene, "PercCit"] = 0
-        } else if (is.na(data[gene, "CitationsGeneInCancer"]) || data[gene, "CitationsGeneInCancer"] == -1) {
+            not.valid.genes = c(not.valid.genes, gene)
+        } else if (data[gene, "CitationsGene"] <= 1) {
+            data[gene, "PercCit"] = 0
+        } else if (is.na(data[gene, "CitationsGeneInCancer"])) {
+            data[gene, "PercCit"] = 0
+            not.valid.genes = c(not.valid.genes, gene)
+        } else if (data[gene, "CitationsGeneInCancer"] == -1) {
             data[gene, "PercCit"] = 0
         } else {
             data[gene, "PercCit"] = data[gene, "CitationsGeneInCancer"] * 100 / data[gene, "CitationsGene"]
         }
+    }
+    not.valid.genes = unique(not.valid.genes)
+    if (length(not.valid.genes) > 0 && filter.invalid) {
+        warning("Removing invalid genes: ", paste(not.valid.genes, collapse=' '))
+        valid.genes = setdiff(rownames(data), not.valid.genes)
+        data = data[valid.genes, , drop = FALSE]
     }
 
     # compute the scores based on the frequencies
