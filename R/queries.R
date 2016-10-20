@@ -85,7 +85,10 @@ perform.query <- function( list.of.genes,
     for (gene in list.of.genes) {
         lc = get.pubmed.driver.analysis(paste0(gene, search.fields),
                                         gene = gene)
-        if (lc == -1) {
+      
+        if (is.na(lc)) {
+            warning('Unable to retrieve information for ', gene)
+        } else if (lc == -1) {
             warning(gene, ' not found on PubMed\n')
         }
         ans = rbind(ans, lc)
@@ -104,7 +107,9 @@ perform.query <- function( list.of.genes,
     for (gene in list.of.genes) {
         lc = get.pubmed.driver.analysis(paste0(gene, search.fields),
                                         gene = gene)
-        if (lc == -1) {
+        if (is.na(lc)) {
+            warning('Unable to retrieve information for ', gene)
+        } else if (lc == -1) {
             warning(gene, ' not found on PubMed\n')
         }
         ans = rbind(ans, lc)

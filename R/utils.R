@@ -34,8 +34,11 @@ get.pubmed.driver.analysis <- function(keywords,
 
     # perform the query to PubMed
     webget = try.scan(getURL)
-    lc = get.list.from.xml(webget)
-
+    if (is.null(webget)) {
+        lc = NA
+    } else {
+        lc = get.list.from.xml(webget)
+    }
     cat("\tNumber of papers found in PubMed for",
         gene,
         "was:",
@@ -72,7 +75,8 @@ try.scan <- function(getURL) {
                        silent = TRUE)
     }
     if (class(thispage) == "try-error") {
-        stop("Error: The PubMed website could not be reached.")
+        warning("Error: The PubMed website could not be reached.")
+        return(NULL)
     }
     return(thispage)
 }

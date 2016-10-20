@@ -1,12 +1,12 @@
 Package: OncoScore
-Version: 1.0.2
-Date: 2016-09-28
+Version: 1.1.3
+Date: 2016-09-29
 Title: OncoScore
-Authors@R: c(person("Daniele", "Ramazzotti", role=c("aut", "cre"), email="daniele.ramazzotti@yahoo.com"),
-             person("Luca", "De Sano", role=c("aut"), email="l.desano@campus.unimib.it"),
-             person("Roberta", "Spinelli", role=c("ctb"), email="spinelli.roberta@gmail.com"),
-             person("Carlo", "Gambacorti Passerini", role=c("ctb"), email="carlo.gambacorti@unimib.it"),
-             person("Rocco", "Piazza", role=c("ctb"), email="rocco.piazza@unimib.it"))
+Authors@R: c(person("Luca", "De Sano", role=c("aut"), email="l.desano@campus.unimib.it"),
+            person("Carlo", "Gambacorti Passerini", role=c("ctb"), email="carlo.gambacorti@unimib.it"),
+            person("Rocco", "Piazza", role=c("ctb"), email="rocco.piazza@unimib.it"),
+            person("Daniele", "Ramazzotti", role=c("aut", "cre"), email="daniele.ramazzotti@yahoo.com"),
+            person("Roberta", "Spinelli", role=c("ctb"), email="spinelli.roberta@gmail.com"))
 Maintainer: Daniele Ramazzotti <daniele.ramazzotti@yahoo.com>
 Depends:
     R (>= 3.3),
@@ -23,7 +23,7 @@ Title:
     A tool to identify potentially oncogenic genes
 Description:
     OncoScore is a tool to measure the association of genes to cancer based
-    on citation frequency in biomedical literature. The score is evaluated 
+    on citation frequencies in biomedical literature. The score is evaluated 
     from PubMed literature by dynamically updatable web queries.
 Encoding: UTF-8
 LazyData: TRUE

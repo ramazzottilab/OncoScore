@@ -5,7 +5,7 @@
 \title{compute.oncoscore}
 \usage{
 compute.oncoscore(data, filter.threshold = 0, analysis.mode = "Log2",
-  cutoff.threshold = 21.09, file = NULL)
+  cutoff.threshold = 21.09, file = NULL, filter.invalid = TRUE)
 }
 \arguments{
 \item{data}{input data as result of the function perform.query}
@@ -17,6 +17,8 @@ compute.oncoscore(data, filter.threshold = 0, analysis.mode = "Log2",
 \item{cutoff.threshold}{threshold to be used to asses the oncogenes}
 
 \item{file}{should I save the results to text files?}
+
+\item{filter.invalid}{auto-remove genes with invalid count}
 }
 \value{
 the computed OncoScores and the clusters for the genes
