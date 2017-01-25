@@ -25,7 +25,7 @@ get.pubmed.driver.analysis <- function(keywords,
 
     # setup the query to PubMed
     keywords = gsub(" ", "+", keywords)
-    getURL = paste0("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/",
+    getURL = paste0("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/",
                     "esearch.fcgi?db=pubmed&term=",
                     keywords,
                     "&retmax=3000000",
