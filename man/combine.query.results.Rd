@@ -17,7 +17,7 @@ combine.query.results(query, genes, new.name)
 The frequencies of the genes in the cancer related documents and in all the documents retireved on PubMed
 }
 \description{
-Merge a set of genes in a unique gene
+Merge a set of genes in a unique one in order to account for possible aliases
 }
 \examples{
 data(query)

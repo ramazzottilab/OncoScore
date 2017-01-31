@@ -207,7 +207,7 @@ get.genes.from.biomart <- function(chromosome,
     return(ch[,])
 }
 
-#' Merge a set of genes in a unique gene
+#' Merge a set of genes in a unique one in order to account for possible aliases
 #' 
 #' @title combine.query.results
 #'
@@ -239,7 +239,7 @@ combine.query.results <- function(query,
     return(result)
 }
 
-#' execute merge procedure on a matrix
+#' Perform merge procedure on a matrix
 #' 
 #' @title combine.single.matrix
 #' 

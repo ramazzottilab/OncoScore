@@ -17,6 +17,6 @@ combine.single.matrix(query, genes, new.name)
 a merged matrix
 }
 \description{
-execute merge procedure on a matrix
+Perform merge procedure on a matrix
 }
 
