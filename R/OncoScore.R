@@ -315,23 +315,7 @@ compute.oncoscore.from.region <- function(chromosome,
                                           cutoff.threshold = 21.09,
                                           file = NULL) {
 
-    cat("### Performing query on BioMart \n")
-
-    genes = get.genes.from.biomart(chromosome, start, end)
-
-    if (length(genes) > gene.num.limit) {
-        cat("### Too many genes, only first", gene.num.limit, "will be used\n")
-        genes = genes[1:gene.num.limit]
-    } else if (length(genes) == 0) {
-        stop("No genes found\n")
-    }
-
-    cat("### Performing web query on: ")
-    cat(paste(genes, collapse = " "), "\n")
-
-
-    query = perform.query(list.of.genes = genes,
-                              gene.num.limit = gene.num.limit)
+    query = perform.query.from.region(chromosome, start, end, gene.num.limit)
 
     results = compute.oncoscore(data = query, 
                                 filter.threshold = filter.threshold,

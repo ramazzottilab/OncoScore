@@ -283,3 +283,50 @@ perform.query.timeseries <- function( list.of.genes,
     }
     return(pubMedPanelGenes)
 }
+
+
+#' Perform the query to PubMed on a given chromosomic region
+#' 
+#' @title perform.query.from.region
+#' 
+#' @examples
+#' chromosome = 15
+#' start = 200000
+#' end = 300000
+#' \donttest{perform.query.from.region(chromosome, start, end)}
+#' 
+#' @param chromosome chromosome to be retireved
+#' @param start initial position to be used
+#' @param end final position to be used
+#' @param gene.num.limit A limit to the genes to be considered in the analysis; this is done to limit the number of queries to PubMed
+#'
+#' @return The frequencies of the genes in the cancer related documents and in all the documents retireved on PubMed
+#' 
+#' @export perform.query.from.region
+#' 
+#' 
+perform.query.from.region <- function( chromosome,
+                                       start = NA,
+                                       end = NA,
+                                       gene.num.limit = 100) {
+
+    cat("### Performing query on BioMart \n")
+
+    genes = get.genes.from.biomart(chromosome, start, end)
+
+    if (length(genes) > gene.num.limit) {
+        cat("### Too many genes, only first", gene.num.limit, "will be used\n")
+        genes = genes[1:gene.num.limit]
+    } else if (length(genes) == 0) {
+        stop("No genes found\n")
+    }
+
+    cat("### Performing web query on: ")
+    cat(paste(genes, collapse = " "), "\n")
+
+
+    query = perform.query(list.of.genes = genes,
+                              gene.num.limit = gene.num.limit)
+
+    return(query)
+}

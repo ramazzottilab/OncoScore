@@ -25,7 +25,7 @@ get.pubmed.driver.analysis <- function(keywords,
 
     # setup the query to PubMed
     keywords = gsub(" ", "+", keywords)
-    getURL = paste0("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/",
+    getURL = paste0("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/",
                     "esearch.fcgi?db=pubmed&term=",
                     keywords,
                     "&retmax=3000000",
@@ -205,4 +205,62 @@ get.genes.from.biomart <- function(chromosome,
                mart=ensembl)
 
     return(ch[,])
+}
+
+#' Merge a set of genes in a unique one in order to account for possible aliases
+#' 
+#' @title combine.query.results
+#'
+#' @examples
+#' data(query)
+#' combine.query.results(query, c('IDH1', 'IDH2'), 'new_gene')
+#' 
+#' @param query The result of perform.query, perform.query.timeseries of perform.query.from.region
+#' @param genes A list of genes to be merged
+#' @param new.name A string containing the new name to be used for the new genes
+#' 
+#' @return The frequencies of the genes in the cancer related documents and in all the documents retireved on PubMed
+#'
+#' @export combine.query.results
+#' 
+combine.query.results <- function(query,
+                                genes,
+                                new.name) {
+    result = NULL
+    genes = unique(genes)
+    if (is.matrix(query)) {
+        result = combine.single.matrix(query, genes, new.name)
+    } else {
+        result = list()
+        for (date in names(query)) {
+            result[[date]] = combine.single.matrix(query[[date]], genes, new.name)
+        }
+    }
+    return(result)
+}
+
+#' Perform merge procedure on a matrix
+#' 
+#' @title combine.single.matrix
+#' 
+#' @param query The result of perform.query, perform.query.timeseries of perform.query.from.region
+#' @param genes A list of genes to be merged
+#' @param new.name A string containing the new name to be used for the new genes
+#' 
+#' @return a merged matrix
+#'
+combine.single.matrix <- function(query, genes, new.name){
+    matrix.genes = rownames(query)
+    if (!all(genes %in% matrix.genes)) {
+        stop("error: not all genes are in query result")
+    }
+
+    projection = query[genes, ,drop = F]
+    projection = colSums(projection)
+    projection = t(as.matrix(projection))
+    rownames(projection) = new.name
+
+    query = query[!rownames(query) %in% genes, , drop = F]
+    query = rbind(query, projection)
+    return(query)
 }

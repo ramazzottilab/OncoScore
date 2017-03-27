@@ -91,6 +91,13 @@ query = perform.query(c("ASXL1","IDH1","IDH2","SETBP1","TET2"))
 data(query)
 @
 
+OncoScore provides a function to merge gene names if requested by the user.
+This function is useful when there are aliases in the gene list. 
+
+<<>>=
+combine.query.results(query, c('IDH1', 'IDH2'), 'new_gene')
+@
+
 OncoScore also provides a function to retireve the names of the genes in a given 
 portion of a chromosome that can be exploited if we are dealing, e.g., with copy 
 number alterations hitting regions rather than specific genes. 

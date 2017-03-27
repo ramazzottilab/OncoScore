@@ -7,8 +7,14 @@ cache: packages
 before_install:    
   - tlmgr install tcolorbox
 
-# codecov integration
-r_github_packages:
-  - jimhester/covr
+# safelist
+branches:
+  only:
+  - master
+  - development
+
+r_packages:
+  - covr
+
 after_success:
-  - Rscript -e 'library(covr);codecov()'
+  - Rscript -e 'library(covr); codecov()'
