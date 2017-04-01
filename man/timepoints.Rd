@@ -18,4 +18,3 @@ list of 5 elements
 This dataset contains a list of time points to be used in the analysis as an example
 }
 \keyword{datasets}
-

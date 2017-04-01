@@ -15,4 +15,3 @@ Result obtained from PubMed
 \description{
 try to query the given URL
 }
-

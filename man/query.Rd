@@ -18,4 +18,3 @@ matrix 5 x 2
 This dataset contains the result of perform.web.query on genes
 }
 \keyword{datasets}
-

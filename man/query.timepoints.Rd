@@ -18,4 +18,3 @@ list of 5 matrix 5 x 2
 This dataset contains the result of perform.time.series.query on genes and timepoints
 }
 \keyword{datasets}
-

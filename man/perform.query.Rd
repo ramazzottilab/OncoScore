@@ -24,4 +24,3 @@ data(genes)
 \donttest{perform.query(genes[1:2])}
 
 }
-

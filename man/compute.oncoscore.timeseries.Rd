@@ -29,4 +29,3 @@ data(query.timepoints)
 compute.oncoscore.timeseries(query.timepoints)
 
 }
-

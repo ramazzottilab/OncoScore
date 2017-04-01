@@ -20,4 +20,3 @@ the computed scores
 \description{
 compute the logaritmic scores based on the frequencies of the genes
 }
-

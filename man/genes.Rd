@@ -18,4 +18,3 @@ list of 5 elements
 This dataset contains a list of genes to be used in the analysis as an example
 }
 \keyword{datasets}
-

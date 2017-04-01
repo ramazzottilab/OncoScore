@@ -17,4 +17,3 @@ the computed scores and oncogenes
 \description{
 estimate the oncoscore for the genes
 }
-

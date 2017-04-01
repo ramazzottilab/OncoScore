@@ -17,4 +17,3 @@ The frequency for the current gene retrieved with the query on the provided set 
 \description{
 query PubMed for a list of genes
 }
-

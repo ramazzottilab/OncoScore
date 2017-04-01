@@ -19,4 +19,3 @@ a merged matrix
 \description{
 Perform merge procedure on a matrix
 }
-
