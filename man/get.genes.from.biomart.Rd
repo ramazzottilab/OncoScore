@@ -26,4 +26,3 @@ end = 300000
 \donttest{ch15 = get.genes.from.biomart(chromosome, start, end)}
 
 }
-

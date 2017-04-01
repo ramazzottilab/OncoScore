@@ -15,4 +15,3 @@ Processed result obtained from the query to PubMed
 \description{
 process the result of the query
 }
-

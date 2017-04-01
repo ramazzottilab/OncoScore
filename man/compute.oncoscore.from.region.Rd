@@ -38,4 +38,3 @@ end = 300000
 \donttest{compute.oncoscore.from.region(chromosome, start, end)}
 
 }
-

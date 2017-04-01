@@ -41,4 +41,3 @@ result = compute.oncoscore.timeseries(query.timepoints)
 plot.oncoscore.timeseries(result)
 
 }
-

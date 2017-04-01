@@ -31,4 +31,3 @@ data(query)
 compute.oncoscore(query)
 
 }
-

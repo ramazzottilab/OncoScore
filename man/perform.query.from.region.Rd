@@ -29,4 +29,3 @@ end = 300000
 \donttest{perform.query.from.region(chromosome, start, end)}
 
 }
-

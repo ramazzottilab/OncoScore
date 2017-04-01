@@ -24,4 +24,3 @@ data(query)
 combine.query.results(query, c('IDH1', 'IDH2'), 'new_gene')
 
 }
-

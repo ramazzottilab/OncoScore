@@ -34,4 +34,3 @@ result = compute.oncoscore(query)
 plot.oncoscore(result)
 
 }
-
