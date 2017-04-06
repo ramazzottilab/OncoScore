@@ -10,7 +10,7 @@ Authors@R: c(person("Luca", "De Sano", role=c("aut"), email="l.desano@campus.uni
             person("Roberta", "Spinelli", role=c("ctb"), email="spinelli.roberta@gmail.com"))
 Maintainer: Daniele Ramazzotti <daniele.ramazzotti@yahoo.com>
 Depends:
-    R (>= 3.3),
+    R (>= 3.4),
 Imports:
     biomaRt,
     grDevices,
