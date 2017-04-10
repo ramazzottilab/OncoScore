@@ -262,7 +262,7 @@ of the considered genes over times.}{}
 <<figresulttsinc, fig=TRUE, include=FALSE>>=
 plot.oncoscore.timeseries(result.timeseries, 
     incremental = TRUE, 
-    ylab='absolute varietion')
+    ylab='absolute variation')
 @
 \incfig[ht]{vignette-figresulttsinc}{0.5\textwidth}{Variations of the oncogenetic potential 
 of the considered genes over times.}{}
@@ -271,7 +271,7 @@ of the considered genes over times.}{}
 plot.oncoscore.timeseries(result.timeseries,
     incremental = TRUE,
     relative = TRUE,
-    ylab='relative varietion')
+    ylab='relative variation')
 @
 \incfig[ht]{vignette-figresulttsincrel}{0.5\textwidth}{Variations as relative values
 of the oncogenetic potential of the considered genes over times.}{}
