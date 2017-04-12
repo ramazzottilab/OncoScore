@@ -253,27 +253,27 @@ We finally plot the trend of the scores over the considered times as
 absolute and values and as variations.
 
 
-<<figresultts, fig=TRUE, include=FALSE>>=
+<<figresultts, fig=TRUE, include=FALSE, width=7, height=6.5>>=
 plot.oncoscore.timeseries(result.timeseries)
 @
-\incfig[ht]{vignette-figresultts}{0.5\textwidth}{Absolute values of the oncogenetic potential 
+\incfig[ht]{vignette-figresultts}{0.6\textwidth}{Absolute values of the oncogenetic potential 
 of the considered genes over times.}{}
 
-<<figresulttsinc, fig=TRUE, include=FALSE>>=
+<<figresulttsinc, fig=TRUE, include=FALSE, width=7, height=6.5>>=
 plot.oncoscore.timeseries(result.timeseries, 
     incremental = TRUE, 
     ylab='absolute variation')
 @
-\incfig[ht]{vignette-figresulttsinc}{0.5\textwidth}{Variations of the oncogenetic potential 
+\incfig[ht]{vignette-figresulttsinc}{0.6\textwidth}{Variations of the oncogenetic potential 
 of the considered genes over times.}{}
 
-<<figresulttsincrel, fig=TRUE, include=FALSE>>=
+<<figresulttsincrel, fig=TRUE, include=FALSE, width=7, height=6.5>>=
 plot.oncoscore.timeseries(result.timeseries,
     incremental = TRUE,
     relative = TRUE,
     ylab='relative variation')
 @
-\incfig[ht]{vignette-figresulttsincrel}{0.5\textwidth}{Variations as relative values
+\incfig[ht]{vignette-figresulttsincrel}{0.6\textwidth}{Variations as relative values
 of the oncogenetic potential of the considered genes over times.}{}
 
 \end{document}
