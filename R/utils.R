@@ -255,7 +255,7 @@ combine.single.matrix <- function(query, genes, new.name){
         stop("error: not all genes are in query result")
     }
 
-    projection = query[genes, ,drop = F]
+    projection = query[genes, ,drop = FALSE]
     projection = colSums(projection)
     projection = t(as.matrix(projection))
     rownames(projection) = new.name
