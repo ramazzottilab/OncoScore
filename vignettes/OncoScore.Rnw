@@ -1,6 +1,8 @@
+%\VignetteEngine{knitr::knitr}
+
 \documentclass[a4paper, 9pt]{article}
 
-<<style-Sweave, eval=TRUE, echo=FALSE, results=tex>>=
+<<style-knitr, eval=TRUE, echo=FALSE, results="asis">>=
 BiocStyle::latex()
 @
 
@@ -14,6 +16,7 @@ BiocStyle::latex()
 \usepackage{graphicx}
 %\usepackage{url}
 %\usepackage{fullpage}
+\usepackage{tcolorbox}
 
 \newcommand{\OncoScore}{\textsc{OncoScore}}
 
@@ -21,34 +24,37 @@ BiocStyle::latex()
 
 \title{Using the \OncoScore{} package}
 
-\author{
-Luca De Sano\footnote{Dipartimento di Informatica Sistemistica e Comunicazione, 
-Università degli Studi Milano Bicocca Milano, Italy.} \and
-Carlo Gambacorti Passerini\footnote{Dipartimento di Medicina e Chirurgia, 
-Università degli Studi Milano Bicocca Milano, Italy.} \and
-Rocco Piazza$^\dagger$ \and
-Daniele Ramazzotti$^\ast$ \and
-Roberta Spinelli$^\dagger$
-}
+\author[1]{Luca De Sano}
+\author[2]{Carlo Gambacorti Passerini}
+\author[2]{Rocco Piazza}
+\author[1]{Daniele Ramazzotti}
+\author[2]{Roberta Spinelli}
+
+\affil[1]{Dipartimento di Informatica Sistemistica e Comunicazione, 
+Università degli Studi Milano Bicocca, Milano, Italy}
+\affil[2]{Dipartimento di Medicina e Chirurgia, 
+Università degli Studi Milano Bicocca, Milano, Italy.}
+
 
 \date{\today}
 \maketitle
 
-\begin{center}
-\begin{minipage}[h]{0.75\textwidth}
-
-\textbf{Abstract.} \OncoScore{} is a tool to measure the association of genes to cancer based
+\begin{tcolorbox}{\bf Overview.} \OncoScore{} is a tool to measure the association of genes to cancer based
     on citation frequency in biomedical literature. The score is evaluated 
     from PubMed literature by dynamically updatable web queries.
-\\
-
-
-\end{minipage}
-\end{center}
 
 \vspace{1.0cm}
 
-\SweaveOpts{concordance=TRUE}
+
+{\em In this vignette, we give an overview of the package by presenting some of its main functions.}
+
+\vspace{1.0cm}
+
+\renewcommand{\arraystretch}{1.5}
+
+\end{tcolorbox}
+
+\vspace{1.0cm}
 
 The \OncoScore{} analysis consists of two parts. One can estimate a score to asses 
 the oncogenic potential of a set of genes, given the lecterature knowledge, 
@@ -244,36 +250,43 @@ result.timeseries = compute.oncoscore.timeseries(query.timepoints)
 \paragraph{\large Visualization of the results.} We next plot the scores
 measuring the oncogenetic potential of the considered genes as a barplot.
 
-<<figresult, fig=TRUE, include=FALSE>>=
+<<image-oncoscore, fig.show='hide', fig.width=5, fig.height=5, results='hide'>>=
 plot.oncoscore(result, col = 'darkblue')
 @
-\incfig[ht]{vignette-figresult}{0.5\textwidth}{Oncogenetic potential of the considered genes.}{}
+\incfig[ht]{figure/image-oncoscore-1}{0.5\textwidth}{Oncogenetic potential of the considered genes.}{}
 
 We finally plot the trend of the scores over the considered times as 
 absolute and values and as variations.
 
 
-<<figresultts, fig=TRUE, include=FALSE, width=7, height=6.5>>=
+<<image-timeseries, fig.show='hide', fig.width=5, fig.height=5, results='hide'>>=
 plot.oncoscore.timeseries(result.timeseries)
 @
-\incfig[ht]{vignette-figresultts}{0.6\textwidth}{Absolute values of the oncogenetic potential 
+\incfig[ht]{figure/image-timeseries-1}{0.6\textwidth}{Absolute values of the oncogenetic potential 
 of the considered genes over times.}{}
 
-<<figresulttsinc, fig=TRUE, include=FALSE, width=7, height=6.5>>=
+<<image-oncoscore-timeseries, fig.show='hide', fig.width=7, fig.height=5.5, results='hide'>>=
 plot.oncoscore.timeseries(result.timeseries, 
     incremental = TRUE, 
     ylab='absolute variation')
 @
-\incfig[ht]{vignette-figresulttsinc}{0.6\textwidth}{Variations of the oncogenetic potential 
+\incfig[ht]{figure/image-oncoscore-timeseries-1}{0.6\textwidth}{Variations of the oncogenetic potential 
 of the considered genes over times.}{}
 
-<<figresulttsincrel, fig=TRUE, include=FALSE, width=7, height=6.5>>=
+<<image-oncoscore-timeseries-incremental, fig.show='hide', fig.width=7, fig.height=6.5, results='hide'>>=
 plot.oncoscore.timeseries(result.timeseries,
     incremental = TRUE,
     relative = TRUE,
     ylab='relative variation')
 @
-\incfig[ht]{vignette-figresulttsincrel}{0.6\textwidth}{Variations as relative values
+\incfig[ht]{figure/image-oncoscore-timeseries-incremental-1}{0.6\textwidth}{Variations as relative values
 of the oncogenetic potential of the considered genes over times.}{}
+
+
+\paragraph{\Rcode{sessionInfo()}}
+
+<<sessioninfo, results='asis', echo=FALSE>>=
+toLatex(sessionInfo())
+@
 
 \end{document}
