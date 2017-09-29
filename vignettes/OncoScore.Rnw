@@ -24,16 +24,16 @@ BiocStyle::latex()
 
 \title{Using the \OncoScore{} package}
 
-\author[1]{Luca De Sano}
-\author[2]{Carlo Gambacorti Passerini}
-\author[2]{Rocco Piazza}
-\author[1]{Daniele Ramazzotti}
-\author[2]{Roberta Spinelli}
 
-\affil[1]{Dipartimento di Informatica Sistemistica e Comunicazione, 
-Università degli Studi Milano Bicocca, Milano, Italy}
-\affil[2]{Dipartimento di Medicina e Chirurgia, 
-Università degli Studi Milano Bicocca, Milano, Italy.}
+\author{
+Luca De Sano\footnote{Dipartimento di Informatica Sistemistica e Comunicazione,
+Università degli Studi Milano Bicocca Milano, Italy.} \and
+Carlo Gambacorti Passerini\footnote{Dipartimento di Medicina e Chirurgia,
+Università degli Studi Milano Bicocca Milano, Italy.} \and
+Rocco Piazza$^\dagger$ \and
+Daniele Ramazzotti$^\ast$ \and
+Roberta Spinelli$^\dagger$
+}
 
 
 \date{\today}
