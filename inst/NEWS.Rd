@@ -18,6 +18,6 @@
 
 \section{Changes in version 0.99.0 (2016-03-16)}{
     \itemize{
-        \item New package OncoScore released on BioCondictor. 
+        \item New package OncoScore released on BioCondictor.
     }
 }
