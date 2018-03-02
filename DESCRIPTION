@@ -1,6 +1,6 @@
 Package: OncoScore
-Version: 1.6.0
-Date: 2017-11-01
+Version: 1.6.1
+Date: 2018-03-02
 Title: A tool to identify potentially oncogenic genes
 Authors@R: c(person("Luca", "De Sano", role=c("aut"), email="l.desano@campus.unimib.it"),
             person("Carlo", "Gambacorti Passerini", role=c("ctb"), email="carlo.gambacorti@unimib.it"),
