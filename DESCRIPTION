@@ -1,6 +1,6 @@
 Package: OncoScore
-Version: 1.7.1
-Date: 2018-03-02
+Version: 1.6.1
+Date: 2018-03-09
 Title: A tool to identify potentially oncogenic genes
 Authors@R: c(person("Luca", "De Sano", role=c("aut"), email="l.desano@campus.unimib.it"),
             person("Carlo", "Gambacorti Passerini", role=c("ctb"), email="carlo.gambacorti@unimib.it"),
@@ -23,7 +23,7 @@ Suggests:
 Description:
     OncoScore is a tool to measure the association of genes to cancer based
     on citation frequencies in biomedical literature. The score is evaluated 
-    from PubMed literature by dynamically updatable web queries.
+    from PubMed literature by dynamically updatable web queries. 
 Encoding: UTF-8
 LazyData: TRUE
 License: file LICENSE
