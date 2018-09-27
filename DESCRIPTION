@@ -1,6 +1,6 @@
 Package: OncoScore
-Version: 1.9.1
-Date: 2018-07-18
+Version: 1.9.2
+Date: 2018-09-27
 Title: A tool to identify potentially oncogenic genes
 Authors@R: c(person("Luca", "De Sano", role=c("aut"), email="luca.desano@gmail.com"),
             person("Carlo", "Gambacorti Passerini", role=c("ctb"), email="carlo.gambacorti@unimib.it"),
@@ -9,12 +9,13 @@ Authors@R: c(person("Luca", "De Sano", role=c("aut"), email="luca.desano@gmail.c
             person("Roberta", "Spinelli", role=c("ctb"), email="spinelli.roberta@gmail.com"))
 Maintainer: Luca De Sano <luca.desano@gmail.com>
 Depends:
-    R (>= 3.4),
+    R (>= 3.5),
 Imports:
     biomaRt,
     grDevices,
     graphics,
     utils,
+    methods,
 Suggests:
     BiocGenerics,
     BiocStyle,
@@ -30,5 +31,5 @@ License: file LICENSE
 URL: https://github.com/danro9685/OncoScore
 BugReports: https://github.com/danro9685/OncoScore
 biocViews: BiomedicalInformatics
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 VignetteBuilder: knitr

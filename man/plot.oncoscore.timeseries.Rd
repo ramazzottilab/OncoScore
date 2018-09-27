@@ -4,9 +4,10 @@
 \alias{plot.oncoscore.timeseries}
 \title{plot.oncoscore.timeseries}
 \usage{
-\method{plot}{oncoscore.timeseries}(x, gene.number = 5, incremental = FALSE,
-  relative = FALSE, main = "OncoScore", xlab = "timepoints",
-  ylab = "score", legend.pos = "top", file = NA, ...)
+\method{plot}{oncoscore.timeseries}(x, gene.number = 5,
+  incremental = FALSE, relative = FALSE, main = "OncoScore",
+  xlab = "timepoints", ylab = "score", legend.pos = "top",
+  file = NA, ...)
 }
 \arguments{
 \item{x}{input data as result of the function compute.OncoScore}

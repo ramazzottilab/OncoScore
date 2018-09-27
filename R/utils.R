@@ -16,6 +16,7 @@
 #' @param gene The name of a gene to be used for the query to PubMed
 #'
 #' @return The frequency for the current gene retrieved with the query on the provided set of keywords
+#' @importFrom methods is
 #'
 get.pubmed.driver.analysis <- function(keywords,
                                        gene) {
@@ -65,7 +66,7 @@ try.scan <- function(getURL) {
                         silent = TRUE)
 
     retrycount = 0
-    while (class(thispage) == "try-error" && retrycount < 10) {
+    while (is(thispage, "try-error") && retrycount < 10) {
         Sys.sleep(0.5)
         retrycount = retrycount + 1
         thispage = try(scan(getURL,
@@ -74,7 +75,7 @@ try.scan <- function(getURL) {
                             quiet = TRUE),
                        silent = TRUE)
     }
-    if (class(thispage) == "try-error") {
+    if (is(thispage, "try-error")) {
         warning("Error: The PubMed website could not be reached.")
         return(NULL)
     }
@@ -260,7 +261,7 @@ combine.single.matrix <- function(query, genes, new.name){
     projection = t(as.matrix(projection))
     rownames(projection) = new.name
 
-    query = query[!rownames(query) %in% genes, , drop = F]
+    query = query[!rownames(query) %in% genes, , drop = FALSE]
     query = rbind(query, projection)
     return(query)
 }
