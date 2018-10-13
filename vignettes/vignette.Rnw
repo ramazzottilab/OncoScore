@@ -53,6 +53,18 @@ BiocStyle::latex()
 
 \vspace{1.0cm}
 
+\renewcommand{\arraystretch}{2}
+
+\begin{center}
+\begin{tabular}{l | p{5.0cm} | l  | p{6.0cm}}
+{\bf Acronym} & {\bf Extended name} & {\bf App.} & {\bf Reference}\\ \hline
+
+OncoScore &  OncoScore: a novel, Internet-based tool to assess the oncogenic potential of genes &  Ind &  \href{https://www.nature.com/articles/srep46290}{Publication}.
+\\ \hline
+
+ \end{tabular}
+\end{center}
+
 The \OncoScore{} analysis consists of two parts. One can estimate a score to asses 
 the oncogenic potential of a set of genes, given the lecterature knowledge, 
 at the time of the analysis, or one can study the trend of such score over time.
