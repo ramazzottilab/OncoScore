@@ -5,8 +5,8 @@
 \title{compute.oncoscore.from.region}
 \usage{
 compute.oncoscore.from.region(chromosome, start = NA, end = NA,
-  gene.num.limit = 100, filter.threshold = NA, analysis.mode = "Log2",
-  cutoff.threshold = 21.09, file = NULL)
+  gene.num.limit = 100, filter.threshold = NA,
+  analysis.mode = "Log2", cutoff.threshold = 21.09, file = NULL)
 }
 \arguments{
 \item{chromosome}{chromosome to be retireved}
