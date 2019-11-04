@@ -1,5 +1,5 @@
 Package: OncoScore
-Version: 1.15.0
+Version: 1.14.0
 Date: 2019-11-04
 Title: A tool to identify potentially oncogenic genes
 Authors@R: c(person("Luca", "De Sano", role=c("aut"), email="luca.desano@gmail.com"),
@@ -9,7 +9,7 @@ Authors@R: c(person("Luca", "De Sano", role=c("aut"), email="luca.desano@gmail.c
             person("Roberta", "Spinelli", role=c("ctb"), email="spinelli.roberta@gmail.com"))
 Maintainer: Luca De Sano <luca.desano@gmail.com>
 Depends:
-    R (>= 4.0),
+    R (>= 3.6.1),
 Imports:
     biomaRt,
     grDevices,
