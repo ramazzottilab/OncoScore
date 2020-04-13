@@ -4,7 +4,9 @@
 \name{query}
 \alias{query}
 \title{The result of perform.web.query on genes}
-\format{rdata}
+\format{
+rdata
+}
 \source{
 example data
 }

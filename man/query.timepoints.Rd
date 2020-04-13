@@ -4,7 +4,9 @@
 \name{query.timepoints}
 \alias{query.timepoints}
 \title{The result of perform.time.series.query on genes and timepoints}
-\format{rdata}
+\format{
+rdata
+}
 \source{
 example data
 }

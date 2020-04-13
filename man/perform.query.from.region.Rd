@@ -4,8 +4,12 @@
 \alias{perform.query.from.region}
 \title{perform.query.from.region}
 \usage{
-perform.query.from.region(chromosome, start = NA, end = NA,
-  gene.num.limit = 100)
+perform.query.from.region(
+  chromosome,
+  start = NA,
+  end = NA,
+  gene.num.limit = 100
+)
 }
 \arguments{
 \item{chromosome}{chromosome to be retireved}

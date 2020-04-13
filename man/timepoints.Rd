@@ -4,7 +4,9 @@
 \name{timepoints}
 \alias{timepoints}
 \title{A list of timepoints}
-\format{txt}
+\format{
+txt
+}
 \source{
 example data
 }
