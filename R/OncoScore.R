@@ -286,10 +286,10 @@ estimate.oncogenes <- function( data,
 #' 
 #' @title compute.oncoscore.from.region
 #' 
-#### @examples
-#### chromosome = 15
-#### start = 200000
-#### end = 300000
+#' @examples
+#' chromosome = 15
+#' start = 200000
+#' end = 300000
 #### \donttest{compute.oncoscore.from.region(chromosome, start, end)}
 #' 
 #' @param chromosome chromosome to be retireved

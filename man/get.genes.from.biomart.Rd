@@ -23,6 +23,5 @@ Get a gene list from biomart
 chromosome = 15
 start = 200000
 end = 300000
-\donttest{ch15 = get.genes.from.biomart(chromosome, start, end)}
 
 }

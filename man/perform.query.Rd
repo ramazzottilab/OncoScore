@@ -21,6 +21,5 @@ perforn the query to PubMed
 }
 \examples{
 data(genes)
-\donttest{perform.query(genes[1:2])}
 
 }
