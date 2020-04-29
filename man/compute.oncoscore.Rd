@@ -4,8 +4,14 @@
 \alias{compute.oncoscore}
 \title{compute.oncoscore}
 \usage{
-compute.oncoscore(data, filter.threshold = 0, analysis.mode = "Log2",
-  cutoff.threshold = 21.09, file = NULL, filter.invalid = TRUE)
+compute.oncoscore(
+  data,
+  filter.threshold = 0,
+  analysis.mode = "Log2",
+  cutoff.threshold = 21.09,
+  file = NULL,
+  filter.invalid = TRUE
+)
 }
 \arguments{
 \item{data}{input data as result of the function perform.query}

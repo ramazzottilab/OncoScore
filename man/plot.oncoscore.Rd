@@ -4,8 +4,15 @@
 \alias{plot.oncoscore}
 \title{plot.oncoscore}
 \usage{
-\method{plot}{oncoscore}(x, gene.number = 5, main = "OncoScore",
-  xlab = "score", ylab = "genes", file = NA, ...)
+\method{plot}{oncoscore}(
+  x,
+  gene.number = 5,
+  main = "OncoScore",
+  xlab = "score",
+  ylab = "genes",
+  file = NA,
+  ...
+)
 }
 \arguments{
 \item{x}{input data as result of the function compute.OncoScore}

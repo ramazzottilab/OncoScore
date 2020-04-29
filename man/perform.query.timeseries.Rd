@@ -4,8 +4,13 @@
 \alias{perform.query.timeseries}
 \title{perform.query.timeseries}
 \usage{
-perform.query.timeseries(list.of.genes, list.of.datatimes,
-  gene.num.limit = 100, timepoints.limit = 10, custom.search = NA)
+perform.query.timeseries(
+  list.of.genes,
+  list.of.datatimes,
+  gene.num.limit = 100,
+  timepoints.limit = 10,
+  custom.search = NA
+)
 }
 \arguments{
 \item{list.of.genes}{The list of genes to be used in the queries to PubMed}

@@ -4,8 +4,13 @@
 \alias{compute.oncoscore.timeseries}
 \title{compute.oncoscore.timeseries}
 \usage{
-compute.oncoscore.timeseries(data, filter.threshold = 0,
-  analysis.mode = "Log2", cutoff.threshold = 21.09, file = NULL)
+compute.oncoscore.timeseries(
+  data,
+  filter.threshold = 0,
+  analysis.mode = "Log2",
+  cutoff.threshold = 21.09,
+  file = NULL
+)
 }
 \arguments{
 \item{data}{input data as result of the function perform.query.timeseries}

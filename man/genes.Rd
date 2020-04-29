@@ -4,7 +4,9 @@
 \name{genes}
 \alias{genes}
 \title{A list of genes}
-\format{txt}
+\format{
+txt
+}
 \source{
 example data
 }

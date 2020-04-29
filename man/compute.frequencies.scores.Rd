@@ -4,8 +4,7 @@
 \alias{compute.frequencies.scores}
 \title{compute.frequencies.scores}
 \usage{
-compute.frequencies.scores(data, filter.threshold = 1,
-  analysis.mode = "Log2")
+compute.frequencies.scores(data, filter.threshold = 1, analysis.mode = "Log2")
 }
 \arguments{
 \item{data}{input data as result of the function perform.query}
