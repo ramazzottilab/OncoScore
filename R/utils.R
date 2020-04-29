@@ -169,7 +169,7 @@ get.list.from.xml <- function(webget) {
 #' chromosome = 15
 #' start = 200000
 #' end = 300000
-#' \donttest{ch15 = get.genes.from.biomart(chromosome, start, end)}
+#### \donttest{ch15 = get.genes.from.biomart(chromosome, start, end)}
 #' 
 #' @param chromosome chromosome to be retireved
 #' @param start initial position to be used

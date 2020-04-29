@@ -32,6 +32,5 @@ perforn the query to PubMed for the time series analysis
 \examples{
 data(genes)
 data(timepoints)
-\donttest{perform.query.timeseries(genes[1:2], timepoints[1:2])}
 
 }

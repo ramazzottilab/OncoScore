@@ -30,6 +30,5 @@ Perform the query to PubMed on a given chromosomic region
 chromosome = 15
 start = 200000
 end = 300000
-\donttest{perform.query.from.region(chromosome, start, end)}
 
 }
