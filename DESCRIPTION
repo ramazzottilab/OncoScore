@@ -1,8 +1,9 @@
 Package: OncoScore
-Version: 1.16.0
-Date: 2020-04-29
+Version: 1.17.1
+Date: 2020-10-06
 Title: A tool to identify potentially oncogenic genes
-Authors@R: c(person("Luca", "De Sano", role=c("aut"), email="luca.desano@gmail.com"),
+Authors@R: c(person("Luca", "De Sano", role=c("aut"), email="luca.desano@gmail.com",
+                comment = c(ORCID = "0000-0002-9618-3774")),
             person("Carlo", "Gambacorti Passerini", role=c("ctb"), email="carlo.gambacorti@unimib.it"),
             person("Rocco", "Piazza", role=c("ctb"), email="rocco.piazza@unimib.it"),
             person("Daniele", "Ramazzotti", role=c("aut", "cre"), email="daniele.ramazzotti@yahoo.com"),
@@ -31,5 +32,5 @@ License: file LICENSE
 URL: https://github.com/danro9685/OncoScore
 BugReports: https://github.com/danro9685/OncoScore
 biocViews: BiomedicalInformatics
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 VignetteBuilder: knitr
