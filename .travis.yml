@@ -5,6 +5,7 @@ cache: packages
 
 before_install:
   - tlmgr install pdfcrop
+  - tlmgr install expl3
   - tlmgr install tcolorbox
   - tlmgr install bera
   - tlmgr install nowidow
