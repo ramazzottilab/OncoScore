@@ -17,6 +17,8 @@ BiocStyle::latex()
 \usepackage{tcolorbox}
 \usepackage{authblk}
 
+\usepackage{expl3}
+
 \newcommand{\OncoScore}{\textsc{OncoScore}}
 
 \begin{document}
