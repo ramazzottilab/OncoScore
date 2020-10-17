@@ -5,6 +5,7 @@ cache: packages
 
 before_install:
   - tlmgr install pdfcrop
+  - tlmgr install xpackages
   - tlmgr install expl3
   - tlmgr install tcolorbox
   - tlmgr install bera
