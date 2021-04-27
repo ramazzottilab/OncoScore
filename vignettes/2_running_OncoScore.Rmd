@@ -1,0 +1,99 @@
+---
+title: Running OncoScore
+output: html_document
+---
+
+The OncoScore analysis consists of two parts. One can estimate a score to asses 
+the oncogenic potential of a set of genes, given the lecterature knowledge, 
+at the time of the analysis, or one can study the trend of such score over time.
+
+We next present the two analysis and we conclude with showing the capabilities
+of the tool to visualize the results. 
+
+First we load the library.
+
+```{r}
+library("OncoScore")
+```
+
+The query that we show next retrieves from PubMed the citations, at the time of the 
+query, for a list of genes in cancer related and in all the documents. 
+
+```{r}
+query = perform.query(c("ASXL1","IDH1","IDH2","SETBP1","TET2"))
+```
+
+OncoScore provides a function to merge gene names if requested by the user.
+This function is useful when there are aliases in the gene list. 
+
+```{r}
+combine.query.results(query, c('IDH1', 'IDH2'), 'new_gene')
+```
+
+OncoScore also provides a function to retireve the names of the genes in a given 
+portion of a chromosome that can be exploited if we are dealing, e.g., with copy 
+number alterations hitting regions rather than specific genes. 
+
+```{r}
+chr13 = get.genes.from.biomart(chromosome=13,start=54700000,end=72800000)
+head(chr13)
+```
+
+Furthermore, one can also automatically perform the OncoScore analysis on
+chromosomic regions as follows: 
+
+```{r}
+result = compute.oncoscore.from.region(10, 100000, 500000)
+```
+
+We now compute a score for each of the genes, to estimate their oncogenic
+potential.
+
+```{r}
+result = compute.oncoscore(query)
+```
+
+The query that we show next retrieves from PubMed the citations, at specified time points, 
+for a list of genes in cancer related and in all the documents.
+
+```{r}
+query.timepoints = perform.query.timeseries(c("ASXL1","IDH1","IDH2","SETBP1","TET2"),
+    c("2012/03/01", "2013/03/01", "2014/03/01", "2015/03/01", "2016/03/01"))
+```
+
+We now compute a score for each of the genes, to estimate their oncogenic
+potential at specified time points.
+
+```{r}
+result.timeseries = compute.oncoscore.timeseries(query.timepoints)
+```
+
+We next plot the scores measuring the oncogenetic potential of the considered genes as 
+a barplot.
+
+```{r fig.width=12, fig.height=8, warning=FALSE, fig.cap="Oncogenetic potential of the considered genes."}
+plot.oncoscore(result, col = 'darkblue')
+```
+
+We finally plot the trend of the scores over the considered times as 
+absolute and values and as variations.
+
+```{r fig.width=12, fig.height=8, warning=FALSE, fig.cap="Absolute values of the oncogenetic potential 
+of the considered genes over times."}
+plot.oncoscore.timeseries(result.timeseries)
+```
+
+```{r fig.width=12, fig.height=8, warning=FALSE, fig.cap="Variations of the oncogenetic potential 
+of the considered genes over times."}
+plot.oncoscore.timeseries(result.timeseries, 
+    incremental = TRUE, 
+    ylab='absolute variation')
+```
+
+```{r fig.width=12, fig.height=8, warning=FALSE, fig.cap="Variations as relative values
+of the oncogenetic potential of the considered genes over times."}
+plot.oncoscore.timeseries(result.timeseries,
+    incremental = TRUE,
+    relative = TRUE,
+    ylab='relative variation')
+```

@@ -1,6 +1,14 @@
 ^README.md$
-^.gitignore$
-^.travic.yml$
 ^LICENSE.md$
+^.gitignore$
+^.travis.yml$
 ^.git/.*$
-.travis.yml
+^.github
+^.github/.*$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^doc$
+^Meta$
+^vignettes/.*Rmd$
+^vignettes/.*gml$
