@@ -154,7 +154,7 @@ jobs:
           'marginfix', 'titlesec', 'fancyhdr', 'enumitem', 'parskip', 'preprint',
           'soul', 'placeins', 'ragged2e', 'ms', 'footmisc', 'changepage',
           'caption', 'xstring', 'mathtools', 'pgf', 'environ', 'trimspaces',
-          'pdfcrop', 'everysel', 'beramono'))
+          'pdfcrop', 'everysel', 'beramono', 'amscls'))
         shell: Rscript {0}
 
       - name: Install R packages
@@ -380,7 +380,7 @@ jobs:
           'marginfix', 'titlesec', 'fancyhdr', 'enumitem', 'parskip', 'preprint',
           'soul', 'placeins', 'ragged2e', 'ms', 'footmisc', 'changepage',
           'caption', 'xstring', 'mathtools', 'pgf', 'environ', 'trimspaces',
-          'pdfcrop', 'everysel', 'beramono'))
+          'pdfcrop', 'everysel', 'beramono', 'amscls'))
         shell: Rscript {0}
 
       - name: Query dependencies
