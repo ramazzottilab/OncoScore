@@ -1,11 +1,8 @@
 OncoScore
-=========
+================
 
-| Branch              | Stato CI      |
-|---------------------|---------------|
-| master | [![Build Status](https://travis-ci.org/danro9685/OncoScore.svg?branch=master)](https://travis-ci.org/danro9685/OncoScore) |
-| development | [![Build Status](https://travis-ci.org/danro9685/OncoScore.svg?branch=development)](https://travis-ci.org/danro9685/OncoScore) |
-
+[![Actions Status](https://github.com/danro9685/OncoScore/workflows/check-master/badge.svg)](https://github.com/danro9685/OncoScore/actions?query=workflow%3Acheck-master)
+[![Actions Status](https://github.com/danro9685/OncoScore/workflows/check-development/badge.svg)](https://github.com/danro9685/OncoScore/actions?query=workflow%3Acheck-development)
 
 OncoScore is a tool to measure the association of genes to cancer based on citation frequencies in biomedical literature. The score is evaluated from PubMed literature by dynamically updatable web queries. 
 
