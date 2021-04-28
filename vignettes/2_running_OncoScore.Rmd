@@ -34,15 +34,14 @@ OncoScore also provides a function to retireve the names of the genes in a given
 portion of a chromosome that can be exploited if we are dealing, e.g., with copy 
 number alterations hitting regions rather than specific genes. 
 
-```{r}
+```{r eval=FALSE}
 chr13 = get.genes.from.biomart(chromosome=13,start=54700000,end=72800000)
-head(chr13)
 ```
 
 Furthermore, one can also automatically perform the OncoScore analysis on
 chromosomic regions as follows: 
 
-```{r}
+```{r eval=FALSE}
 result = compute.oncoscore.from.region(10, 100000, 500000)
 ```
 
