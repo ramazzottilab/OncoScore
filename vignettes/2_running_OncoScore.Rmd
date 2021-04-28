@@ -77,22 +77,14 @@ plot.oncoscore(result, col = 'darkblue')
 We finally plot the trend of the scores over the considered times as 
 absolute and values and as variations.
 
-```{r fig.width=12, fig.height=8, warning=FALSE, fig.cap="Absolute values of the oncogenetic potential 
-of the considered genes over times."}
+```{r fig.width=12, fig.height=8, warning=FALSE, fig.cap="Absolute values of the oncogenetic potential of the considered genes over times."}
 plot.oncoscore.timeseries(result.timeseries)
 ```
 
-```{r fig.width=12, fig.height=8, warning=FALSE, fig.cap="Variations of the oncogenetic potential 
-of the considered genes over times."}
-plot.oncoscore.timeseries(result.timeseries, 
-    incremental = TRUE, 
-    ylab='absolute variation')
+```{r fig.width=12, fig.height=8, warning=FALSE, fig.cap="Variations of the oncogenetic potential of the considered genes over times."}
+plot.oncoscore.timeseries(result.timeseries, incremental = TRUE, ylab='absolute variation')
 ```
 
-```{r fig.width=12, fig.height=8, warning=FALSE, fig.cap="Variations as relative values
-of the oncogenetic potential of the considered genes over times."}
-plot.oncoscore.timeseries(result.timeseries,
-    incremental = TRUE,
-    relative = TRUE,
-    ylab='relative variation')
+```{r fig.width=12, fig.height=8, warning=FALSE, fig.cap="Variations as relative values of the oncogenetic potential of the considered genes over times."}
+plot.oncoscore.timeseries(result.timeseries, incremental = TRUE, relative = TRUE, ylab='relative variation')
 ```
