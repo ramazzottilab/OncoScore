@@ -58,9 +58,6 @@
 
 
 
-<!-- dependencies from examples -->
-
-
   
 
   
@@ -83,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">OncoScore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.20.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.21.1</span>
       </span>
     </div>
 
@@ -137,7 +134,7 @@
     <p>plot the OncoScore for a list of genes</p>
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for oncoscore.timeseries</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='co'># S3 method for oncoscore.timeseries</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span>
   <span class='va'>x</span>,
   gene.number <span class='op'>=</span> <span class='fl'>5</span>,
@@ -149,7 +146,7 @@
   legend.pos <span class='op'>=</span> <span class='st'>"top"</span>,
   file <span class='op'>=</span> <span class='cn'>NA</span>,
   <span class='va'>...</span>
-<span class='op'>)</span></pre>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -201,60 +198,62 @@
     <p>A plot</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>query.timepoints</span><span class='op'>)</span>
-<span class='va'>result</span> <span class='op'>=</span> <span class='fu'><a href='compute.oncoscore.timeseries.html'>compute.oncoscore.timeseries</a></span><span class='op'>(</span><span class='va'>query.timepoints</span><span class='op'>)</span>
-</div><div class='co'>#&gt; ### Computing oncoscore for timepoint 2012/03/01 
-#&gt; ### Processing data
-#&gt; ### Computing frequencies scores 
-#&gt; ### Estimating oncogenes
-#&gt; ### Results:
-#&gt; 	 ASXL1 -&gt; 77.19348 
-#&gt; 	 IDH1 -&gt; 74.24489 
-#&gt; 	 IDH2 -&gt; 64.1649 
-#&gt; 	 SETBP1 -&gt; 34.9485 
-#&gt; 	 TET2 -&gt; 74.90108 
-#&gt; ### Computing oncoscore for timepoint 2013/03/01 
-#&gt; ### Processing data
-#&gt; ### Computing frequencies scores 
-#&gt; ### Estimating oncogenes
-#&gt; ### Results:
-#&gt; 	 ASXL1 -&gt; 76.31902 
-#&gt; 	 IDH1 -&gt; 78.71551 
-#&gt; 	 IDH2 -&gt; 69.99559 
-#&gt; 	 SETBP1 -&gt; 46.4559 
-#&gt; 	 TET2 -&gt; 73.89695 
-#&gt; ### Computing oncoscore for timepoint 2014/03/01 
-#&gt; ### Processing data
-#&gt; ### Computing frequencies scores 
-#&gt; ### Estimating oncogenes
-#&gt; ### Results:
-#&gt; 	 ASXL1 -&gt; 77.39202 
-#&gt; 	 IDH1 -&gt; 81.07946 
-#&gt; 	 IDH2 -&gt; 73.46995 
-#&gt; 	 SETBP1 -&gt; 64.97398 
-#&gt; 	 TET2 -&gt; 70.44331 
-#&gt; ### Computing oncoscore for timepoint 2015/03/01 
-#&gt; ### Processing data
-#&gt; ### Computing frequencies scores 
-#&gt; ### Estimating oncogenes
-#&gt; ### Results:
-#&gt; 	 ASXL1 -&gt; 77.49295 
-#&gt; 	 IDH1 -&gt; 82.55032 
-#&gt; 	 IDH2 -&gt; 75.58179 
-#&gt; 	 SETBP1 -&gt; 63.80208 
-#&gt; 	 TET2 -&gt; 69.91466 
-#&gt; ### Computing oncoscore for timepoint 2016/03/01 
-#&gt; ### Processing data
-#&gt; ### Computing frequencies scores 
-#&gt; ### Estimating oncogenes
-#&gt; ### Results:
-#&gt; 	 ASXL1 -&gt; 77.8392 
-#&gt; 	 IDH1 -&gt; 83.11346 
-#&gt; 	 IDH2 -&gt; 76.75356 
-#&gt; 	 SETBP1 -&gt; 65.556 
-#&gt; 	 TET2 -&gt; 69.81125 </div><div class='input'><span class='fu'>plot.oncoscore.timeseries</span><span class='op'>(</span><span class='va'>result</span><span class='op'>)</span>
-</div><div class='img'><img src='plot.oncoscore.timeseries-1.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>query.timepoints</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>result</span> <span class='op'>=</span> <span class='fu'><a href='compute.oncoscore.timeseries.html'>compute.oncoscore.timeseries</a></span><span class='op'>(</span><span class='va'>query.timepoints</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing oncoscore for timepoint 2012/03/01 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Processing data</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing frequencies scores </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Estimating oncogenes</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Results:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 ASXL1 -&gt; 77.19348 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH1 -&gt; 74.24489 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH2 -&gt; 64.1649 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 SETBP1 -&gt; 34.9485 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 TET2 -&gt; 74.90108 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing oncoscore for timepoint 2013/03/01 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Processing data</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing frequencies scores </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Estimating oncogenes</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Results:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 ASXL1 -&gt; 76.31902 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH1 -&gt; 78.71551 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH2 -&gt; 69.99559 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 SETBP1 -&gt; 46.4559 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 TET2 -&gt; 73.89695 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing oncoscore for timepoint 2014/03/01 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Processing data</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing frequencies scores </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Estimating oncogenes</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Results:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 ASXL1 -&gt; 77.39202 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH1 -&gt; 81.07946 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH2 -&gt; 73.46995 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 SETBP1 -&gt; 64.97398 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 TET2 -&gt; 70.44331 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing oncoscore for timepoint 2015/03/01 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Processing data</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing frequencies scores </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Estimating oncogenes</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Results:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 ASXL1 -&gt; 77.49295 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH1 -&gt; 82.55032 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH2 -&gt; 75.58179 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 SETBP1 -&gt; 63.80208 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 TET2 -&gt; 69.91466 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing oncoscore for timepoint 2016/03/01 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Processing data</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing frequencies scores </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Estimating oncogenes</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Results:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 ASXL1 -&gt; 77.8392 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH1 -&gt; 83.11346 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH2 -&gt; 76.75356 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 SETBP1 -&gt; 65.556 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 TET2 -&gt; 69.81125 </span>
+<span class='r-in'><span class='fu'>plot.oncoscore.timeseries</span><span class='op'>(</span><span class='va'>result</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='plot.oncoscore.timeseries-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

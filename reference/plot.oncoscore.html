@@ -58,9 +58,6 @@
 
 
 
-<!-- dependencies from examples -->
-
-
   
 
   
@@ -83,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">OncoScore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.20.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.21.1</span>
       </span>
     </div>
 
@@ -137,7 +134,7 @@
     <p>plot the OncoScore for a list of genes</p>
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for oncoscore</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='co'># S3 method for oncoscore</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span>
   <span class='va'>x</span>,
   gene.number <span class='op'>=</span> <span class='fl'>5</span>,
@@ -146,7 +143,7 @@
   ylab <span class='op'>=</span> <span class='st'>"genes"</span>,
   file <span class='op'>=</span> <span class='cn'>NA</span>,
   <span class='va'>...</span>
-<span class='op'>)</span></pre>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -186,19 +183,21 @@
     <p>A plot</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>query</span><span class='op'>)</span>
-<span class='va'>result</span> <span class='op'>=</span> <span class='fu'><a href='compute.oncoscore.html'>compute.oncoscore</a></span><span class='op'>(</span><span class='va'>query</span><span class='op'>)</span>
-</div><div class='co'>#&gt; ### Processing data
-#&gt; ### Computing frequencies scores 
-#&gt; ### Estimating oncogenes
-#&gt; ### Results:
-#&gt; 	 ASXL1 -&gt; 77.8392 
-#&gt; 	 IDH1 -&gt; 83.08351 
-#&gt; 	 IDH2 -&gt; 76.75356 
-#&gt; 	 SETBP1 -&gt; 65.556 
-#&gt; 	 TET2 -&gt; 69.86954 </div><div class='input'><span class='fu'>plot.oncoscore</span><span class='op'>(</span><span class='va'>result</span><span class='op'>)</span>
-</div><div class='img'><img src='plot.oncoscore-1.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>query</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>result</span> <span class='op'>=</span> <span class='fu'><a href='compute.oncoscore.html'>compute.oncoscore</a></span><span class='op'>(</span><span class='va'>query</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Processing data</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing frequencies scores </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Estimating oncogenes</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Results:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 ASXL1 -&gt; 77.8392 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH1 -&gt; 83.08351 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH2 -&gt; 76.75356 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 SETBP1 -&gt; 65.556 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 TET2 -&gt; 69.86954 </span>
+<span class='r-in'><span class='fu'>plot.oncoscore</span><span class='op'>(</span><span class='va'>result</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='plot.oncoscore-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

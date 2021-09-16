@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">OncoScore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.20.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.21.1</span>
       </span>
     </div>
 
@@ -99,26 +99,26 @@
 <pre><code>## ### Starting the queries for the selected genes.
 ## 
 ## ### Performing queries for cancer literature 
-##  Number of papers found in PubMed for ASXL1 was: 868 
-##  Number of papers found in PubMed for IDH1 was: 3520 
-##  Number of papers found in PubMed for IDH2 was: 1255 
-##  Number of papers found in PubMed for SETBP1 was: 165 
-##  Number of papers found in PubMed for TET2 was: 1515 
+##  Number of papers found in PubMed for ASXL1 was: 938 
+##  Number of papers found in PubMed for IDH1 was: 3721 
+##  Number of papers found in PubMed for IDH2 was: 1328 
+##  Number of papers found in PubMed for SETBP1 was: 178 
+##  Number of papers found in PubMed for TET2 was: 1630 
 ## 
 ## ### Performing queries for all the literature 
-##  Number of papers found in PubMed for ASXL1 was: 958 
-##  Number of papers found in PubMed for IDH1 was: 3734 
-##  Number of papers found in PubMed for IDH2 was: 1430 
-##  Number of papers found in PubMed for SETBP1 was: 214 
-##  Number of papers found in PubMed for TET2 was: 1997</code></pre>
+##  Number of papers found in PubMed for ASXL1 was: 1033 
+##  Number of papers found in PubMed for IDH1 was: 3934 
+##  Number of papers found in PubMed for IDH2 was: 1511 
+##  Number of papers found in PubMed for SETBP1 was: 230 
+##  Number of papers found in PubMed for TET2 was: 2140</code></pre>
 <p>OncoScore provides a function to merge gene names if requested by the user. This function is useful when there are aliases in the gene list.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/combine.query.results.html">combine.query.results</a></span><span class="op">(</span><span class="va">query</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'IDH1'</span>, <span class="st">'IDH2'</span><span class="op">)</span>, <span class="st">'new_gene'</span><span class="op">)</span></code></pre></div>
 <pre><code>##          CitationsGene CitationsGeneInCancer
-## ASXL1              958                   868
-## SETBP1             214                   165
-## TET2              1997                  1515
-## new_gene          5164                  4775</code></pre>
+## ASXL1             1033                   938
+## SETBP1             230                   178
+## TET2              2140                  1630
+## new_gene          5445                  5049</code></pre>
 <p>OncoScore also provides a function to retireve the names of the genes in a given portion of a chromosome that can be exploited if we are dealing, e.g., with copy number alterations hitting regions rather than specific genes.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">chr13</span> <span class="op">=</span> <span class="fu"><a href="../reference/get.genes.from.biomart.html">get.genes.from.biomart</a></span><span class="op">(</span>chromosome<span class="op">=</span><span class="fl">13</span>,start<span class="op">=</span><span class="fl">54700000</span>,end<span class="op">=</span><span class="fl">72800000</span><span class="op">)</span></code></pre></div>
@@ -132,11 +132,11 @@
 ## ### Computing frequencies scores 
 ## ### Estimating oncogenes
 ## ### Results:
-##   ASXL1 -&gt; 81.45695 
-##   IDH1 -&gt; 86.32477 
-##   IDH2 -&gt; 79.38942 
-##   SETBP1 -&gt; 67.14309 
-##   TET2 -&gt; 68.9442</code></pre>
+##   ASXL1 -&gt; 81.73459 
+##   IDH1 -&gt; 86.6651 
+##   IDH2 -&gt; 79.56703 
+##   SETBP1 -&gt; 67.52687 
+##   TET2 -&gt; 69.28352</code></pre>
 <p>The query that we show next retrieves from PubMed the citations, at specified time points, for a list of genes in cancer related and in all the documents.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">query.timepoints</span> <span class="op">=</span> <span class="fu"><a href="../reference/perform.query.timeseries.html">perform.query.timeseries</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ASXL1"</span>,<span class="st">"IDH1"</span>,<span class="st">"IDH2"</span>,<span class="st">"SETBP1"</span>,<span class="st">"TET2"</span><span class="op">)</span>,
@@ -145,66 +145,66 @@
 ## ### Quering PubMed for timepoint 2012/03/01 
 ##     ### Performing queries for cancer literature 
 ##  Number of papers found in PubMed for ASXL1 was: 86 
-##  Number of papers found in PubMed for IDH1 was: 408 
-##  Number of papers found in PubMed for IDH2 was: 172 
+##  Number of papers found in PubMed for IDH1 was: 409 
+##  Number of papers found in PubMed for IDH2 was: 173 
 ##  Number of papers found in PubMed for SETBP1 was: 5 
 ##  Number of papers found in PubMed for TET2 was: 173 
 ##     ### Performing queries for all the literature 
 ##  Number of papers found in PubMed for ASXL1 was: 92 
-##  Number of papers found in PubMed for IDH1 was: 488 
-##  Number of papers found in PubMed for IDH2 was: 234 
+##  Number of papers found in PubMed for IDH1 was: 489 
+##  Number of papers found in PubMed for IDH2 was: 235 
 ##  Number of papers found in PubMed for SETBP1 was: 10 
 ##  Number of papers found in PubMed for TET2 was: 197 
 ## ### Quering PubMed for timepoint 2013/03/01 
 ##     ### Performing queries for cancer literature 
 ##  Number of papers found in PubMed for ASXL1 was: 135 
-##  Number of papers found in PubMed for IDH1 was: 661 
-##  Number of papers found in PubMed for IDH2 was: 266 
+##  Number of papers found in PubMed for IDH1 was: 662 
+##  Number of papers found in PubMed for IDH2 was: 267 
 ##  Number of papers found in PubMed for SETBP1 was: 11 
 ##  Number of papers found in PubMed for TET2 was: 258 
 ##     ### Performing queries for all the literature 
 ##  Number of papers found in PubMed for ASXL1 was: 150 
-##  Number of papers found in PubMed for IDH1 was: 752 
-##  Number of papers found in PubMed for IDH2 was: 335 
+##  Number of papers found in PubMed for IDH1 was: 753 
+##  Number of papers found in PubMed for IDH2 was: 336 
 ##  Number of papers found in PubMed for SETBP1 was: 18 
 ##  Number of papers found in PubMed for TET2 was: 303 
 ## ### Quering PubMed for timepoint 2014/03/01 
 ##     ### Performing queries for cancer literature 
 ##  Number of papers found in PubMed for ASXL1 was: 188 
-##  Number of papers found in PubMed for IDH1 was: 903 
-##  Number of papers found in PubMed for IDH2 was: 364 
+##  Number of papers found in PubMed for IDH1 was: 904 
+##  Number of papers found in PubMed for IDH2 was: 365 
 ##  Number of papers found in PubMed for SETBP1 was: 29 
 ##  Number of papers found in PubMed for TET2 was: 347 
 ##     ### Performing queries for all the literature 
 ##  Number of papers found in PubMed for ASXL1 was: 209 
-##  Number of papers found in PubMed for IDH1 was: 1002 
-##  Number of papers found in PubMed for IDH2 was: 439 
+##  Number of papers found in PubMed for IDH1 was: 1003 
+##  Number of papers found in PubMed for IDH2 was: 440 
 ##  Number of papers found in PubMed for SETBP1 was: 36 
 ##  Number of papers found in PubMed for TET2 was: 431 
 ## ### Quering PubMed for timepoint 2015/03/01 
 ##     ### Performing queries for cancer literature 
 ##  Number of papers found in PubMed for ASXL1 was: 257 
-##  Number of papers found in PubMed for IDH1 was: 1197 
-##  Number of papers found in PubMed for IDH2 was: 467 
+##  Number of papers found in PubMed for IDH1 was: 1198 
+##  Number of papers found in PubMed for IDH2 was: 468 
 ##  Number of papers found in PubMed for SETBP1 was: 51 
 ##  Number of papers found in PubMed for TET2 was: 461 
 ##     ### Performing queries for all the literature 
 ##  Number of papers found in PubMed for ASXL1 was: 286 
-##  Number of papers found in PubMed for IDH1 was: 1303 
-##  Number of papers found in PubMed for IDH2 was: 550 
+##  Number of papers found in PubMed for IDH1 was: 1304 
+##  Number of papers found in PubMed for IDH2 was: 551 
 ##  Number of papers found in PubMed for SETBP1 was: 66 
 ##  Number of papers found in PubMed for TET2 was: 583 
 ## ### Quering PubMed for timepoint 2016/03/01 
 ##     ### Performing queries for cancer literature 
 ##  Number of papers found in PubMed for ASXL1 was: 323 
-##  Number of papers found in PubMed for IDH1 was: 1505 
-##  Number of papers found in PubMed for IDH2 was: 568 
+##  Number of papers found in PubMed for IDH1 was: 1506 
+##  Number of papers found in PubMed for IDH2 was: 569 
 ##  Number of papers found in PubMed for SETBP1 was: 68 
 ##  Number of papers found in PubMed for TET2 was: 587 
 ##     ### Performing queries for all the literature 
 ##  Number of papers found in PubMed for ASXL1 was: 359 
-##  Number of papers found in PubMed for IDH1 was: 1624 
-##  Number of papers found in PubMed for IDH2 was: 660 
+##  Number of papers found in PubMed for IDH1 was: 1625 
+##  Number of papers found in PubMed for IDH2 was: 661 
 ##  Number of papers found in PubMed for SETBP1 was: 89 
 ##  Number of papers found in PubMed for TET2 was: 745</code></pre>
 <p>We now compute a score for each of the genes, to estimate their oncogenic potential at specified time points.</p>
@@ -216,8 +216,8 @@
 ## ### Estimating oncogenes
 ## ### Results:
 ##   ASXL1 -&gt; 79.14893 
-##   IDH1 -&gt; 74.24489 
-##   IDH2 -&gt; 64.1649 
+##   IDH1 -&gt; 74.27776 
+##   IDH2 -&gt; 64.27063 
 ##   SETBP1 -&gt; 34.9485 
 ##   TET2 -&gt; 76.29579 
 ## ### Computing oncoscore for timepoint 2013/03/01 
@@ -226,8 +226,8 @@
 ## ### Estimating oncogenes
 ## ### Results:
 ##   ASXL1 -&gt; 77.54983 
-##   IDH1 -&gt; 78.69928 
-##   IDH2 -&gt; 69.93675 
+##   IDH1 -&gt; 78.71551 
+##   IDH2 -&gt; 69.99559 
 ##   SETBP1 -&gt; 46.4559 
 ##   TET2 -&gt; 74.81894 
 ## ### Computing oncoscore for timepoint 2014/03/01 
@@ -236,8 +236,8 @@
 ## ### Estimating oncogenes
 ## ### Results:
 ##   ASXL1 -&gt; 78.28121 
-##   IDH1 -&gt; 81.07946 
-##   IDH2 -&gt; 73.46995 
+##   IDH1 -&gt; 81.08963 
+##   IDH2 -&gt; 73.50788 
 ##   SETBP1 -&gt; 64.97398 
 ##   TET2 -&gt; 71.31087 
 ## ### Computing oncoscore for timepoint 2015/03/01 
@@ -246,8 +246,8 @@
 ## ### Estimating oncogenes
 ## ### Results:
 ##   ASXL1 -&gt; 78.84769 
-##   IDH1 -&gt; 82.98705 
-##   IDH2 -&gt; 75.58179 
+##   IDH1 -&gt; 82.99363 
+##   IDH2 -&gt; 75.60886 
 ##   SETBP1 -&gt; 64.48853 
 ##   TET2 -&gt; 70.46695 
 ## ### Computing oncoscore for timepoint 2016/03/01 
@@ -256,8 +256,8 @@
 ## ### Estimating oncogenes
 ## ### Results:
 ##   ASXL1 -&gt; 79.37202 
-##   IDH1 -&gt; 83.98329 
-##   IDH2 -&gt; 76.8723 
+##   IDH1 -&gt; 83.9881 
+##   IDH2 -&gt; 76.89328 
 ##   SETBP1 -&gt; 64.60591 
 ##   TET2 -&gt; 70.53378</code></pre>
 <p>We next plot the scores measuring the oncogenetic potential of the considered genes as a barplot.</p>

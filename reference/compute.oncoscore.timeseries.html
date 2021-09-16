@@ -58,9 +58,6 @@
 
 
 
-<!-- dependencies from examples -->
-
-
   
 
   
@@ -83,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">OncoScore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.20.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.21.1</span>
       </span>
     </div>
 
@@ -137,13 +134,13 @@
     <p>perform the OncoScore time series analysis for a list of genes and data times</p>
     </div>
 
-    <pre class="usage"><span class='fu'>compute.oncoscore.timeseries</span><span class='op'>(</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>compute.oncoscore.timeseries</span><span class='op'>(</span>
   <span class='va'>data</span>,
   filter.threshold <span class='op'>=</span> <span class='fl'>0</span>,
   analysis.mode <span class='op'>=</span> <span class='st'>"Log2"</span>,
   cutoff.threshold <span class='op'>=</span> <span class='fl'>21.09</span>,
   file <span class='op'>=</span> <span class='cn'>NULL</span>
-<span class='op'>)</span></pre>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -175,128 +172,130 @@
     <p>the performed OncoScores time series analysis</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>query.timepoints</span><span class='op'>)</span>
-<span class='fu'>compute.oncoscore.timeseries</span><span class='op'>(</span><span class='va'>query.timepoints</span><span class='op'>)</span>
-</div><div class='co'>#&gt; ### Computing oncoscore for timepoint 2012/03/01 
-#&gt; ### Processing data
-#&gt; ### Computing frequencies scores 
-#&gt; ### Estimating oncogenes
-#&gt; ### Results:
-#&gt; 	 ASXL1 -&gt; 77.19348 
-#&gt; 	 IDH1 -&gt; 74.24489 
-#&gt; 	 IDH2 -&gt; 64.1649 
-#&gt; 	 SETBP1 -&gt; 34.9485 
-#&gt; 	 TET2 -&gt; 74.90108 
-#&gt; ### Computing oncoscore for timepoint 2013/03/01 
-#&gt; ### Processing data
-#&gt; ### Computing frequencies scores 
-#&gt; ### Estimating oncogenes
-#&gt; ### Results:
-#&gt; 	 ASXL1 -&gt; 76.31902 
-#&gt; 	 IDH1 -&gt; 78.71551 
-#&gt; 	 IDH2 -&gt; 69.99559 
-#&gt; 	 SETBP1 -&gt; 46.4559 
-#&gt; 	 TET2 -&gt; 73.89695 
-#&gt; ### Computing oncoscore for timepoint 2014/03/01 
-#&gt; ### Processing data
-#&gt; ### Computing frequencies scores 
-#&gt; ### Estimating oncogenes
-#&gt; ### Results:
-#&gt; 	 ASXL1 -&gt; 77.39202 
-#&gt; 	 IDH1 -&gt; 81.07946 
-#&gt; 	 IDH2 -&gt; 73.46995 
-#&gt; 	 SETBP1 -&gt; 64.97398 
-#&gt; 	 TET2 -&gt; 70.44331 
-#&gt; ### Computing oncoscore for timepoint 2015/03/01 
-#&gt; ### Processing data
-#&gt; ### Computing frequencies scores 
-#&gt; ### Estimating oncogenes
-#&gt; ### Results:
-#&gt; 	 ASXL1 -&gt; 77.49295 
-#&gt; 	 IDH1 -&gt; 82.55032 
-#&gt; 	 IDH2 -&gt; 75.58179 
-#&gt; 	 SETBP1 -&gt; 63.80208 
-#&gt; 	 TET2 -&gt; 69.91466 
-#&gt; ### Computing oncoscore for timepoint 2016/03/01 
-#&gt; ### Processing data
-#&gt; ### Computing frequencies scores 
-#&gt; ### Estimating oncogenes
-#&gt; ### Results:
-#&gt; 	 ASXL1 -&gt; 77.8392 
-#&gt; 	 IDH1 -&gt; 83.11346 
-#&gt; 	 IDH2 -&gt; 76.75356 
-#&gt; 	 SETBP1 -&gt; 65.556 
-#&gt; 	 TET2 -&gt; 69.81125 </div><div class='co'>#&gt; $`2012/03/01`
-#&gt;        CitationsGene CitationsGeneInCancer  PercCit    alpha   1/alpha
-#&gt; ASXL1             91                    83 91.20879 6.507795 0.1536619
-#&gt; IDH1             488                   408 83.60656 8.930737 0.1119728
-#&gt; IDH2             234                   172 73.50427 7.870365 0.1270589
-#&gt; SETBP1            10                     5 50.00000 3.321928 0.3010300
-#&gt; TET2             196                   169 86.22449 7.614710 0.1313248
-#&gt;        PercCit*1/alpha OncoScore Clustering
-#&gt; ASXL1        14.015315  77.19348          1
-#&gt; IDH1          9.361663  74.24489          1
-#&gt; IDH2          9.339373  64.16490          1
-#&gt; SETBP1       15.051500  34.94850          1
-#&gt; TET2         11.323411  74.90108          1
-#&gt; 
-#&gt; $`2013/03/01`
-#&gt;        CitationsGene CitationsGeneInCancer  PercCit    alpha   1/alpha
-#&gt; ASXL1            149                   132 88.59060 7.219169 0.1385201
-#&gt; IDH1             753                   662 87.91501 9.556506 0.1046408
-#&gt; IDH2             336                   267 79.46429 8.392317 0.1191566
-#&gt; SETBP1            18                    11 61.11111 4.169925 0.2398125
-#&gt; TET2             302                   254 84.10596 8.238405 0.1213827
-#&gt;        PercCit*1/alpha OncoScore Clustering
-#&gt; ASXL1        12.271580  76.31902          1
-#&gt; IDH1          9.199493  78.71551          1
-#&gt; IDH2          9.468694  69.99559          1
-#&gt; SETBP1       14.655206  46.45590          1
-#&gt; TET2         10.209010  73.89695          1
-#&gt; 
-#&gt; $`2014/03/01`
-#&gt;        CitationsGene CitationsGeneInCancer  PercCit    alpha   1/alpha
-#&gt; ASXL1            208                   185 88.94231 7.700440 0.1298627
-#&gt; IDH1            1002                   903 90.11976 9.968667 0.1003143
-#&gt; IDH2             439                   364 82.91572 8.778077 0.1139202
-#&gt; SETBP1            36                    29 80.55556 5.169925 0.1934264
-#&gt; TET2             430                   342 79.53488 8.748193 0.1143093
-#&gt;        PercCit*1/alpha OncoScore Clustering
-#&gt; ASXL1        11.550289  77.39202          1
-#&gt; IDH1          9.040302  81.07946          1
-#&gt; IDH2          9.445772  73.46995          1
-#&gt; SETBP1       15.581571  64.97398          1
-#&gt; TET2          9.091579  70.44331          1
-#&gt; 
-#&gt; $`2015/03/01`
-#&gt;        CitationsGene CitationsGeneInCancer  PercCit     alpha    1/alpha
-#&gt; ASXL1            283                   250 88.33922  8.144658 0.12277986
-#&gt; IDH1            1300                  1188 91.38462 10.344296 0.09667164
-#&gt; IDH2             550                   467 84.90909  9.103288 0.10985042
-#&gt; SETBP1            64                    49 76.56250  6.000000 0.16666667
-#&gt; TET2             576                   452 78.47222  9.169925 0.10905215
-#&gt;        PercCit*1/alpha OncoScore Clustering
-#&gt; ASXL1        10.846277  77.49295          1
-#&gt; IDH1          8.834300  82.55032          1
-#&gt; IDH2          9.327299  75.58179          1
-#&gt; SETBP1       12.760417  63.80208          1
-#&gt; TET2          8.557564  69.91466          1
-#&gt; 
-#&gt; $`2016/03/01`
-#&gt;        CitationsGene CitationsGeneInCancer  PercCit     alpha    1/alpha
-#&gt; ASXL1            350                   309 88.28571  8.451211 0.11832624
-#&gt; IDH1            1576                  1446 91.75127 10.622052 0.09414377
-#&gt; IDH2             648                   557 85.95679  9.339850 0.10706810
-#&gt; SETBP1            89                    69 77.52809  6.475733 0.15442266
-#&gt; TET2             715                   558 78.04196  9.481799 0.10546521
-#&gt;        PercCit*1/alpha OncoScore Clustering
-#&gt; ASXL1        10.446516  77.83920          1
-#&gt; IDH1          8.637810  83.11346          1
-#&gt; IDH2          9.203230  76.75356          1
-#&gt; SETBP1       11.972094  65.55600          1
-#&gt; TET2          8.230712  69.81125          1
-#&gt; </div><div class='input'>
-</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>query.timepoints</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>compute.oncoscore.timeseries</span><span class='op'>(</span><span class='va'>query.timepoints</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing oncoscore for timepoint 2012/03/01 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Processing data</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing frequencies scores </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Estimating oncogenes</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Results:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 ASXL1 -&gt; 77.19348 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH1 -&gt; 74.24489 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH2 -&gt; 64.1649 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 SETBP1 -&gt; 34.9485 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 TET2 -&gt; 74.90108 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing oncoscore for timepoint 2013/03/01 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Processing data</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing frequencies scores </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Estimating oncogenes</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Results:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 ASXL1 -&gt; 76.31902 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH1 -&gt; 78.71551 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH2 -&gt; 69.99559 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 SETBP1 -&gt; 46.4559 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 TET2 -&gt; 73.89695 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing oncoscore for timepoint 2014/03/01 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Processing data</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing frequencies scores </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Estimating oncogenes</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Results:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 ASXL1 -&gt; 77.39202 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH1 -&gt; 81.07946 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH2 -&gt; 73.46995 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 SETBP1 -&gt; 64.97398 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 TET2 -&gt; 70.44331 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing oncoscore for timepoint 2015/03/01 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Processing data</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing frequencies scores </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Estimating oncogenes</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Results:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 ASXL1 -&gt; 77.49295 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH1 -&gt; 82.55032 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH2 -&gt; 75.58179 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 SETBP1 -&gt; 63.80208 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 TET2 -&gt; 69.91466 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing oncoscore for timepoint 2016/03/01 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Processing data</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Computing frequencies scores </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Estimating oncogenes</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ### Results:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 ASXL1 -&gt; 77.8392 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH1 -&gt; 83.11346 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 IDH2 -&gt; 76.75356 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 SETBP1 -&gt; 65.556 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	 TET2 -&gt; 69.81125 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $`2012/03/01`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        CitationsGene CitationsGeneInCancer  PercCit    alpha   1/alpha</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ASXL1             91                    83 91.20879 6.507795 0.1536619</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH1             488                   408 83.60656 8.930737 0.1119728</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH2             234                   172 73.50427 7.870365 0.1270589</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> SETBP1            10                     5 50.00000 3.321928 0.3010300</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> TET2             196                   169 86.22449 7.614710 0.1313248</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        PercCit*1/alpha OncoScore Clustering</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ASXL1        14.015315  77.19348          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH1          9.361663  74.24489          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH2          9.339373  64.16490          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> SETBP1       15.051500  34.94850          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> TET2         11.323411  74.90108          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $`2013/03/01`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        CitationsGene CitationsGeneInCancer  PercCit    alpha   1/alpha</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ASXL1            149                   132 88.59060 7.219169 0.1385201</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH1             753                   662 87.91501 9.556506 0.1046408</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH2             336                   267 79.46429 8.392317 0.1191566</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> SETBP1            18                    11 61.11111 4.169925 0.2398125</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> TET2             302                   254 84.10596 8.238405 0.1213827</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        PercCit*1/alpha OncoScore Clustering</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ASXL1        12.271580  76.31902          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH1          9.199493  78.71551          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH2          9.468694  69.99559          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> SETBP1       14.655206  46.45590          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> TET2         10.209010  73.89695          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $`2014/03/01`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        CitationsGene CitationsGeneInCancer  PercCit    alpha   1/alpha</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ASXL1            208                   185 88.94231 7.700440 0.1298627</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH1            1002                   903 90.11976 9.968667 0.1003143</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH2             439                   364 82.91572 8.778077 0.1139202</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> SETBP1            36                    29 80.55556 5.169925 0.1934264</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> TET2             430                   342 79.53488 8.748193 0.1143093</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        PercCit*1/alpha OncoScore Clustering</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ASXL1        11.550289  77.39202          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH1          9.040302  81.07946          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH2          9.445772  73.46995          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> SETBP1       15.581571  64.97398          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> TET2          9.091579  70.44331          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $`2015/03/01`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        CitationsGene CitationsGeneInCancer  PercCit     alpha    1/alpha</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ASXL1            283                   250 88.33922  8.144658 0.12277986</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH1            1300                  1188 91.38462 10.344296 0.09667164</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH2             550                   467 84.90909  9.103288 0.10985042</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> SETBP1            64                    49 76.56250  6.000000 0.16666667</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> TET2             576                   452 78.47222  9.169925 0.10905215</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        PercCit*1/alpha OncoScore Clustering</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ASXL1        10.846277  77.49295          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH1          8.834300  82.55032          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH2          9.327299  75.58179          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> SETBP1       12.760417  63.80208          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> TET2          8.557564  69.91466          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $`2016/03/01`</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        CitationsGene CitationsGeneInCancer  PercCit     alpha    1/alpha</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ASXL1            350                   309 88.28571  8.451211 0.11832624</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH1            1576                  1446 91.75127 10.622052 0.09414377</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH2             648                   557 85.95679  9.339850 0.10706810</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> SETBP1            89                    69 77.52809  6.475733 0.15442266</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> TET2             715                   558 78.04196  9.481799 0.10546521</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        PercCit*1/alpha OncoScore Clustering</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ASXL1        10.446516  77.83920          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH1          8.637810  83.11346          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> IDH2          9.203230  76.75356          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> SETBP1       11.972094  65.55600          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> TET2          8.230712  69.81125          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
