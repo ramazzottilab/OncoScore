@@ -1,5 +1,5 @@
 Package: OncoScore
-Version: 1.21.0
+Version: 1.21.1
 Date: 2021-04-28
 Title: A tool to identify potentially oncogenic genes
 Authors@R: c(person("Luca", "De Sano", role=c("aut"), email="luca.desano@gmail.com",
@@ -11,7 +11,7 @@ Authors@R: c(person("Luca", "De Sano", role=c("aut"), email="luca.desano@gmail.c
             person("Roberta", "Spinelli", role=c("ctb"), email="spinelli.roberta@gmail.com"))
 Maintainer: Luca De Sano <luca.desano@gmail.com>
 Depends:
-    R (>= 4.0.0),
+    R (>= 4.1.0),
 Imports:
     biomaRt,
     grDevices,
@@ -28,10 +28,9 @@ Description:
     on citation frequencies in biomedical literature. The score is evaluated 
     from PubMed literature by dynamically updatable web queries. 
 Encoding: UTF-8
-LazyData: TRUE
 License: file LICENSE
 URL: https://github.com/danro9685/OncoScore
 BugReports: https://github.com/danro9685/OncoScore
 biocViews: BiomedicalInformatics
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 VignetteBuilder: knitr
