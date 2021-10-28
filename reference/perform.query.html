@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">OncoScore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.20.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.22.0</span>
       </span>
     </div>
 
@@ -39,7 +39,7 @@
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/danro9685/OncoScore/">
+  <a href="https://github.com/danro9685/OncoScore/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -54,7 +54,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>perform.query</h1>
-    <small class="dont-index">Source: <a href="https://github.com/danro9685/OncoScore/blob/master/R/queries.R"><code>R/queries.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/danro9685/OncoScore/blob/HEAD/R/queries.R" class="external-link"><code>R/queries.R</code></a></small>
     <div class="hidden name"><code>perform.query.Rd</code></div>
     </div>
 
@@ -64,21 +64,28 @@
 
     <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">perform.query</span><span class="op">(</span><span class="va">list.of.genes</span>, gene.num.limit <span class="op">=</span> <span class="fl">100</span>, custom.search <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></code></pre></div>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>list.of.genes</th>
-      <td><p>The list of genes to be used in the queries to PubMed</p></td>
-    </tr><tr><th>gene.num.limit</th>
-      <td><p>A limit to the genes to be considered in the analysis; this is done to limit the number of queries to PubMed</p></td>
-    </tr><tr><th>custom.search</th>
-      <td><p>A custom set of keyworkds to be used when quering PubMed</p></td>
-    </tr></table><h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
+    <div id="ref-sections">
+    <div id="arguments">
+    <h2>Arguments</h2>
+    <dl><dt>list.of.genes</dt>
+<dd><p>The list of genes to be used in the queries to PubMed</p></dd>
+<dt>gene.num.limit</dt>
+<dd><p>A limit to the genes to be considered in the analysis; this is done to limit the number of queries to PubMed</p></dd>
+<dt>custom.search</dt>
+<dd><p>A custom set of keyworkds to be used when quering PubMed</p></dd>
+</dl></div>
+    <div id="value">
+    <h2>Value</h2>
     <p>The frequencies of the genes in the cancer related documents and in all the documents retireved on PubMed</p>
+    </div>
+    </div>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">genes</span><span class="op">)</span></span>
+    <div id="examples">
+    <h2>Examples</h2>
+    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">genes</span><span class="op">)</span></span>
 <span class="r-in"></span>
 </code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

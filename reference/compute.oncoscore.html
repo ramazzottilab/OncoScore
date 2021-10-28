@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">OncoScore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.20.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.22.0</span>
       </span>
     </div>
 
@@ -39,7 +39,7 @@
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/danro9685/OncoScore/">
+  <a href="https://github.com/danro9685/OncoScore/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -54,7 +54,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>compute.oncoscore</h1>
-    <small class="dont-index">Source: <a href="https://github.com/danro9685/OncoScore/blob/master/R/OncoScore.R"><code>R/OncoScore.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/danro9685/OncoScore/blob/HEAD/R/OncoScore.R" class="external-link"><code>R/OncoScore.R</code></a></small>
     <div class="hidden name"><code>compute.oncoscore.Rd</code></div>
     </div>
 
@@ -71,25 +71,31 @@
   filter.invalid <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span></code></pre></div>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>data</th>
-      <td><p>input data as result of the function perform.query</p></td>
-    </tr><tr><th>filter.threshold</th>
-      <td><p>threshold to filter for a minimum number of citations for the genes</p></td>
-    </tr><tr><th>analysis.mode</th>
-      <td><p>logaritmic scores to be computed, i.e., log10, log2, natural log or log5</p></td>
-    </tr><tr><th>cutoff.threshold</th>
-      <td><p>threshold to be used to asses the oncogenes</p></td>
-    </tr><tr><th>file</th>
-      <td><p>should I save the results to text files?</p></td>
-    </tr><tr><th>filter.invalid</th>
-      <td><p>auto-remove genes with invalid count</p></td>
-    </tr></table><h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
+    <div id="ref-sections">
+    <div id="arguments">
+    <h2>Arguments</h2>
+    <dl><dt>data</dt>
+<dd><p>input data as result of the function perform.query</p></dd>
+<dt>filter.threshold</dt>
+<dd><p>threshold to filter for a minimum number of citations for the genes</p></dd>
+<dt>analysis.mode</dt>
+<dd><p>logaritmic scores to be computed, i.e., log10, log2, natural log or log5</p></dd>
+<dt>cutoff.threshold</dt>
+<dd><p>threshold to be used to asses the oncogenes</p></dd>
+<dt>file</dt>
+<dd><p>should I save the results to text files?</p></dd>
+<dt>filter.invalid</dt>
+<dd><p>auto-remove genes with invalid count</p></dd>
+</dl></div>
+    <div id="value">
+    <h2>Value</h2>
     <p>the computed OncoScores and the clusters for the genes</p>
+    </div>
+    </div>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">query</span><span class="op">)</span></span>
+    <div id="examples">
+    <h2>Examples</h2>
+    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">query</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">compute.oncoscore</span><span class="op">(</span><span class="va">query</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ### Processing data</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ### Computing frequencies scores </span>
@@ -114,6 +120,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> TET2          8.233672  69.86954          1</span>
 <span class="r-in"></span>
 </code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

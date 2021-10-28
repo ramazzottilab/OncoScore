@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">OncoScore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.20.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.22.0</span>
       </span>
     </div>
 
@@ -39,7 +39,7 @@
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/danro9685/OncoScore/">
+  <a href="https://github.com/danro9685/OncoScore/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -54,7 +54,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>compute.oncoscore.from.region</h1>
-    <small class="dont-index">Source: <a href="https://github.com/danro9685/OncoScore/blob/master/R/OncoScore.R"><code>R/OncoScore.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/danro9685/OncoScore/blob/HEAD/R/OncoScore.R" class="external-link"><code>R/OncoScore.R</code></a></small>
     <div class="hidden name"><code>compute.oncoscore.from.region.Rd</code></div>
     </div>
 
@@ -73,33 +73,40 @@
   file <span class="op">=</span> <span class="cn">NULL</span>
 <span class="op">)</span></code></pre></div>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>chromosome</th>
-      <td><p>chromosome to be retireved</p></td>
-    </tr><tr><th>start</th>
-      <td><p>initial position to be used</p></td>
-    </tr><tr><th>end</th>
-      <td><p>final position to be used</p></td>
-    </tr><tr><th>gene.num.limit</th>
-      <td><p>A limit to the genes to be considered in the analysis; this is done to limit the number of queries to PubMed</p></td>
-    </tr><tr><th>filter.threshold</th>
-      <td><p>threshold to filter for a minimum number of citations for the genes</p></td>
-    </tr><tr><th>analysis.mode</th>
-      <td><p>logaritmic scores to be computed, i.e., log10, log2, natural log or log5</p></td>
-    </tr><tr><th>cutoff.threshold</th>
-      <td><p>threshold to be used to asses the oncogenes</p></td>
-    </tr><tr><th>file</th>
-      <td><p>should I save the results to text files?</p></td>
-    </tr></table><h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
+    <div id="ref-sections">
+    <div id="arguments">
+    <h2>Arguments</h2>
+    <dl><dt>chromosome</dt>
+<dd><p>chromosome to be retireved</p></dd>
+<dt>start</dt>
+<dd><p>initial position to be used</p></dd>
+<dt>end</dt>
+<dd><p>final position to be used</p></dd>
+<dt>gene.num.limit</dt>
+<dd><p>A limit to the genes to be considered in the analysis; this is done to limit the number of queries to PubMed</p></dd>
+<dt>filter.threshold</dt>
+<dd><p>threshold to filter for a minimum number of citations for the genes</p></dd>
+<dt>analysis.mode</dt>
+<dd><p>logaritmic scores to be computed, i.e., log10, log2, natural log or log5</p></dd>
+<dt>cutoff.threshold</dt>
+<dd><p>threshold to be used to asses the oncogenes</p></dd>
+<dt>file</dt>
+<dd><p>should I save the results to text files?</p></dd>
+</dl></div>
+    <div id="value">
+    <h2>Value</h2>
     <p>the computed scores</p>
+    </div>
+    </div>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <div id="examples">
+    <h2>Examples</h2>
     <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">chromosome</span> <span class="op">=</span> <span class="fl">15</span></span>
 <span class="r-in"><span class="va">start</span> <span class="op">=</span> <span class="fl">200000</span></span>
 <span class="r-in"><span class="va">end</span> <span class="op">=</span> <span class="fl">300000</span></span>
 <span class="r-in"></span>
 </code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>
