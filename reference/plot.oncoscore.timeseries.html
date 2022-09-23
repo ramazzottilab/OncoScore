@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">OncoScore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.24.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.26.0</span>
       </span>
     </div>
 
@@ -63,53 +63,74 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for oncoscore.timeseries</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span>
-  <span class="va">x</span>,
-  gene.number <span class="op">=</span> <span class="fl">5</span>,
-  incremental <span class="op">=</span> <span class="cn">FALSE</span>,
-  relative <span class="op">=</span> <span class="cn">FALSE</span>,
-  main <span class="op">=</span> <span class="st">"OncoScore"</span>,
-  xlab <span class="op">=</span> <span class="st">"timepoints"</span>,
-  ylab <span class="op">=</span> <span class="st">"score"</span>,
-  legend.pos <span class="op">=</span> <span class="st">"top"</span>,
-  file <span class="op">=</span> <span class="cn">NA</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for oncoscore.timeseries</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  gene.number <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>  incremental <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  relative <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  main <span class="op">=</span> <span class="st">"OncoScore"</span>,</span>
+<span>  xlab <span class="op">=</span> <span class="st">"timepoints"</span>,</span>
+<span>  ylab <span class="op">=</span> <span class="st">"score"</span>,</span>
+<span>  legend.pos <span class="op">=</span> <span class="st">"top"</span>,</span>
+<span>  file <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>input data as result of the function compute.OncoScore</p></dd>
+
+
 <dt>gene.number</dt>
 <dd><p>number of genes to print</p></dd>
+
+
 <dt>incremental</dt>
 <dd><p>display the OncoScore increment</p></dd>
+
+
 <dt>relative</dt>
 <dd><p>dispaly the incrementa as relative value</p></dd>
+
+
 <dt>main</dt>
 <dd><p>the title</p></dd>
+
+
 <dt>xlab</dt>
 <dd><p>description of x asix (defaul score)</p></dd>
+
+
 <dt>ylab</dt>
 <dd><p>description of y asix (defaul genes)</p></dd>
+
+
 <dt>legend.pos</dt>
 <dd><p>Position of the legend</p></dd>
+
+
 <dt>file</dt>
 <dd><p>where to save the plot</p></dd>
+
+
 <dt>...</dt>
 <dd><p>additional parameter to pass to the lines function</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A plot</p>
+    
+
+<p>A plot</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">query.timepoints</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">result</span> <span class="op">=</span> <span class="fu"><a href="compute.oncoscore.timeseries.html">compute.oncoscore.timeseries</a></span><span class="op">(</span><span class="va">query.timepoints</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">query.timepoints</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">result</span> <span class="op">=</span> <span class="fu"><a href="compute.oncoscore.timeseries.html">compute.oncoscore.timeseries</a></span><span class="op">(</span><span class="va">query.timepoints</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ### Computing oncoscore for timepoint 2012/03/01 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ### Processing data</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ### Computing frequencies scores </span>
@@ -160,9 +181,9 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 	 IDH2 -&gt; 76.75356 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 	 SETBP1 -&gt; 65.556 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 	 TET2 -&gt; 69.81125 </span>
-<span class="r-in"><span class="fu">plot.oncoscore.timeseries</span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">plot.oncoscore.timeseries</span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot.oncoscore.timeseries-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -177,7 +198,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>

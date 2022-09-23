@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">OncoScore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.24.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.26.0</span>
       </span>
     </div>
 
@@ -63,48 +63,65 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">compute.oncoscore.from.region</span><span class="op">(</span>
-  <span class="va">chromosome</span>,
-  start <span class="op">=</span> <span class="cn">NA</span>,
-  end <span class="op">=</span> <span class="cn">NA</span>,
-  gene.num.limit <span class="op">=</span> <span class="fl">100</span>,
-  filter.threshold <span class="op">=</span> <span class="cn">NA</span>,
-  analysis.mode <span class="op">=</span> <span class="st">"Log2"</span>,
-  cutoff.threshold <span class="op">=</span> <span class="fl">21.09</span>,
-  file <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">compute.oncoscore.from.region</span><span class="op">(</span></span>
+<span>  <span class="va">chromosome</span>,</span>
+<span>  start <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  end <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  gene.num.limit <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  filter.threshold <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  analysis.mode <span class="op">=</span> <span class="st">"Log2"</span>,</span>
+<span>  cutoff.threshold <span class="op">=</span> <span class="fl">21.09</span>,</span>
+<span>  file <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>chromosome</dt>
 <dd><p>chromosome to be retireved</p></dd>
+
+
 <dt>start</dt>
 <dd><p>initial position to be used</p></dd>
+
+
 <dt>end</dt>
 <dd><p>final position to be used</p></dd>
+
+
 <dt>gene.num.limit</dt>
 <dd><p>A limit to the genes to be considered in the analysis; this is done to limit the number of queries to PubMed</p></dd>
+
+
 <dt>filter.threshold</dt>
 <dd><p>threshold to filter for a minimum number of citations for the genes</p></dd>
+
+
 <dt>analysis.mode</dt>
 <dd><p>logaritmic scores to be computed, i.e., log10, log2, natural log or log5</p></dd>
+
+
 <dt>cutoff.threshold</dt>
 <dd><p>threshold to be used to asses the oncogenes</p></dd>
+
+
 <dt>file</dt>
 <dd><p>should I save the results to text files?</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>the computed scores</p>
+    
+
+<p>the computed scores</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">chromosome</span> <span class="op">=</span> <span class="fl">15</span></span>
-<span class="r-in"><span class="va">start</span> <span class="op">=</span> <span class="fl">200000</span></span>
-<span class="r-in"><span class="va">end</span> <span class="op">=</span> <span class="fl">300000</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">chromosome</span> <span class="op">=</span> <span class="fl">15</span></span></span>
+<span class="r-in"><span><span class="va">start</span> <span class="op">=</span> <span class="fl">200000</span></span></span>
+<span class="r-in"><span><span class="va">end</span> <span class="op">=</span> <span class="fl">300000</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -119,7 +136,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>
