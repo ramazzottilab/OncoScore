@@ -29,11 +29,9 @@
 ## http://bioconductor.org/developers/how-to/git/
 on:
   push:
-    branches:
-      - master
+    branches: [main, master]
   pull_request:
-    branches:
-      - master
+    branches: [main, master]
 
 name: check-master
 
