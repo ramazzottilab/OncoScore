@@ -78,7 +78,7 @@ jobs:
     ## was defined by the previous job. This job will determine what version of
     ## R to use for the macOS and Windows builds on the next job.
     runs-on: ubuntu-latest
-    ###needs: define-docker-info
+    needs: define-docker-info
 
     ## Name shown on the GHA log
     name: ubuntu-latest
@@ -217,18 +217,15 @@ jobs:
           message(paste('****', Sys.time(), 'pass number 1 at installing dependencies: local dependencies ****'))
           local_deps <- remotes::local_package_deps(dependencies = TRUE)
           deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
-          BiocManager::install(version = 'devel', ask = FALSE)
-          BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]], version = 'devel', ask = FALSE)
+          BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]])
           ## Pass #2 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 2 at installing dependencies: any remaining dependencies ****'))
           deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
-          BiocManager::install(version = 'devel', ask = FALSE)
-          BiocManager::install(deps$package[deps$diff != 0], version = 'devel', ask = FALSE)
+          BiocManager::install(deps$package[deps$diff != 0])
           ## For running the checks
           message(paste('****', Sys.time(), 'installing rcmdcheck and BiocCheck ****'))
           remotes::install_cran("rcmdcheck")
-          BiocManager::install(version = 'devel', ask = FALSE)
-          BiocManager::install("BiocCheck", version = 'devel', ask = FALSE)
+          BiocManager::install("BiocCheck")
         shell: Rscript {0}
 
       - name: Shell GIT env
@@ -280,8 +277,7 @@ jobs:
         if:  env.has_RUnit == 'true'
         run: |
           ## Install BiocGenerics
-          BiocManager::install(version = 'devel', ask = FALSE)
-          BiocManager::install("BiocGenerics", version = 'devel', ask = FALSE)
+          BiocManager::install("BiocGenerics")
           BiocGenerics:::testPackage()
         shell: Rscript {0}
 
@@ -436,8 +432,7 @@ jobs:
 
       - name: Set BiocVersion
         run: |
-          BiocManager::install(version = 'devel', ask = FALSE)
-          ###BiocManager::install(version = Sys.getenv('BIOCVERSIONNUM'), ask = FALSE)
+          BiocManager::install(version = Sys.getenv('BIOCVERSIONNUM'), ask = FALSE)
         shell: Rscript {0}
 
       - name: Install dependencies
@@ -452,15 +447,15 @@ jobs:
           message(paste('****', Sys.time(), 'pass number 1 at installing dependencies: local dependencies ****'))
           local_deps <- remotes::local_package_deps(dependencies = TRUE)
           deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
-          BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]], version = 'devel', ask = FALSE)
+          BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]])
           ## Pass #2 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 2 at installing dependencies: any remaining dependencies ****'))
           deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
-          BiocManager::install(deps$package[deps$diff != 0], version = 'devel', ask = FALSE)
+          BiocManager::install(deps$package[deps$diff != 0])
           ## For running the checks
           message(paste('****', Sys.time(), 'installing rcmdcheck and BiocCheck ****'))
           remotes::install_cran("rcmdcheck")
-          BiocManager::install("BiocCheck", version = 'devel', ask = FALSE)
+          BiocManager::install("BiocCheck")
         shell: Rscript {0}
 
       - name: Shell GIT env
@@ -512,7 +507,7 @@ jobs:
         if:  env.has_RUnit == 'true'
         run: |
           ## Install BiocGenerics
-          BiocManager::install("BiocGenerics", version = 'devel', ask = FALSE)
+          BiocManager::install("BiocGenerics")
           BiocGenerics:::testPackage()
         shell: Rscript {0}
 

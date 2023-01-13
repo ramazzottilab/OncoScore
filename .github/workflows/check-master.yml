@@ -79,7 +79,7 @@ jobs:
     ## was defined by the previous job. This job will determine what version of
     ## R to use for the macOS and Windows builds on the next job.
     runs-on: ubuntu-latest
-    ###needs: define-docker-info
+    needs: define-docker-info
 
     ## Name shown on the GHA log
     name: ubuntu-latest
