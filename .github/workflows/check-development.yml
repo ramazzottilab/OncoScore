@@ -88,6 +88,13 @@ jobs:
       rversion: ${{ steps.findrversion.outputs.rversion }}
       biocversionnum: ${{ steps.findrversion.outputs.biocversionnum }}
 
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          # Comment/Un-comment in case you also want to run other versions
+          - {os: ubuntu-latest, r: 'devel'}
+
     ## Environment variables unique to this job.
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
