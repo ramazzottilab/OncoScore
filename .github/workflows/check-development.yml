@@ -218,17 +218,17 @@ jobs:
           local_deps <- remotes::local_package_deps(dependencies = TRUE)
           deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
           BiocManager::install(version = 'devel', ask = FALSE)
-          BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]])
+          BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]], version = 'devel', ask = FALSE)
           ## Pass #2 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 2 at installing dependencies: any remaining dependencies ****'))
           deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
           BiocManager::install(version = 'devel', ask = FALSE)
-          BiocManager::install(deps$package[deps$diff != 0])
+          BiocManager::install(deps$package[deps$diff != 0], version = 'devel', ask = FALSE)
           ## For running the checks
           message(paste('****', Sys.time(), 'installing rcmdcheck and BiocCheck ****'))
           remotes::install_cran("rcmdcheck")
           BiocManager::install(version = 'devel', ask = FALSE)
-          BiocManager::install("BiocCheck")
+          BiocManager::install("BiocCheck", version = 'devel', ask = FALSE)
         shell: Rscript {0}
 
       - name: Shell GIT env
@@ -281,7 +281,7 @@ jobs:
         run: |
           ## Install BiocGenerics
           BiocManager::install(version = 'devel', ask = FALSE)
-          BiocManager::install("BiocGenerics")
+          BiocManager::install("BiocGenerics", version = 'devel', ask = FALSE)
           BiocGenerics:::testPackage()
         shell: Rscript {0}
 
@@ -452,15 +452,15 @@ jobs:
           message(paste('****', Sys.time(), 'pass number 1 at installing dependencies: local dependencies ****'))
           local_deps <- remotes::local_package_deps(dependencies = TRUE)
           deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
-          BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]])
+          BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]], version = 'devel', ask = FALSE)
           ## Pass #2 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 2 at installing dependencies: any remaining dependencies ****'))
           deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
-          BiocManager::install(deps$package[deps$diff != 0])
+          BiocManager::install(deps$package[deps$diff != 0], version = 'devel', ask = FALSE)
           ## For running the checks
           message(paste('****', Sys.time(), 'installing rcmdcheck and BiocCheck ****'))
           remotes::install_cran("rcmdcheck")
-          BiocManager::install("BiocCheck")
+          BiocManager::install("BiocCheck", version = 'devel', ask = FALSE)
         shell: Rscript {0}
 
       - name: Shell GIT env
@@ -512,7 +512,7 @@ jobs:
         if:  env.has_RUnit == 'true'
         run: |
           ## Install BiocGenerics
-          BiocManager::install("BiocGenerics")
+          BiocManager::install("BiocGenerics", version = 'devel', ask = FALSE)
           BiocGenerics:::testPackage()
         shell: Rscript {0}
 
