@@ -145,7 +145,6 @@ jobs:
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: 'devel' # The R version to download (if necessary) and use.
-          biocversion: 'devel' # The BiocVersion to duse.
       
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -218,14 +217,17 @@ jobs:
           message(paste('****', Sys.time(), 'pass number 1 at installing dependencies: local dependencies ****'))
           local_deps <- remotes::local_package_deps(dependencies = TRUE)
           deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
+          BiocManager::install(version = 'devel', ask = FALSE)
           BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]])
           ## Pass #2 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 2 at installing dependencies: any remaining dependencies ****'))
           deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
+          BiocManager::install(version = 'devel', ask = FALSE)
           BiocManager::install(deps$package[deps$diff != 0])
           ## For running the checks
           message(paste('****', Sys.time(), 'installing rcmdcheck and BiocCheck ****'))
           remotes::install_cran("rcmdcheck")
+          BiocManager::install(version = 'devel', ask = FALSE)
           BiocManager::install("BiocCheck")
         shell: Rscript {0}
 
@@ -278,6 +280,7 @@ jobs:
         if:  env.has_RUnit == 'true'
         run: |
           ## Install BiocGenerics
+          BiocManager::install(version = 'devel', ask = FALSE)
           BiocManager::install("BiocGenerics")
           BiocGenerics:::testPackage()
         shell: Rscript {0}
@@ -433,7 +436,8 @@ jobs:
 
       - name: Set BiocVersion
         run: |
-          BiocManager::install(version = Sys.getenv('BIOCVERSIONNUM'), ask = FALSE)
+          BiocManager::install(version = 'devel', ask = FALSE)
+          ###BiocManager::install(version = Sys.getenv('BIOCVERSIONNUM'), ask = FALSE)
         shell: Rscript {0}
 
       - name: Install dependencies
