@@ -1,8 +1,10 @@
 OncoScore
 ================
 
-[![Actions Status](https://github.com/danro9685/OncoScore/workflows/check-master/badge.svg)](https://github.com/danro9685/OncoScore/actions?query=workflow%3Acheck-master)
-[![Actions Status](https://github.com/danro9685/OncoScore/workflows/check-development/badge.svg)](https://github.com/danro9685/OncoScore/actions?query=workflow%3Acheck-development)
+| Branch | Status |
+| --- | --- |
+| master | [![R-CMD-check-bioc](https://github.com/danro9685/OncoScore/actions/workflows/check-bioc.yml/badge.svg?branch=master)](https://github.com/danro9685/OncoScore/actions/workflows/check-bioc.yml) |
+| development | [![R-CMD-check-bioc](https://github.com/danro9685/OncoScore/actions/workflows/check-bioc.yml/badge.svg?branch=development)](https://github.com/danro9685/OncoScore/actions/workflows/check-bioc.yml) |
 
 OncoScore is a tool to measure the association of genes to cancer based on citation frequencies in biomedical literature. The score is evaluated from PubMed literature by dynamically updatable web queries. 
 

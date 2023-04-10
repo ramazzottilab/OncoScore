@@ -11,24 +11,30 @@
 #' 
 #' This dataset contains a list of genes to be used in the analysis as an example
 #' 
-#' @format txt
+#' @format rdata
 #' @docType data
-#' @return list of 5 elements
 #' @source example data
+#' @name genes
+#' @docType data
+#' @usage data(genes)
+#' @return list of 5 elements
 #'
-"genes"
+NULL
 
 
 #' A list of timepoints
 #' 
 #' This dataset contains a list of time points to be used in the analysis as an example
 #' 
-#' @format txt
+#' @format rdata
 #' @docType data
-#' @return list of 5 elements
 #' @source example data
+#' @name timepoints
+#' @docType data
+#' @usage data(timepoints)
+#' @return list of 5 elements
 #'
-"timepoints"
+NULL
 
 
 #' The result of perform.web.query on genes
@@ -37,10 +43,13 @@
 #' 
 #' @format rdata
 #' @docType data
-#' @return matrix 5 x 2
 #' @source example data
+#' @name query
+#' @docType data
+#' @usage data(query)
+#' @return matrix 5 x 2
 #' 
-"query"
+NULL
 
 
 #' The result of perform.time.series.query on genes and timepoints
@@ -49,7 +58,10 @@
 #' 
 #' @format rdata
 #' @docType data
-#' @return list of 5 matrix 5 x 2
 #' @source example data
+#' @name query.timepoints
+#' @docType data
+#' @usage data(query.timepoints)
+#' @return list of 5 matrix 5 x 2
 #' 
-"query.timepoints"
+NULL

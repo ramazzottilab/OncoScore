@@ -1,6 +1,22 @@
 ---
-title: Introduction
-output: html_document
+title: "Introduction"
+author: 
+  - Luca De Sano
+  - Carlo Gambacorti Passerini
+  - Rocco Piazza
+  - Daniele Ramazzotti
+  - Roberta Spinelli
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+graphics: yes
+package: OncoScore
+output:
+  BiocStyle::html_document:
+    toc_float: true
+vignette: >
+  %\VignetteIndexEntry{Introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{OncoScore,BiocStyle}
 ---
 
 ## Overview

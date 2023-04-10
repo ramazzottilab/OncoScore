@@ -5,13 +5,13 @@
 \alias{genes}
 \title{A list of genes}
 \format{
-txt
+rdata
 }
 \source{
 example data
 }
 \usage{
-genes
+data(genes)
 }
 \value{
 list of 5 elements
@@ -19,4 +19,3 @@ list of 5 elements
 \description{
 This dataset contains a list of genes to be used in the analysis as an example
 }
-\keyword{datasets}

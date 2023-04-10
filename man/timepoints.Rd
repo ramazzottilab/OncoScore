@@ -5,13 +5,13 @@
 \alias{timepoints}
 \title{A list of timepoints}
 \format{
-txt
+rdata
 }
 \source{
 example data
 }
 \usage{
-timepoints
+data(timepoints)
 }
 \value{
 list of 5 elements
@@ -19,4 +19,3 @@ list of 5 elements
 \description{
 This dataset contains a list of time points to be used in the analysis as an example
 }
-\keyword{datasets}

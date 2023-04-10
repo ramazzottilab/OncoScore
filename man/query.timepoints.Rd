@@ -11,7 +11,7 @@ rdata
 example data
 }
 \usage{
-query.timepoints
+data(query.timepoints)
 }
 \value{
 list of 5 matrix 5 x 2
@@ -19,4 +19,3 @@ list of 5 matrix 5 x 2
 \description{
 This dataset contains the result of perform.time.series.query on genes and timepoints
 }
-\keyword{datasets}

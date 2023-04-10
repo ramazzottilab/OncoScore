@@ -37,8 +37,8 @@ perform.query <- function( list.of.genes,
     cat("### Starting the queries for the selected genes.\n")
     
     # if the data are save in a file, read it
-    if (is.character(list.of.genes) 
-        && file.exists(list.of.genes)) {
+    if (all(sapply(list.of.genes, is.character)) 
+        && all(file.exists(list.of.genes))) {
         cat("### Reading the list of genes from file: ", paste(list.of.genes, collapse=' '), '\n')
         list.of.genes = read.table(file = list.of.genes,
                                    header = FALSE,
@@ -163,8 +163,8 @@ perform.query.timeseries <- function( list.of.genes,
     cat("### Starting the queries for the selected genes.\n")
     
     # if the data are save in a file, read it
-    if (is.character(list.of.genes) 
-        && file.exists(list.of.genes)) {
+    if (all(sapply(list.of.genes, is.character)) 
+        && all(file.exists(list.of.genes))) {
         cat("### Reading the list of genes from file: ", paste(list.of.genes, collapse=' '), '\n')
         list.of.genes = read.table(file = list.of.genes,
                                    header = FALSE,
@@ -190,8 +190,8 @@ perform.query.timeseries <- function( list.of.genes,
     ## Prepare and check list of datatimes
 
     # if the data are save in a file, read it
-    if (is.character(list.of.datatimes) 
-        && file.exists(list.of.datatimes)) {
+    if (all(sapply(list.of.datatimes, is.character)) 
+        && all(file.exists(list.of.datatimes))) {
         cat("### Reading the list of datatimes from file: ", paste(list.of.datatimes, collapse=' '), '\n')
         list.of.datatimes = read.table(file = list.of.datatimes,
                                    header = FALSE,
