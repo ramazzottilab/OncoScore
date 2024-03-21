@@ -15,7 +15,6 @@
 #' @docType data
 #' @source example data
 #' @name genes
-#' @docType data
 #' @usage data(genes)
 #' @return list of 5 elements
 #'
@@ -30,7 +29,6 @@ NULL
 #' @docType data
 #' @source example data
 #' @name timepoints
-#' @docType data
 #' @usage data(timepoints)
 #' @return list of 5 elements
 #'
@@ -45,7 +43,6 @@ NULL
 #' @docType data
 #' @source example data
 #' @name query
-#' @docType data
 #' @usage data(query)
 #' @return matrix 5 x 2
 #' 
@@ -60,7 +57,6 @@ NULL
 #' @docType data
 #' @source example data
 #' @name query.timepoints
-#' @docType data
 #' @usage data(query.timepoints)
 #' @return list of 5 matrix 5 x 2
 #' 
