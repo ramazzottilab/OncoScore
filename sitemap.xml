@@ -1,90 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/articles/v1_introduction.html</loc>
-  </url>
-  <url>
-    <loc>/articles/v2_running_OncoScore.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/combine.query.results.html</loc>
-  </url>
-  <url>
-    <loc>/reference/combine.single.matrix.html</loc>
-  </url>
-  <url>
-    <loc>/reference/compute.frequencies.scores.html</loc>
-  </url>
-  <url>
-    <loc>/reference/compute.oncoscore.from.region.html</loc>
-  </url>
-  <url>
-    <loc>/reference/compute.oncoscore.html</loc>
-  </url>
-  <url>
-    <loc>/reference/compute.oncoscore.timeseries.html</loc>
-  </url>
-  <url>
-    <loc>/reference/estimate.oncogenes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/genes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get.genes.from.biomart.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get.list.from.xml.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get.pubmed.driver.analysis.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/perform.query.from.region.html</loc>
-  </url>
-  <url>
-    <loc>/reference/perform.query.html</loc>
-  </url>
-  <url>
-    <loc>/reference/perform.query.timeseries.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plot.oncoscore.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plot.oncoscore.timeseries.html</loc>
-  </url>
-  <url>
-    <loc>/reference/query.html</loc>
-  </url>
-  <url>
-    <loc>/reference/query.timepoints.html</loc>
-  </url>
-  <url>
-    <loc>/reference/timepoints.html</loc>
-  </url>
-  <url>
-    <loc>/reference/try.scan.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/articles/v1_introduction.html</loc></url>
+<url><loc>/articles/v2_running_OncoScore.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/combine.query.results.html</loc></url>
+<url><loc>/reference/combine.single.matrix.html</loc></url>
+<url><loc>/reference/compute.frequencies.scores.html</loc></url>
+<url><loc>/reference/compute.oncoscore.from.region.html</loc></url>
+<url><loc>/reference/compute.oncoscore.html</loc></url>
+<url><loc>/reference/compute.oncoscore.timeseries.html</loc></url>
+<url><loc>/reference/estimate.oncogenes.html</loc></url>
+<url><loc>/reference/genes.html</loc></url>
+<url><loc>/reference/get.genes.from.biomart.html</loc></url>
+<url><loc>/reference/get.list.from.xml.html</loc></url>
+<url><loc>/reference/get.pubmed.driver.analysis.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/perform.query.from.region.html</loc></url>
+<url><loc>/reference/perform.query.html</loc></url>
+<url><loc>/reference/perform.query.timeseries.html</loc></url>
+<url><loc>/reference/plot.oncoscore.html</loc></url>
+<url><loc>/reference/plot.oncoscore.timeseries.html</loc></url>
+<url><loc>/reference/query.html</loc></url>
+<url><loc>/reference/query.timepoints.html</loc></url>
+<url><loc>/reference/timepoints.html</loc></url>
+<url><loc>/reference/try.scan.html</loc></url>
 </urlset>
+
