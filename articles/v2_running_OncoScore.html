@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">OncoScore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.32.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.34.0</span>
       </span>
     </div>
 
@@ -89,7 +89,7 @@ Ramazzotti</h4>
                         <h4 data-toc-skip class="author">Roberta
 Spinelli</h4>
             
-            <h4 data-toc-skip class="date">September 20, 2024</h4>
+            <h4 data-toc-skip class="date">October 03, 2024</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/danro9685/OncoScore/blob/master/vignettes/v2_running_OncoScore.Rmd" class="external-link"><code>vignettes/v2_running_OncoScore.Rmd</code></a></small>
       <div class="hidden name"><code>v2_running_OncoScore.Rmd</code></div>
@@ -115,28 +115,28 @@ the documents.</p>
 <pre><code><span><span class="co">## ### Starting the queries for the selected genes.</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## ### Performing queries for cancer literature </span></span>
-<span><span class="co">##  Number of papers found in PubMed for ASXL1 was: 1397 </span></span>
-<span><span class="co">##  Number of papers found in PubMed for IDH1 was: 5219 </span></span>
-<span><span class="co">##  Number of papers found in PubMed for IDH2 was: 2182 </span></span>
-<span><span class="co">##  Number of papers found in PubMed for SETBP1 was: 272 </span></span>
-<span><span class="co">##  Number of papers found in PubMed for TET2 was: 2408 </span></span>
+<span><span class="co">##  Number of papers found in PubMed for ASXL1 was: 1400 </span></span>
+<span><span class="co">##  Number of papers found in PubMed for IDH1 was: 5236 </span></span>
+<span><span class="co">##  Number of papers found in PubMed for IDH2 was: 2186 </span></span>
+<span><span class="co">##  Number of papers found in PubMed for SETBP1 was: 273 </span></span>
+<span><span class="co">##  Number of papers found in PubMed for TET2 was: 2416 </span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## ### Performing queries for all the literature </span></span>
-<span><span class="co">##  Number of papers found in PubMed for ASXL1 was: 1542 </span></span>
-<span><span class="co">##  Number of papers found in PubMed for IDH1 was: 5559 </span></span>
-<span><span class="co">##  Number of papers found in PubMed for IDH2 was: 2482 </span></span>
-<span><span class="co">##  Number of papers found in PubMed for SETBP1 was: 352 </span></span>
-<span><span class="co">##  Number of papers found in PubMed for TET2 was: 3186</span></span></code></pre>
+<span><span class="co">##  Number of papers found in PubMed for ASXL1 was: 1545 </span></span>
+<span><span class="co">##  Number of papers found in PubMed for IDH1 was: 5575 </span></span>
+<span><span class="co">##  Number of papers found in PubMed for IDH2 was: 2487 </span></span>
+<span><span class="co">##  Number of papers found in PubMed for SETBP1 was: 354 </span></span>
+<span><span class="co">##  Number of papers found in PubMed for TET2 was: 3196</span></span></code></pre>
 <p>OncoScore provides a function to merge gene names if requested by the
 user. This function is useful when there are aliases in the gene
 list.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/combine.query.results.html">combine.query.results</a></span><span class="op">(</span><span class="va">query</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'IDH1'</span>, <span class="st">'IDH2'</span><span class="op">)</span>, <span class="st">'new_gene'</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##          CitationsGene CitationsGeneInCancer</span></span>
-<span><span class="co">## ASXL1             1542                  1397</span></span>
-<span><span class="co">## SETBP1             352                   272</span></span>
-<span><span class="co">## TET2              3186                  2408</span></span>
-<span><span class="co">## new_gene          8041                  7401</span></span></code></pre>
+<span><span class="co">## ASXL1             1545                  1400</span></span>
+<span><span class="co">## SETBP1             354                   273</span></span>
+<span><span class="co">## TET2              3196                  2416</span></span>
+<span><span class="co">## new_gene          8062                  7422</span></span></code></pre>
 <p>OncoScore also provides a function to retireve the names of the genes
 in a given portion of a chromosome that can be exploited if we are
 dealing, e.g., with copy number alterations hitting regions rather than
@@ -155,11 +155,11 @@ oncogenic potential.</p>
 <span><span class="co">## ### Computing frequencies scores </span></span>
 <span><span class="co">## ### Estimating oncogenes</span></span>
 <span><span class="co">## ### Results:</span></span>
-<span><span class="co">##   ASXL1 -&gt; 82.04218 </span></span>
-<span><span class="co">##   IDH1 -&gt; 86.33723 </span></span>
-<span><span class="co">##   IDH2 -&gt; 80.1174 </span></span>
-<span><span class="co">##   SETBP1 -&gt; 68.13822 </span></span>
-<span><span class="co">##   TET2 -&gt; 69.0861</span></span></code></pre>
+<span><span class="co">##   ASXL1 -&gt; 82.06098 </span></span>
+<span><span class="co">##   IDH1 -&gt; 86.37239 </span></span>
+<span><span class="co">##   IDH2 -&gt; 80.1049 </span></span>
+<span><span class="co">##   SETBP1 -&gt; 68.01115 </span></span>
+<span><span class="co">##   TET2 -&gt; 69.10127</span></span></code></pre>
 <p>The query that we show next retrieves from PubMed the citations, at
 specified time points, for a list of genes in cancer related and in all
 the documents.</p>
@@ -182,8 +182,11 @@ the documents.</p>
 <span><span class="co">##  Number of papers found in PubMed for TET2 was: 201 </span></span>
 <span><span class="co">## ### Quering PubMed for timepoint 2013/03/01 </span></span>
 <span><span class="co">##     ### Performing queries for cancer literature </span></span>
-<span><span class="co">##  Number of papers found in PubMed for ASXL1 was: 136 </span></span>
-<span><span class="co">##  Number of papers found in PubMed for IDH1 was: 669 </span></span>
+<span><span class="co">##  Number of papers found in PubMed for ASXL1 was: 136</span></span></code></pre>
+<pre><code><span><span class="co">## Warning in file(file, "r"): cannot open URL</span></span>
+<span><span class="co">## 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&amp;term=IDH1[All+Fields]+AND+((lymphoma[MeSH+Terms]+OR+lymphoma[All+Fields])OR+(lymphoma[MeSH+Terms]+OR+lymphoma[All+Fields]+OR+lymphomas[All+Fields])OR+(neoplasms[MeSH+Terms]+OR+neoplasms[All+Fields]+OR+cancer[All+Fields])OR+(tumour[All+Fields]+OR+neoplasms[MeSH+Terms]+OR+neoplasms[All+Fields]OR+tumor[All+Fields])+OR+(neoplasms[MeSH+Terms]+OR+neoplasms[All+Fields]OR+neoplasm[All+Fields])+OR+(neoplasms[MeSH+Terms]+OR+neoplasms[All+Fields]OR+malignancy[All+Fields])+OR+(leukaemia[All+Fields]+OR+leukemia[MeSH+Terms]OR+leukemia[All+Fields])+OR+(neoplasms[MeSH+Terms]+OR+neoplasms[All+Fields]OR+cancers[All+Fields])+OR+(tumours[All+Fields]+OR+neoplasms[MeSH+Terms]OR+neoplasms[All+Fields]+OR+tumors[All+Fields])+OR+(neoplasms[MeSH+Terms]OR+neoplasms[All+Fields]+OR+malignancies[All+Fields])+OR+(leukaemias[All+Fields]OR+leukemia[MeSH+Terms]+OR+leukemia[All+Fields]+OR+leukemias[All+Fields]))+AND+(0001/01/01[PDAT]+:+</span></span>
+<span><span class="co">## [... truncated]</span></span></code></pre>
+<pre><code><span><span class="co">##  Number of papers found in PubMed for IDH1 was: 669 </span></span>
 <span><span class="co">##  Number of papers found in PubMed for IDH2 was: 339 </span></span>
 <span><span class="co">##  Number of papers found in PubMed for SETBP1 was: 12 </span></span>
 <span><span class="co">##  Number of papers found in PubMed for TET2 was: 258 </span></span>
@@ -203,8 +206,11 @@ the documents.</p>
 <span><span class="co">##     ### Performing queries for all the literature </span></span>
 <span><span class="co">##  Number of papers found in PubMed for ASXL1 was: 211 </span></span>
 <span><span class="co">##  Number of papers found in PubMed for IDH1 was: 1062 </span></span>
-<span><span class="co">##  Number of papers found in PubMed for IDH2 was: 566 </span></span>
-<span><span class="co">##  Number of papers found in PubMed for SETBP1 was: 38 </span></span>
+<span><span class="co">##  Number of papers found in PubMed for IDH2 was: 566</span></span></code></pre>
+<pre><code><span><span class="co">## Warning in file(file, "r"): cannot open URL</span></span>
+<span><span class="co">## 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&amp;term=SETBP1[All+Fields](0001/01/01[PDAT]+:+2014/03/01[PDAT])&amp;retmax=3000000&amp;rettype=FASTA&amp;tool=OncoScore':</span></span>
+<span><span class="co">## HTTP status was '429 Unknown Error'</span></span></code></pre>
+<pre><code><span><span class="co">##  Number of papers found in PubMed for SETBP1 was: 38 </span></span>
 <span><span class="co">##  Number of papers found in PubMed for TET2 was: 436 </span></span>
 <span><span class="co">## ### Quering PubMed for timepoint 2015/03/01 </span></span>
 <span><span class="co">##     ### Performing queries for cancer literature </span></span>
@@ -234,7 +240,7 @@ the documents.</p>
 <span><span class="co">##  Number of papers found in PubMed for TET2 was: 751</span></span></code></pre>
 <p>We now compute a score for each of the genes, to estimate their
 oncogenic potential at specified time points.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">result.timeseries</span> <span class="op">=</span> <span class="fu"><a href="../reference/compute.oncoscore.timeseries.html">compute.oncoscore.timeseries</a></span><span class="op">(</span><span class="va">query.timepoints</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## ### Computing oncoscore for timepoint 2012/03/01 </span></span>
 <span><span class="co">## ### Processing data</span></span>
@@ -288,7 +294,7 @@ oncogenic potential at specified time points.</p>
 <span><span class="co">##   TET2 -&gt; 70.57627</span></span></code></pre>
 <p>We next plot the scores measuring the oncogenetic potential of the
 considered genes as a barplot.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot.oncoscore.html">plot.oncoscore</a></span><span class="op">(</span><span class="va">result</span>, col <span class="op">=</span> <span class="st">'darkblue'</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="v2_running_OncoScore_files/figure-html/unnamed-chunk-9-1.png" alt="Oncogenetic potential of the considered genes." width="1152"><p class="caption">
@@ -297,7 +303,7 @@ Oncogenetic potential of the considered genes.
 </div>
 <p>We finally plot the trend of the scores over the considered times as
 absolute and values and as variations.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot.oncoscore.timeseries.html">plot.oncoscore.timeseries</a></span><span class="op">(</span><span class="va">result.timeseries</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="v2_running_OncoScore_files/figure-html/unnamed-chunk-10-1.png" alt="Absolute values of the oncogenetic potential of the considered genes over times." width="1152"><p class="caption">
@@ -305,7 +311,7 @@ Absolute values of the oncogenetic potential of the considered genes
 over times.
 </p>
 </div>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot.oncoscore.timeseries.html">plot.oncoscore.timeseries</a></span><span class="op">(</span><span class="va">result.timeseries</span>, incremental <span class="op">=</span> <span class="cn">TRUE</span>, ylab<span class="op">=</span><span class="st">'absolute variation'</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="v2_running_OncoScore_files/figure-html/unnamed-chunk-11-1.png" alt="Variations of the oncogenetic potential of the considered genes over times." width="1152"><p class="caption">
@@ -313,7 +319,7 @@ Variations of the oncogenetic potential of the considered genes over
 times.
 </p>
 </div>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot.oncoscore.timeseries.html">plot.oncoscore.timeseries</a></span><span class="op">(</span><span class="va">result.timeseries</span>, incremental <span class="op">=</span> <span class="cn">TRUE</span>, relative <span class="op">=</span> <span class="cn">TRUE</span>, ylab<span class="op">=</span><span class="st">'relative variation'</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="v2_running_OncoScore_files/figure-html/unnamed-chunk-12-1.png" alt="Variations as relative values of the oncogenetic potential of the considered genes over times." width="1152"><p class="caption">
